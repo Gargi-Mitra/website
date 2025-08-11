@@ -14,7 +14,7 @@
 <!-- <head> -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gargi Mitra — Security of Safety‑Critical Systems</title>
+  <title>Gargi Mitra</title>
   <meta name="description" content="Gargi Mitra" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,7 +37,7 @@
       color:#111827;
       line-height:1.5;
       padding:20px;
-      display:flex;justify-content:center;
+      display:flex;justify-content:center;flex-direction: column;align-items: center
     }
     .wrap{width:100%;max-width:var(--max-width)}
 
@@ -50,9 +50,9 @@
     nav{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:10px;background:rgba(255,255,255,0.85);padding:10px;border-radius:var(--radius);box-shadow:0 4px 14px rgba(0,0,0,0.05)}
     nav a{color:#111827;text-decoration:none;font-weight:600}
 
-    main{margin-top:28px;display:grid;grid-template-columns:1fr 340px;gap:28px}
+    main{margin-top:28px;display:grid;grid-template-columns:1fr 340px;gap:28px;flex: 1}
 
-    .section-card{padding:20px;border-radius:var(--radius);box-shadow:0 6px 20px rgba(20,20,40,0.03);background-size:cover;background-repeat:no-repeat;background-position:center;}
+    .section-card{padding:20px;border-radius:var(--radius);box-shadow:0 6px 20px rgba(20,20,40,0.03);background-size:cover;background-repeat:no-repeat;background-position:center;text-align:justify;}
     .hero{background-image:url('https://www.transparenttextures.com/patterns/paper-fibers.png'), linear-gradient(135deg, #e8f0f2, #fdfdfd);}
     .card-contact{background-image:url('https://www.transparenttextures.com/patterns/fabric-plaid.png'), linear-gradient(135deg, #f6f0e4, #fdfcfb);}
 
@@ -75,7 +75,7 @@
     <header>
       <div class="name-title">
         <h1>Gargi Mitra</h1>
-        <div class="sub">Postdoctoral Fellow | UBC Vancouver</div>
+        <div class="sub">Postdoctoral Fellow | Department of ECE | UBC Vancouver</div>
         <div class="sub">Excited by the challenges of securing next-gen technologies</div>
       </div>
       <div class="profile-photo-top"></div>
@@ -92,23 +92,72 @@
     <main>
       <div>
         <article class="section-card hero">
-          <h2>Securing the next wave of safety‑critical systems</h2>
-          <div class="byline">I investigate gaps in the security of industrial control systems, medical devices, and AI‑driven safety‑critical technologies, identifying weaknesses and designing robust defenses.</div>
+          <h3>Securing the next wave of safety‑critical systems</h3>
+          <div class="byline">
+            We are living in an era that is witnessing tremendously fast-paced technological advancements. And more than often, our lives depend on these technologies.<br/>
+
+            For example, today’s medical devices use machine learning/AI to deliver highly precise diagnoses and personalized treatments. Industrial systems leverage cloud services and AI for remote monitoring and control, while IoT devices stream massive volumes of real-time, privacy-sensitive data to power safety-critical operations.</br>
+            While these innovations boost efficiency and convenience, security often takes a backseat. <i>Many industries still retrofit legacy security measures onto modern systems, assuming security measures that protected legacy systems are sufficient to protect modernised systems as well. In doing so, they overlook the new risks created when modern technologies intersect with legacy infrastructure, leaving a far larger attack surface exposed.</i> This oversight leaves critical systems vulnerable, offering adversaries a clear path to exploit security gaps, and in the worst cases, endangering human lives.<br/>
+
+            In my research, I focus on identifying security gaps in the latest technologies, assessing the feasibility of exploitation, understanding the potential impact if those gaps are exploited, and recommending practical countermeasures. During my PhD, I explored some of the (then) latest web technologies, such as the HTTP/2 protocol and Netflix’s interactive video streaming. In my Postdoctoral work, I shifted toward safety‑critical systems, where the stakes are much higher, and the consequences of a breach can directly affect human lives.  </div>
         </article>
-        <footer>
+        <!-- <footer>
           <div>Interested in collaboration or recruitment? <a href="#contact">Get in touch</a>.</div>
-        </footer>
+        </footer> -->
       </div>
+
       <aside>
         <div class="section-card card-contact" id="contact">
           <h3>Contact</h3>
-          <p>Email: <a href="mailto:gargi@example.com">gargi@example.com</a></p>
-          <p>LinkedIn: <a href="#">linkedin.com/in/gargimitra</a></p>
+          <div>Interested in collaboration or recruitment? Get in touch!</div>
+          <p>Email: <a href="mailto:gargimiitm@gmail.com">gargimiitm@gmail.com</a></p>
+          <p>LinkedIn: <a href="#">https://www.linkedin.com/in/gargimitraiitm/</a></p>
         </div>
       </aside>
     </main>
 
   </div>
+
+
+  <!-- <div>
+  <article class="section-card hero">
+    <!-- <h3>Securing the next wave of safety‑critical systems</h3>
+    <div class="byline">
+  <section id="awards" style="max-width: 900px; margin: 40px auto; background: rgba(255, 255, 255, 0.9); padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);"> -->
+  <!-- <h3 style="text-align: center; font-family: Merriweather, serif;">Awards & Recognitions</h3>
+  <ul style="list-style-type: none; padding: 0; font-family: Lato, sans-serif;">
+  <li><strong>2021</strong>
+    <ul>
+      <li>Mitacs Globalink Research Award – Sponsored by Mitacs and Shastri Indo-Canadian Institute, for collaborative research with Canada.</li>
+      <li>Star TA Award – Department of CSE, IIT Madras, for contributions as a Teaching Assistant.</li>
+    </ul>
+  </li>
+  <li><strong>2020</strong>
+    <ul>
+      <li>Applied Research Competition – First Prize, at Cyber Security Awareness Week (CSAW), organized by NYU and IIT Kanpur.</li>
+      <li>Maitreyee-2020 – Selected as one of the top 5 contestants in the blog writing competition at IBM Research-India’s annual women outreach event.</li>
+      <li>Star TA Award – Department of CSE, IIT Madras, for contributions as a Teaching Assistant.</li>
+    </ul>
+  </li>
+  <li><strong>2019</strong>
+    <ul>
+      <li>AWSAR Top 100 Award – Recognized among the top 100 contestants in a national scientific story-writing competition organized by the Department of Science & Technology, Govt. of India.</li>
+    </ul>
+  </li>
+  <li><strong>2018</strong>
+    <ul>
+      <li>Gandhi Hazare Award – First Prize, awarded by the Centre for Social Innovation and Entrepreneurship, IIT Madras, for proposing technical solutions to fight corruption in the public distribution system.</li>
+      <li>TCS Poster Competition – Second Prize, awarded by TCS Research India for presenting “Ankapala: The Account Book for Fighting Corruption in Public Distribution System.”</li>
+    </ul>
+  </li>
+  <li><strong>2017</strong>
+    <ul>
+      <li>Embedded Security Challenge Winner – First Prize at CSAW, organized by NYU and IIT Kanpur, for presenting “Eradicator: An Integrated Approach for Defense against Cyber Attacks in PLC-based Industrial Control Systems.”</li>
+      <li>Star TA Award – Department of CSE, IIT Madras, for contributions as a Teaching Assistant.</li>
+    </ul>
+  </li>
+  </ul>
+  </section> -->
 
 
 

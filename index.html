@@ -10,464 +10,106 @@
 
   gtag('config', 'UA-133913226-2');
 </script>
-<!-- Simple Page Needs
-================================================== -->
-<title>Gargi Mitra</title>
-<meta charset="UTF-8">
-<meta name="description" content="Mat - Resume & vCard HTML Template">
-<meta name="keywords" content="personal, vcard, portfolio">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Favicon
-================================================== -->
-<link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<!-- <head> -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gargi Mitra — Security of Safety‑Critical Systems</title>
+  <meta name="description" content="Gargi Mitra" />
 
-<!-- CSS
-================================================== -->
-<link rel="stylesheet" href="css/bootstrap.css"/>
-<link rel="stylesheet" href="css/reset.css"/>
-<link rel="stylesheet" href="cubeportfolio/css/cubeportfolio.min.css"/>
-<link rel="stylesheet" href="css/owl.theme.css"/>
-<link rel="stylesheet" href="css/owl.carousel.css"/>
-<link rel="stylesheet" href="css/style.css"/>
-<link rel="stylesheet" href="css/colors/yellow.css" id="color"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
 
+  <style>
+    :root{
+      --bg: #FAFAFA;
+      --muted: #6B7280;
+      --radius: 14px;
+      --max-width: 980px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: linear-gradient(120deg, #fdfcfb, #e2d1c3);
+      color:#111827;
+      line-height:1.5;
+      padding:20px;
+      display:flex;justify-content:center;
+    }
+    .wrap{width:100%;max-width:var(--max-width)}
 
-<!-- Google Web fonts
-================================================== -->
-<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
+    header{display:flex;flex-direction:row;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center;margin-bottom:20px;padding:20px;background:rgba(255,255,255,0.85);border-radius:var(--radius);box-shadow:0 4px 14px rgba(0,0,0,0.05)}
+    .profile-photo-top{width:140px;height:140px;border-radius:50%;background-image:url('https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=600&auto=format&fit=crop');background-size:cover;background-position:center;box-shadow:0 4px 14px rgba(0,0,0,0.08)}
+    .name-title{display:flex;flex-direction:column;justify-content:center;gap:8px;text-align:left;max-width:400px}
+    .name-title h1{font-family:Merriweather, serif;font-weight:700;margin:0;font-size:24px}
+    .sub{color:var(--muted);font-size:14px}
 
-<!-- Font Icons
-================================================== -->
-<link rel="stylesheet" href="icon-fonts/font-awesome-4.7.0/css/font-awesome.min.css"/>
-<link rel="stylesheet" href="icon-fonts/web-design/flaticon.css" />
+    nav{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:10px;background:rgba(255,255,255,0.85);padding:10px;border-radius:var(--radius);box-shadow:0 4px 14px rgba(0,0,0,0.05)}
+    nav a{color:#111827;text-decoration:none;font-weight:600}
 
-<!--[if lt IE 9]>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
+    main{margin-top:28px;display:grid;grid-template-columns:1fr 340px;gap:28px}
 
+    .section-card{padding:20px;border-radius:var(--radius);box-shadow:0 6px 20px rgba(20,20,40,0.03);background-size:cover;background-repeat:no-repeat;background-position:center;}
+    .hero{background-image:url('https://www.transparenttextures.com/patterns/paper-fibers.png'), linear-gradient(135deg, #e8f0f2, #fdfdfd);}
+    .card-contact{background-image:url('https://www.transparenttextures.com/patterns/fabric-plaid.png'), linear-gradient(135deg, #f6f0e4, #fdfcfb);}
 
+    .hero h2{font-family:Merriweather, serif;margin:0;font-size:26px;text-align: center}
+    .byline{margin-top:8px;color:var(--muted)}
+
+    footer{margin-top:34px;padding:20px 8px;color:var(--muted);font-size:13px;text-align:center;background:rgba(255,255,255,0.85);border-radius:var(--radius);box-shadow:0 4px 14px rgba(0,0,0,0.05)}
+
+    @media (max-width:900px){
+      main{grid-template-columns:1fr;}
+      aside{order:2}
+      header{flex-direction:column;text-align:center}
+      .name-title{text-align:center;align-items:center}
+    }
+  </style>
 </head>
 <body>
- <!-- Preloading -->
-<div id="preloader">
-    <div class="spinner">
-    </div>
-</div>
+  <div class="wrap">
 
-<!-- Wrapper -->
-<div class="wrapper top_60 container">
-<div class="row">
-
-<!-- Profile Section
-================================================== -->
-<div class="col-lg-3 col-md-4">
-    <div class="profile">
-        <div class="profile-name">
-            <span class="name">Gargi Mitra</span><br>
-            <span class="job">PhD Research Scholar</span>
-        </div>
-        <figure class="profile-image">
-            <img src="images/profile-gargi.jpg" alt="">
-        </figure>
-        <ul class="profile-information">
-            <li></li>
-            <li><p><span>Name:</span> Gargi Mitra</p></li>
-            <li><p><span>Designation:</span> PhD Scholar</p></li>
-            <li><p><span>Department:</span> CSE + EE</p></li>
-            <li><p><span>Lab:</span> RISE Lab</p></li>
-            <li><p><span>Institute:</span> IIT Madras</p></li>
-            <li><p><span>Country:</span> India</p></li>
-            <li><p><span>Email:</span> gargim at cse dot iitm dot ac dot in</p></li>
-            <li><p><span>LinkedIn:</span> gargimitraiitm</p></li>
-            <!-- <li><p><span>Skype:</span> g_mitra91</p></li> -->
-        </ul>
-        <div class="col-md-12">
-            <a href="CV_Gargi.pdf"><button class="site-btn icon">Download Cv  <i class="fa fa-download" aria-hidden="true"></i></button></a>
-            <a href="#publications"> <button class="site-btn icon">Publications <i class="fa fa-list" aria-hidden="true"></i></button></a>
-        </div>
-    </div>
-</div>
-
-<!-- Page Tab Container Div -->
-<div id="ajax-tab-container" class="col-lg-9 col-md-8 tab-container">
-
-<!-- Header
-================================================== -->
-<div class="row">
-    <header class="col-md-12">
-        <nav>
-            <div class="row">
-                <!-- navigation bar -->
-                <div class="col-md-8 col-sm-8 col-xs-4">
-                    <ul class="tabs">
-                        <li class="tab">
-                            <a class="home-btn" href="#home"><i class="fa fa-home" aria-hidden="true"></i></a>
-                        </li>
-                        <li class="tab"><a href="#resume">CURRICULUM VITAE</a></li>
-                        <li class="tab"><a href="#publications">PUBLICATIONS</a></li>
-                        <li class="tab"><a href="#awards">AWARDS</a></li>
-                        <!-- <li class="tab"><a href="#blog">MY HOBBY</a></li> -->
-                        <li class="tab"><a href="#contact">CONTACT</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 col-sm-4 col-xs-8 dynamic">
-                    <a href="mailto:gargimiitm@gmail.com" class="pull-right site-btn icon hidden-xs">Hire Me <i class="fa fa-paper-plane" aria-hidden="true"></i></a>
-                    <div class="hamburger pull-right hidden-lg hidden-md"><i class="fa fa-bars" aria-hidden="true"></i></div>
-                    <div class="hidden-md social-icons pull-right">
-                        <!-- <a class="fb" href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a> -->
-                        <!-- <a class="tw" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a> -->
-                        <!-- <a class="ins" href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a> -->
-                        <!-- <a class="dr" href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a> -->
-                    </div>
-                </div>
-            </div>
-        </nav>
+    <header>
+      <div class="name-title">
+        <h1>Gargi Mitra</h1>
+        <div class="sub">Postdoctoral Fellow | UBC Vancouver</div>
+        <div class="sub">Excited by the challenges of securing next-gen technologies</div>
+      </div>
+      <div class="profile-photo-top"></div>
     </header>
 
-    <!-- Page Content
-    ================================================== -->
-    <div class="col-md-12">
-        <div id="content" class="panel-container">
+    <nav>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#awards">Awards & Recognitions</a>
+      <a href="#press">Press Coverage</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
-            <!-- Home Page
-            ================================================== -->
-            <div id="home">
-                <!-- Text Section -->
-                <div class="row">
-                    <section class="about-me line col-md-12 padding_30 padbot_45">
-                    <div class="section-title"><span></span><h2>About Me</h2></div>
-                    <p class="top_30">I am pursuing research work as an Interdisciplinary Direct PhD scholar in Indian Institute of Technology Madras. I work with Prof. V Kamakoti from Department of Computer Science & Engineering and Dr. Nitin Chandrachoodan from Department of Electrical Engineering.
-                        <br>
-                        <br> My research interests include 'Network Security & Privacy' and 'Secure Internet Architecture'. I am also interested in emerging technologies in this domain and have worked on developing secure network solutions based on the Blockchain platform. </p>
-                </section>
-                </div>
-                <!-- My Services Section -->
-                <div class="row">
-                    <section class="services line graybg col-md-12 padding_50 padbot_50">
-                    <div class="section-title bottom_45"><span></span><h2>What I Do</h2></div>
-                    <div class="row">
-                        <!-- a service -->
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="service">
-                                <div class="icon">
-                                    <i class="flaticon-analysis"></i>
-                                </div>
-                                <span class="title">Research</span>
-                                <p class="little-text"><a href="#publications">Find more here</a></p>
-                            </div>
-                        </div>
-                        <!-- a service -->
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="service">
-                                <div class="icon">
-                                    <i class="flaticon-attach"></i>
-                                </div>
-                                <span class="title">Teaching Assistantship</span>
-                                <p class="little-text"><a href="#ta">Find more here</a></p>
-                            </div>
-                        </div>
-                        <!-- a service -->
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="service">
-                                <div class="icon">
-                                    <i class="flaticon-chat"></i>
-                                </div>
-                                <span class="title">Student PC Membership</span>
-                                <p class="little-text"><a href="#shadowpc">Find more here</a></p>
-                            </div>
-                        </div>
-                        <!-- a service -->
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="service">
-                                <div class="icon">
-                                    <i class="flaticon-paper-plane"></i>
-                                </div>
-                                <span class="title">My Hobbies</span>
-                                <p class="little-text"><a href="https://www.instagram.com/gmit91">Follow my artworks on Instagram!</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                </div>
+    <main>
+      <div>
+        <article class="section-card hero">
+          <h2>Securing the next wave of safety‑critical systems</h2>
+          <div class="byline">I investigate gaps in the security of industrial control systems, medical devices, and AI‑driven safety‑critical technologies, identifying weaknesses and designing robust defenses.</div>
+        </article>
+        <footer>
+          <div>Interested in collaboration or recruitment? <a href="#contact">Get in touch</a>.</div>
+        </footer>
+      </div>
+      <aside>
+        <div class="section-card card-contact" id="contact">
+          <h3>Contact</h3>
+          <p>Email: <a href="mailto:gargi@example.com">gargi@example.com</a></p>
+          <p>LinkedIn: <a href="#">linkedin.com/in/gargimitra</a></p>
+        </div>
+      </aside>
+    </main>
 
+  </div>
 
-            <!-- Resume Page
-            ================================================== -->
-            <div id="resume">
-                <!-- Resume Section -->
-                <div class="row">
-                    <section class="education">
-                    <div class="section-title top_30"><span></span><h2>Curriculum Vitae</h2></div>
-                        <div class="row">
-                          <!-- Education History -->
-                          <div class="education-history col-md-6 padding_15 padbot_30">
-                              <ul class="timeline col-md-12 top_30">
-                                  <li><i class="fa fa-graduation-cap" aria-hidden="true"></i><h2 class="timeline-title">Education</h2></li>
-                                  <!-- a work -->
-                                  <li><h3 class="line-title">IIT Madras</h3>
-                                      <span>2015 - Present</span>
-                                      <p class="little-text">Position: PhD Research Scholar <br />Specialization: Network Security & Privacy</p>
-                                  </li>
-                                 <!-- a work -->
-                                  <li><h3 class="line-title">St.Thomas' College of Engg. & Tech.</h3>
-                                      <span>2009 - 2013</span>
-                                      <p class="little-text">Degree: Bachelor of Technology <br />Specialization: Computer Science & Engineering <br /> Affiliated to West Bengal University of Technology (presently, Maulaka Abul Kalam Azad University of Technology) and approved by AICTE</p>
-                                  </li>
-                                 <!-- a work -->
-                                  <li><h3 class="line-title">Bidya Bharati Girls' High School, Kolkata</h3>
-                                      <span>1996 - 2009</span>
-                                      <p class="little-text">Specialization: Science <br /> Affiliated to West Bengal Board of Secondary Education and West Bengal Council of Higher Secondary Education</p>
-                                  </li>
-                              </ul>
-                          </div>
-                          <div class="row">
-                              <!-- Working History -->
-                              <div class="working-history col-md-6 padding_15 padbot_30">
-                                  <ul class="timeline col-md-12 top_30">
-                                      <li><i class="fa fa-suitcase" aria-hidden="true"></i><h2 class="timeline-title">Working Experience</h2></li>
-                                      <!-- a work -->
-                                      <li><h3 class="line-title">Cognizant Technology Solutions</h3>
-                                          <span>2013 - 2015</span>
-                                          <p class="little-text">Designation: Programmer Analyst <br />Specialization: Data Warehouse Management and Business Intelligence</p>
-                                      </li>
-                                  </ul>
-                              </div>
-                              <div class="working-history col-md-6 padding_15 padbot_30" id="ta">
-                                  <ul class="timeline col-md-12 top_30">
-                                      <li><i class="fa fa-black-tie" aria-hidden="true"></i><h2 class="timeline-title">Positions of Responsibility at IITM</h2></li>
-                                      <!-- a work -->
-                                      <li><h3 class="line-title">Teaching Assistantship</h3>
-                                        <span></span>
-                                          <p class="little-text">1. CAD for VLSI: Sep 2020 - Present, Jul 2019 - Nov 2019, Jul 2018 - Nov 2018</p>
-                                          <p class="little-text">2. Digital System Testing: Jan 2020 - May 2020, Jan 2019 - May 2019 </p>
-                                          <p class="little-text">3. Intro to Computer Programming: Jul 2019 - Nov 2019, Jul 2018 - Nov 2018, Aug 2016 - Dec 2016</p>
-                                          <p class="little-text">4. IDRP Research Commitee: Aug 2017 - Jul 2018</p>
-                                          <p class="little-text">5. Digital Design Verification: Jan 2017 - May 2017</p>
-                                          <p class="little-text">6. Computer Organization: Jan 2016 - May 2016</p>
-                                      </li>
-                                  </ul>
-                              </div>
-                          </div>
-                        </div>
-                        <div class="row">
-                            <div class="working-history col-md-6 padding_15 padbot_30">
-                                <ul class="timeline col-md-12 top_30">
-                                    <li><i class="fa fa-desktop" aria-hidden="true"></i><h2 class="timeline-title">Technical Skills</h2></li>
-                                    <!-- a work -->
-                                    <li><h3 class="line-title">Programming Languages</h3>
-                                        <span></span>
-                                        <p class="little-text">Python, Java, C, C++, Linux Shell Scripting, PL/SQL, Solidity, T-SQL</p>
-                                    </li>
-                                    <li><h3 class="line-title">Operating Systems</h3>
-                                        <span></span>
-                                        <p class="little-text">Linux, Windows XP/7/10</p>
-                                    </li>
-                                    <li><h3 class="line-title">Blockchain Technologies</h3>
-                                        <span></span>
-                                        <p class="little-text">Ethereum, IBM Hyperledger Fabric</p>
-                                    </li>
-                                    <li><h3 class="line-title">Hardware Description Language</h3>
-                                        <span></span>
-                                        <p class="little-text">Verilog</p>
-                                    </li>
-                                    <li><h3 class="line-title">High Level Chip Synthesis Tool</h3>
-                                        <span></span>
-                                        <p class="little-text">Bluespec</p>
-                                    </li>
-                                    <li><h3 class="line-title">Database Platforms</h3>
-                                        <span></span>
-                                        <p class="little-text">Oracle 10g/11.2, MS SQL Server 2008/2012</p>
-                                    </li>
-                                    <li><h3 class="line-title">Tools/IDE</h3>
-                                        <span></span>
-                                        <p class="little-text">Git, LATEX, SQL Server Integration Services, SQL Server Reporting Services 2010/2012, IBM Infosphere Datastage 8.5,SQL Server Management Studio, SQL Developer for Oracle, NetBeans</p>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="working-history col-md-6 padding_15 padbot_30">
-                                <ul class="timeline col-md-12 top_30">
-                                    <li><i class="fa fa-pencil" aria-hidden="true"></i><h2 class="timeline-title">Courses Taken at IITM</h2></li>
-                                    <!-- a work -->
-                                      <li><h3 class="line-title">Applied Cryptography</h3></li>
-                                      <li><h3 class="line-title">Advanced Computer Networks</h3></li>
-                                      <li><h3 class="line-title">Digital IC Design</h3></li>
-                                      <li><h3 class="line-title">Digital System Testing & Testable Design</h3></li>
-                                      <li><h3 class="line-title">Logic and Combinatorics in CS</h3></li>
-                                      <li><h3 class="line-title">Computer Architecture</h3></li>
-                                      <li><h3 class="line-title">CAD for VLSI systems</h3></li>
-                                      <li><h3 class="line-title">Digital Design Verification</h3></li>
-                                      <li><h3 class="line-title">Introduction to Research</h3></li>
-                                      <li><h3 class="line-title">Special Topics in CS</h3></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="row">
-
-                            <!-- Working History -->
-                            <div class="working-history col-md-12 padding_15 padbot_30" id="publications">
-                                <ul class="timeline col-md-12 top_30">
-                                    <li><i class="fa fa-book" aria-hidden="true"></i><h2 class="timeline-title">Publications and Posters</h2></li>
-                                    <!-- a work -->
-                                    <li><h3 class="line-title">Depending on HTTP/2 for Privacy? Good Luck!</h3>
-                                        <span>Gargi Mitra, Prasanna Karthik Vairam, Patanjali SLPSK, Nitin Chandrachoodan, Kamakoti V<br />DSN 2020</span>
-                                    </li>
-                                    <li><h3 class="line-title">White Mirror: <br /><br /><br />Leaking Sensitive Information from Interactive Netflix Movies using Encrypted Traffic Analysis</h3>
-                                        <span>Gargi Mitra, Prasanna Karthik Vairam, Patanjali SLPSK, Nitin Chandrachoodan, Kamakoti V<br />SIGCOMM 2019 Poster Session</span>
-                                    </li>
-                                    <li><h3 class="line-title">Towards Measuring Quality of Service in Untrusted Multi-Vendor Service Function Chains:<br /><br /><br /> Balancing Security and Resource Consumption</h3>
-                                        <span>Prasanna Karthik Vairam, Gargi Mitra, Vignesh Manoharan, Chester Rebeiro, Byrav Ramamurthy,and Kamakoti Veezhinathan<br />INFOCOM 2019</span>
-                                    </li>
-                                    <li><h3 class="line-title">ApproxBC: <br /><br /><br />Blockchain Design Alternatives for Approximation-Tolerant Resource-Constrained Applications</h3>
-                                        <span>Prasanna Karthik Vairam, Gargi Mitra, Chester Rebeiro, Byrav Ramamurthy, and Kamakoti Veezhinathan<br />IEEE Communications StandardsMagazine 2018</span>
-                                    </li>
-                                    <li><h3 class="line-title">Hastakshara: <br /><br /><br />A Passive Side Channel Based Webpage Fingerprinting Attack for Uncovering Client Intent</h3>
-                                        <span>Gargi Mitra,Prasanna Karthik Vairam, Kamakoti Veezhinathan, Nitin Chandrachoodan<br />ACM Internet Measurement Conference (IMC’17),Poster Session, London, United Kingdom, 2017 (Poster presentation)</span>
-                                    </li>
-                                    <li><h3 class="line-title">Samata: <br /><br /><br />A Framework for identifying Net-Neutrality Violations using Evidence Structures</h3>
-                                        <span>Prasanna Karthik Vairam,Karan Saxena, Gargi Mitra, Chester Rebeiro, Kamakoti Veezhinathan<br />ACM Internet Measurement Conference (IMC’17),Poster Session, London, United Kingdom, 2017 (Poster presentation)</span>
-                                    </li>
-                                    <li><h3 class="line-title">Blockchain as an Infrastructure to Build Secure Network Services</h3>
-                                        <span>Gargi Mitra, Kamakoti Veezhinathan, Nitin Chandrachoodan<br />PhD Conclave, ISEA Asia Security and Privacy Conference 2017</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="row">
-                          <!-- Working History -->
-                          <div class="working-history col-md-12 padding_15 padbot_30" id="research">
-                              <ul class="timeline col-md-12 top_30">
-                                  <li><i class="fa fa-bitbucket" aria-hidden="true"></i><h2 class="timeline-title">Other Research Projects</h2></li>
-                                  <!-- a work -->
-                                  <li><h3 class="line-title">Analyzing Leakage of Browsing Information from Mass-scale Encrypted Browsing Traffic</h3>
-                                      <span>Ongoing</span>
-                                  <li><h3 class="line-title">Ankapala: The Account Book for Fighting Corruption in Food Security</h3>
-                                      <span>A Blockchain-based solution for handling corruption in the public distribution system in India</span>
-                                  <li><h3 class="line-title">Kernel Level Implementation of SCION</h3>
-                                      <span>Collaborative Research Project</span>
-                                  <li><h3 class="line-title">Eradicator: An Integrated Approach for Defense against Cyber Attacks in Industrial Control Systems</h3>
-                                      <span>Research Project as part of Cyber Security Awareness Week 2017, November 2017</span>
-
-                                  </li>
-                              </ul>
-                          </div>
-                        </div>
-                      <div class="row">
-                            <!-- Working History -->
-                            <div class="working-history col-md-12 padding_15 padbot_30" id="shadowpc">
-                                <ul class="timeline col-md-12 top_30">
-                                    <li><i class="fa fa-trophy" aria-hidden="true"></i><h2 class="timeline-title">Student PC Membership</h2></li>
-                                    <!-- a work -->
-                                    <li><h3 class="line-title">IEEE Symposium on Security and Privacy 2019</h3>
-                                    </li>
-                                    <li><h3 class="line-title">ACM Internet Measurement Conference 2018</h3>
-                                    </li>
-                                    <li><h3 class="line-title">Network Traffic Measurement and Analysis Conference 2018</h3>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <!-- Working History -->
-                            <div class="working-history col-md-12 padding_15 padbot_30" id="awards">
-                                <ul class="timeline col-md-12 top_30">
-                                    <li><i class="fa fa-trophy" aria-hidden="true"></i><h2 class="timeline-title">Awards & Recognitions</h2></li>
-                                    <!-- a work -->
-                                    <li><h3 class="line-title">Selected as one of the top 5 contestants of the blog writing competition at Maitryee 2020, <br /><br /><br />IBM Research-India's annual women outreach event</h3>
-                                    </li>
-                                    <li><h3 class="line-title">Awarded for being among the top100 contestants in a national scientific story-writing competition <br /><br /><br />organized by the Department of Science & Technology, Govt. of India, as part of the AWSAR <br /><br /><br />initiative,in 2019</h3>
-                                    </li>
-                                    <li><h3 class="line-title">First prize in Gandhi Hazare Award 2018 for proposing technical solutions <br /><br /><br />for fighting corruption in the public distribution system in the country, in 2018</h3>
-                                    </li>
-                                    <li><h3 class="line-title">Second prize at TCS Poster Competition, Shaastra 2018, IIT Madras for presenting Ankapala</h3>
-                                    </li>
-                                    <li><h3 class="line-title">Star TA Awards from the Department of Computer Science & Engineering, IIT Madras <br /><br /><br />for contributions towards TA duty for the Aug-Nov 2017 semester and Aug-Nov 2020 semester</h3>
-                                    </li>
-                                    <li><h3 class="line-title">First prize at Embedded Security Challenge, Cyber Security Awareness Week 2017, <br /><br /><br />organized by IIT Kanpur, as amember of the IITM team, for presenting ‘Eradicator:<br /><br /><br /> An Integrated Approach for Defense against Cyber Attacks in PLC basedIndustrial Control Systems’</h3>
-                                    </li>
-                                    <li><h3 class="line-title"> “Employee of the Quarter” Award from Cognizant Technology Solutions in the first quarter of 2015</h3>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-
-            <!-- Contact Page
-            ================================================== -->
-            <div id="contact">
-                <div class="row">
-                    <!-- Contact Form -->
-                    <!-- <section class="contact-form col-md-6 padding_30 padbot_45">
-                        <div class="section-title top_15 bottom_30"><span></span><h2>Contact Form</h2></div>
-                        <form class="site-form">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <input class="site-input" placeholder="Name">
-                                </div>
-                                <div class="col-md-6">
-                                    <input class="site-input" placeholder="E-mail">
-                                </div>
-                                <div class="col-md-12">
-                                    <textarea class="site-area" placeholder="Message"></textarea>
-                                </div>
-                                <div class="col-md-12 top_15 bottom_30">
-                                    <button class="site-btn" type="submit">Submit</button>
-                                </div>
-                            </div>
-                        </form>
-                    </section> -->
-                    <!-- Contact Informations -->
-                    <section class="contact-info col-md-12 padding_30 padbot_45">
-                        <div class="section-title top_15 bottom_30"><span></span><h2>Contact Information</h2></div>
-                        <ul>
-                            <li><span>Address:</span> Department of Computer Science & Engineering, IIT Madras, Adyar, Chennai 600036, Tamil Nadu, India</li>
-                            <li><span>E-mail:</span> gargim at cse dot iitm dot ac dot in</li>
-                            <li><span>Phone:</span> +91 four four two two five seven five three nine zero</li>
-                            <!-- <li><span>Job:</span> PhD Research Scholar</li> -->
-
-                            <!-- <li><span>Skype:</span> g_mitra91</li> -->
-                            <li>
-                                <!-- <div class="social-icons top_15">
-                                    <a class="fb" href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                    <a class="tw" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                    <a class="ins" href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                    <a class="dr" href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                                </div> -->
-                            </li>
-                        </ul>
-                    </section>
-                </div>
-            </div>
-
-        </div><!-- Content - End -->
-     </div> <!-- col-md-12 end -->
-</div><!-- row end -->
-<!-- Footer
-================================================== -->
-<footer>
-    <div class="footer col-md-12 top_30 bottom_30">
-        <!-- <div class="name col-md-4 hidden-md hidden-sm hidden-xs">Henry Rooney.</div> -->
-        <div class="copyright col-lg-8 col-md-12">© 2017 All rights reserved. Designed by <a href="https://themeforest.net/user/tavonline">tavonline</a> </div>
-    </div>
-</footer>
-
-</div> <!-- Tab Container - End -->
-</div> <!-- Row - End -->
-</div> <!-- Wrapper - End -->
-
-<!-- Javascripts
-================================================== -->
-<script src="js/jquery-2.1.4.min.js"></script>
-<script src="cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.easytabs.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/main.js"></script>
-<!-- for color alternatives -->
-<script src="js/jquery.cookie-1.4.1.min.js"></script>
-<!-- <script src="js/Demo.js"></script> -->
-<link rel="stylesheet" href="css/Demo.min.css" />
 
 
 </body>

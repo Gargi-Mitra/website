@@ -30,7 +30,7 @@
     }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{
+    /* body{
       margin:0;
       font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
       background: linear-gradient(120deg, #fdfcfb, #e2d1c3);
@@ -38,11 +38,21 @@
       line-height:1.5;
       padding:20px;
       display:flex;justify-content:center;flex-direction: column;align-items: center
-    }
+    } */
+    body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh; /* ensure at least full viewport height */
+  overflow-y: auto;  /* enable vertical scrolling */
+  padding: 20px;
+  background: linear-gradient(120deg, #fdfcfb, #e2d1c3);
+}
     .wrap{width:100%;max-width:var(--max-width)}
 
     header{display:flex;flex-direction:row;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center;margin-bottom:20px;padding:20px;background:rgba(255,255,255,0.85);border-radius:var(--radius);box-shadow:0 4px 14px rgba(0,0,0,0.05)}
-    .profile-photo-top{width:140px;height:140px;border-radius:50%;background-image:url('https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=600&auto=format&fit=crop');background-size:cover;background-position:center;box-shadow:0 4px 14px rgba(0,0,0,0.08)}
+    /* .profile-photo-top{width:140px;height:140px;border-radius:50%;background-image:url('images/profile.jpg');background-size:cover;background-position:center;box-shadow:0 4px 14px rgba(0,0,0,0.08)} */
+    .profile-photo-top{width:140px;height:140px;border-radius:50%;background-image:url('images/profile.jpg');background-size:cover;background-position:center}
     .name-title{display:flex;flex-direction:column;justify-content:center;gap:8px;text-align:left;max-width:400px}
     .name-title h1{font-family:Merriweather, serif;font-weight:700;margin:0;font-size:24px}
     .sub{color:var(--muted);font-size:14px}
@@ -55,6 +65,11 @@
     .section-card{padding:20px;border-radius:var(--radius);box-shadow:0 6px 20px rgba(20,20,40,0.03);background-size:cover;background-repeat:no-repeat;background-position:center;text-align:justify;}
     .hero{background-image:url('https://www.transparenttextures.com/patterns/paper-fibers.png'), linear-gradient(135deg, #e8f0f2, #fdfdfd);}
     .card-contact{background-image:url('https://www.transparenttextures.com/patterns/fabric-plaid.png'), linear-gradient(135deg, #f6f0e4, #fdfcfb);}
+    .section-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
 
     .hero h2{font-family:Merriweather, serif;margin:0;font-size:26px;text-align: center}
     .byline{margin-top:8px;color:var(--muted)}
@@ -82,7 +97,7 @@
     </header>
 
     <nav>
-      <a href="#research">Research</a>
+      <!-- <a href="#research">Research</a> -->
       <a href="#publications">Publications</a>
       <a href="#awards">Awards & Recognitions</a>
       <a href="#press">Press Coverage</a>
@@ -90,21 +105,28 @@
     </nav>
 
     <main>
-      <div>
+      <div class="section-wrapper">
         <article class="section-card hero">
           <h3>Securing the next wave of safety‑critical systems</h3>
           <div class="byline">
-            We are living in an era that is witnessing tremendously fast-paced technological advancements. And more than often, our lives depend on these technologies.<br/>
+            We are living in an era that is witnessing tremendously fast-paced technological advancements. And more than often, our lives depend on these technologies.<br/><br/>
 
-            For example, today’s medical devices use machine learning/AI to deliver highly precise diagnoses and personalized treatments. Industrial systems leverage cloud services and AI for remote monitoring and control, while IoT devices stream massive volumes of real-time, privacy-sensitive data to power safety-critical operations.</br>
-            While these innovations boost efficiency and convenience, security often takes a backseat. <i>Many industries still retrofit legacy security measures onto modern systems, assuming security measures that protected legacy systems are sufficient to protect modernised systems as well. In doing so, they overlook the new risks created when modern technologies intersect with legacy infrastructure, leaving a far larger attack surface exposed.</i> This oversight leaves critical systems vulnerable, offering adversaries a clear path to exploit security gaps, and in the worst cases, endangering human lives.<br/>
+            For example, today’s medical devices use machine learning/AI to deliver highly precise diagnoses and personalized treatments. Industrial systems leverage cloud services and AI for remote monitoring and control, while IoT devices stream massive volumes of real-time, privacy-sensitive data to power safety-critical operations.</br></br>
 
-            In my research, I focus on identifying security gaps in the latest technologies, assessing the feasibility of exploitation, understanding the potential impact if those gaps are exploited, and recommending practical countermeasures. During my PhD, I explored some of the (then) latest web technologies, such as the HTTP/2 protocol and Netflix’s interactive video streaming. In my Postdoctoral work, I shifted toward safety‑critical systems, where the stakes are much higher, and the consequences of a breach can directly affect human lives.  </div>
+            While these innovations boost efficiency and convenience, security often takes a backseat. <i>Many industries still retrofit legacy security measures onto modern systems, assuming security measures that protected legacy systems are sufficient to protect modernised systems as well. In doing so, they overlook the new risks created when modern technologies intersect with legacy infrastructure, leaving a far larger attack surface exposed.</i> This oversight leaves critical systems vulnerable, offering adversaries a clear path to exploit security gaps, and in the worst cases, endangering human lives.<br/></br>
+
+            In my research, I focus on identifying security gaps in the latest technologies, assessing the feasibility of exploitation, understanding the potential impact if those gaps are exploited, and recommending practical countermeasures. During my PhD, I explored some of the (then) latest web technologies, such as the HTTP/2 protocol and Netflix’s interactive video streaming. <i>In my Postdoctoral work, I leaned more toward safety‑critical systems, where the stakes are much higher, and the consequences of a breach can directly affect human lives.</i> Such systems include ML-enabled medical devices, cloud-connected industrial control systems, and privacy-compliant IoT devices. </div>
+        </article>
+
+        <article class="section-card hero">
+          <h3>Securing the next wave of safety‑critical systems</h3>
+
         </article>
         <!-- <footer>
           <div>Interested in collaboration or recruitment? <a href="#contact">Get in touch</a>.</div>
         </footer> -->
       </div>
+
 
       <aside>
         <div class="section-card card-contact" id="contact">

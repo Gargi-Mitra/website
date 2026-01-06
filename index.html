@@ -46,25 +46,25 @@
   min-height: 100vh; /* ensure at least full viewport height */
   overflow-y: auto;  /* enable vertical scrolling */
   padding: 20px;
-  background: linear-gradient(120deg, #fdfcfb, #e2d1c3);
+  background: linear-gradient(120deg, #fdfcfb, #fcd5ce);
 }
     .wrap{width:100%;max-width:var(--max-width)}
 
-    header{display:flex;flex-direction:row;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center;margin-bottom:20px;padding:20px;background:rgba(255,255,255,0.85);border-radius:var(--radius);box-shadow:0 4px 14px rgba(0,0,0,0.05)}
+    header{display:flex;flex-direction:row;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center;margin-bottom:10px;padding:10px;background:rgba(255,255,255,0.85);border-radius:var(--radius);box-shadow:0 4px 14px rgba(0,0,0,0.05)}
     /* .profile-photo-top{width:140px;height:140px;border-radius:50%;background-image:url('images/profile.jpg');background-size:cover;background-position:center;box-shadow:0 4px 14px rgba(0,0,0,0.08)} */
-    .profile-photo-top{width:140px;height:140px;border-radius:50%;background-image:url('images/profile.jpg');background-size:cover;background-position:center}
+    .profile-photo-top{width:160px;height:160px;border-radius:50%;background-image:url('images/profile.jpg');background-size:cover;background-position:center}
     .name-title{display:flex;flex-direction:column;justify-content:center;gap:8px;text-align:left;max-width:400px}
     .name-title h1{font-family:Merriweather, serif;font-weight:700;margin:0;font-size:24px}
     .sub{color:var(--muted);font-size:14px}
 
-    nav{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:10px;background:rgba(255,255,255,0.85);padding:10px;border-radius:var(--radius);box-shadow:0 4px 14px rgba(0,0,0,0.05)}
+    nav{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:10px;background:#fcd5ce;padding:10px;border-radius:var(--radius);box-shadow:0 4px 14px rgba(0,0,0,0.05)}
     nav a{color:#111827;text-decoration:none;font-weight:600}
 
     main{margin-top:28px;display:grid;grid-template-columns:1fr 340px;gap:28px;flex: 1}
 
-    .section-card{padding:20px;border-radius:var(--radius);box-shadow:0 6px 20px rgba(20,20,40,0.03);background-size:cover;background-repeat:no-repeat;background-position:center;text-align:left;}
+    .section-card{padding:20px;border-radius:var(--radius);box-shadow:0 6px 20px #fcd5ce;background-size:cover;background-repeat:no-repeat;background-position:center;text-align:left;}
     .hero{background-image:url('https://www.transparenttextures.com/patterns/paper-fibers.png'), linear-gradient(135deg, #e8f0f2, #fdfdfd);}
-    .card-contact{background-image:url('https://www.transparenttextures.com/patterns/fabric-plaid.png'), linear-gradient(135deg, #f6f0e4, #fdfcfb);}
+    .card-contact{linear-gradient(135deg, #ffb5a7, #ffb5a7)}
     .section-wrapper {
   display: flex;
   flex-direction: column;
@@ -74,7 +74,7 @@
     .hero h2{font-family:Merriweather, serif;margin:0;font-size:26px;text-align: center}
     .byline{margin-top:8px;color:var(--muted)}
 
-    footer{margin-top:34px;padding:20px 8px;color:var(--muted);font-size:13px;text-align:center;background:rgba(255,255,255,0.85);border-radius:var(--radius);box-shadow:0 4px 14px rgba(0,0,0,0.05)}
+    footer{margin-top:34px;padding:20px 8px;color:var(--muted);font-size:13px;text-align:center;background:#fcd5ce;border-radius:var(--radius);box-shadow:0 4px 14px rgba(0,0,0,0.05)}
 
     @media (max-width:900px){
       main{grid-template-columns:1fr;}
@@ -90,14 +90,14 @@
     <header>
       <div class="name-title">
         <h1>Gargi Mitra</h1>
-        <div class="sub">Postdoctoral Fellow <br/> Department of ECE | UBC Vancouver</div>
+        <div class="sub"><b>Postdoctoral Fellow</b><br/> Department of ECE | UBC Vancouver</div>
         <div class="sub">Excited by the challenges of securing next-gen technologies</div>
       </div>
       <div class="profile-photo-top"></div>
     </header>
 
     <nav>
-      <a href="#research">Research</a>
+      <a href="docs/Gargi_Research_Statement.pdf">Research</a>
       <!-- <a href="#publications">Publications</a> -->
       <a href="#awards">Awards & Recognitions</a>
       <a href="#press">Press Coverage</a>
@@ -113,7 +113,10 @@
 
             While these innovations boost efficiency and convenience, security often takes a backseat. <i>Many industries still retrofit legacy security measures onto these modern systems, assuming security measures that protected legacy systems are sufficient to protect their modernised versions as well. In doing so, they overlook the new risks created when modern technologies intersect with legacy infrastructure, leaving a far larger attack surface exposed.</i> This oversight leaves critical systems vulnerable, offering adversaries new security gaps to exploit, and in the worst cases, can potentially endanger human lives.<br/></br>
 
-            In my research, I focus on identifying new security gaps that emerge when new technologies intersect with legacy infrastructure, assessing the feasibility of exploitation, understanding the potential impact if those gaps are exploited, and recommending practical countermeasures. During my PhD, I explored some of the (then) latest web technologies, such as the HTTP/2 protocol and Netflix’s interactive video streaming. <i>In my Postdoctoral work, I leaned more toward safety‑critical systems, where the stakes are much higher, and the consequences of a breach can directly affect human lives.</i> Such systems include ML-enabled medical devices, cloud-connected industrial control systems, and privacy-sensitive IoT applications. </div>
+            In my research, I investigate the security and privacy of <i>modern networked systems</i>, focusing on those that integrate their legacy system components with emerging technologies such as Artificial Intelligence or cloud-based services. My research reveals that such integrations create new vulnerabilities that traditional security and privacy measures were not designed to address. In safety-critical environments, such vulnerabilities can directly endanger human lives or disrupt essential services; in domains like IoT and web applications, they can lead to serious privacy breaches and regulatory violations. Yet, these modern technologies are meant to benefit society in substantial ways. <i>My long-term vision is to ensure that this technological progress remains secure, safe, and trustworthy, enabling the society to reap its benefits without any hidden risks.</i><br/></br>
+
+            In the aforementioned context, my research has uncovered emerging security and privacy risks in \textit{modern web applications, AI/ML-enabled medical devices, cloud-integrated industrial automation systems, and modern cloud-connected IoT applications}. My research has been published in reputed security and systems venues, including IEEE TDSC, DSN, CHASE, Springer Nature, EuroSys, IoTDI, and workshops co-located with CCS and NeurIPS, and has received media coverage <a href="https://www.wired.com/story/netflix-interactive-bandersnatch-hackers-choices/">(Wired)</a> and won awards. I am an active Program Committee member of top security conferences, and won the Distinguished Reviewer Award at ACM CCS 2024.
+            </div>
         </article>
 
         <!-- <article class="section-card hero">
@@ -131,7 +134,8 @@
           <h3>Contact</h3>
           <div>Interested in collaboration or recruitment? Get in touch!</div>
           <p>Email: <a href="mailto:gargimiitm@gmail.com">gargimiitm@gmail.com</a></p>
-          <p>LinkedIn: <a href="#">https://www.linkedin.com/in/gargimitraiitm/</a></p>
+          <p>LinkedIn: <a href=https://www.linkedin.com/in/gargimitraiitm/ target="_blank">gargimiitm</a></p>
+          <p>Google Scholar: <a href="https://scholar.google.com/citations?user=M216DzwAAAAJ&hl=en" target="_blank">M216DzwAAAAJ</a></p>
         </div>
       </aside>
     </main>

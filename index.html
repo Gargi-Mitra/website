@@ -394,9 +394,9 @@
                     <button class="nav-btn" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">About</button>
                     <button class="nav-btn" onclick="window.location.href='research.html'">Research</button>
                     <button class="nav-btn" onclick="document.getElementById('publications').scrollIntoView({behavior: 'smooth'})">Publications</button>
-                    <button class="nav-btn" onclick="document.getElementById('education').scrollIntoView({behavior: 'smooth'})">Education</button>
+                    <!-- <button class="nav-btn" onclick="document.getElementById('education').scrollIntoView({behavior: 'smooth'})">Education</button> -->
                     <button class="nav-btn" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Contact</button>
-                    <button class="nav-btn" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">CV</button>
+                    <button class="nav-btn" onclick="window.location.href='cv.html'">CV</button>
                 </div>
             </div>
 
@@ -409,9 +409,12 @@
         <section id="about">
             <!-- <h2>About</h2> -->
             <p class="content-text">
-                I am a systems security and privacy researcher who investigates the risks that emerge when modern technologies are layered onto legacy infrastructure, and how to fix it before the consequences become irreversible. My work sits at the intersection of security, safety, and emerging technologies, with a particular focus on AI/ML-enabled medical devices, cloud-integrated industrial control systems, and large-scale networked applications.
-
-                Across industries, there is a recurring pattern: technologies introduced to improve efficiency, personalization, or scalability often invalidate long-standing threat models. During my PhD, I demonstrated how encrypted traffic—long assumed to be safe—can still reveal sensitive user behavior at scale, influencing both public discourse and real-world deployments. In my current postdoctoral work at the University of British Columbia, I extend this systems-oriented lens to safety-critical domains, where similar blind spots can disrupt physical processes or directly endanger human lives.
+                I am a systems security and privacy researcher who investigates the risks that emerge when modern technologies are layered onto legacy infrastructure, and how to fix it before the consequences become irreversible. My work sits at the intersection of security, safety, and emerging technologies, with a particular focus on AI/ML-enabled medical devices, cloud-integrated industrial control systems, and large-scale networked applications.</p>
+            <p class="content-text">
+                Across industries, there is a recurring pattern: technologies introduced to improve efficiency, personalization, or scalability often invalidate long-standing threat models. During my PhD, I demonstrated how encrypted traffic, which was assumed to be safe, can still reveal sensitive user behavior at scale, influencing both public discourse and real-world deployments. In my current postdoctoral work at the University of British Columbia, I extend this systems-oriented approach to safety-critical domains, where similar blind spots can disrupt physical processes or directly endanger human lives.
+            </p>
+            <p class="content-text">
+                I am motivated by a simple question: <i><b>Can we make technological progress without systematically accumulating new security and privacy risks?</b></i> My research combines rigorous threat modeling, empirical attack design, and practical mitigation strategies that satisfy real-world constraints such as latency, regulatory compliance, and deployment cost. I draw my motivation from engagement with industry practitioners, regulators, and interdisciplinary collaborators to ensure that security mechanisms are not only theoretically sound, but deployable and usable. This has led to tools and frameworks that help organizations reason about security risk from the early design stages, and with clearer cost–benefit trade-offs.
             </p>
         </section>
 
@@ -458,7 +461,7 @@
                  <div class="project-item">
                      <h3>Learning from the Good Ones: Risk Profiling-Based Defenses Against Evasion Attacks on DNNs</h3>
                      <div class="date">DSML'25 workshop (co-located with DSN'25)</div>
-                     <p class="content-text">Mohammed Elnawawy, Gargi Mitra, Shahrear Iqbal, Karthik Pattabiraman. <a href="https://arxiv.org/search/?query=Risk+Profiling+Evasion+Attacks" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a> [Acceptance rate: 64%]</p>
+                     <p class="content-text">Mohammed Elnawawy, Gargi Mitra, Shahrear Iqbal, Karthik Pattabiraman. <a href="https://arxiv.org/search/?query=Risk+Profiling+Evasion+Attacks" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a> <b>[Acceptance rate: 64%]</b></p>
                  </div>
                  <div class="project-item">
                      <h3>MedAIScout: Automated Retrieval of Known Machine Learning Vulnerabilities in Medical Applications</h3>
@@ -468,12 +471,12 @@
                  <div class="project-item">
                      <h3>SAM: Foreseeing Inference-Time False Data Injection Attacks on ML-enabled Medical Devices</h3>
                      <div class="date">HealthSec'24 workshop (co-located with ACM CCS'24)</div>
-                     <p class="content-text">Mohammadreza Hallajiyan, Athish Pranav Dharmalingam, Gargi Mitra, Homa Alemzadeh, Shahrear Iqbal, Karthik Pattabiraman. <a href="#" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a> [Acceptance rate: 57%]</p>
+                     <p class="content-text">Mohammadreza Hallajiyan, Athish Pranav Dharmalingam, Gargi Mitra, Homa Alemzadeh, Shahrear Iqbal, Karthik Pattabiraman. <a href="#" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a> [<b>Acceptance rate: 57%</b>]</p>
                  </div>
                  <div class="project-item">
                      <h3>Systematically Assessing the Security Risks of AI/ML-enabled Connected Healthcare Systems</h3>
                      <div class="date">CHASE'24</div>
-                     <p class="content-text">Mohammad ElNawawy, Mohammadreza Hallajiyan, Gargi Mitra, Shahrear Iqbal, Karthik Pattabiraman. <a href="#" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a> [Acceptance rate: 28.4%]</p>
+                     <p class="content-text">Mohammad ElNawawy, Mohammadreza Hallajiyan, Gargi Mitra, Shahrear Iqbal, Karthik Pattabiraman. <a href="#" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a> [<b>Acceptance rate: 28.4%</b>]</p>
                  </div>
              </div>
 
@@ -482,12 +485,12 @@
                  <div class="project-item">
                      <h3>Turnstile: Hybrid Information Flow Control Framework for Managing Privacy in Internet-of-Things Applications</h3>
                      <div class="date">EuroSys'26</div>
-                     <p class="content-text">Kumseok Jung, Mohanna Shahrad, Gargi Mitra, Karthik Pattabiraman. <a href="#" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a> [Acceptance rate: 17%]</p>
+                     <p class="content-text">Kumseok Jung, Mohanna Shahrad, Gargi Mitra, Karthik Pattabiraman. <a href="#" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a> [<b>Acceptance rate: 17%</b>]</p>
                  </div>
                  <div class="project-item">
                      <h3>ImmunoPlane: Middleware for Providing Adaptivity to Distributed Internet-of-Things Applications</h3>
                      <div class="date">IoTDI'24</div>
-                     <p class="content-text">Kumseok Jung, Mohanna Shahrad, Gargi Mitra, Karthik Pattabiraman. <a href="#" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a> [Acceptance rate: 36.7%]</p>
+                     <p class="content-text">Kumseok Jung, Mohanna Shahrad, Gargi Mitra, Karthik Pattabiraman. <a href="#" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a> [<b>Acceptance rate: 36.7%</b>]</p>
                  </div>
              </div>
 
@@ -496,17 +499,17 @@
                  <div class="project-item">
                      <h3>Snoopy: A Webpage Fingerprinting Framework with Finite Query Model for Mass-Surveillance</h3>
                      <div class="date">IEEE Transactions on Dependable and Secure Computing (TDSC), 2022</div>
-                     <p class="content-text">Gargi Mitra, Prasanna Karthik Vairam, Sandip Saha, Nitin Chandrachoodan, Kamakoti Veezhinathan. DOI: <a href="https://doi.org/10.1109/TDSC.2022.3222462" style="color: #8B5A4B; text-decoration: underline;" target="_blank">10.1109/TDSC.2022.3222462</a> [Acceptance rate: 10-12%, Impact factor: 7.5] <a href="#" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a></p>
+                     <p class="content-text">Gargi Mitra, Prasanna Karthik Vairam, Sandip Saha, Nitin Chandrachoodan, Kamakoti Veezhinathan. DOI: <a href="https://doi.org/10.1109/TDSC.2022.3222462" style="color: #8B5A4B; text-decoration: underline;" target="_blank">10.1109/TDSC.2022.3222462</a> [<b>Acceptance rate: 10-12%, Impact factor: 7.5</b>] <a href="#" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a></p>
                  </div>
                  <div class="project-item">
                      <h3>Depending on HTTP/2 for Privacy? Good Luck!</h3>
                      <div class="date">IEEE/IFIP Conference on Dependable Systems and Networks (DSN), 2020</div>
-                     <p class="content-text">Gargi Mitra, Prasanna Karthik Vairam, Patanjali SLPSK, Nitin Chandrachoodan, Kamakoti Veezhinathan. DOI: <a href="https://doi.org/10.1109/DSN48063.2020.00044" style="color: #8B5A4B; text-decoration: underline;" target="_blank">10.1109/DSN48063.2020.00044</a> [Acceptance rate: 16.5%] <a href="#" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a></p>
+                     <p class="content-text">Gargi Mitra, Prasanna Karthik Vairam, Patanjali SLPSK, Nitin Chandrachoodan, Kamakoti Veezhinathan. DOI: <a href="https://doi.org/10.1109/DSN48063.2020.00044" style="color: #8B5A4B; text-decoration: underline;" target="_blank">10.1109/DSN48063.2020.00044</a> [<b>Acceptance rate: 16.5%</b>] <a href="#" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a></p>
                  </div>
                  <div class="project-item">
                      <h3>White Mirror: Leaking Sensitive Information from Interactive Netflix Movies using Encrypted Traffic Analysis</h3>
                      <div class="date">ACM SIGCOMM 2019 (Poster Session)</div>
-                     <p class="content-text">Gargi Mitra, Prasanna Karthik Vairam, Patanjali SLPSK, Nitin Chandrachoodan, Kamakoti Veezhinathan. DOI: <a href="https://doi.org/10.1145/3342280.3342330" style="color: #8B5A4B; text-decoration: underline;" target="_blank">10.1145/3342280.3342330</a> [Acceptance rate: 55%] <a href="#" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a></p>
+                     <p class="content-text">Gargi Mitra, Prasanna Karthik Vairam, Patanjali SLPSK, Nitin Chandrachoodan, Kamakoti Veezhinathan. DOI: <a href="https://doi.org/10.1145/3342280.3342330" style="color: #8B5A4B; text-decoration: underline;" target="_blank">10.1145/3342280.3342330</a> [<b>Acceptance rate: 55%</b>] <a href="#" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a></p>
                  </div>
              </div>
 
@@ -515,7 +518,7 @@
                  <div class="project-item">
                      <h3>Towards Measuring Quality of Service in Untrusted Multi-Vendor Service Function Chains: Balancing Security and Resource Consumption</h3>
                      <div class="date">IEEE Conference on Computer Communications (INFOCOM), 2019</div>
-                     <p class="content-text">Prasanna Karthik Vairam, Gargi Mitra, Vignesh Manoharan, Chester Rebeiro, Bhaskar Ramamurthy, Kamakoti Veezhinathan. DOI: <a href="https://doi.org/10.1109/INFOCOM.2019.8737487" style="color: #8B5A4B; text-decoration: underline;" target="_blank">10.1109/INFOCOM.2019.8737487</a> [Acceptance rate: 19.7%] <a href="#" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a></p>
+                     <p class="content-text">Prasanna Karthik Vairam, Gargi Mitra, Vignesh Manoharan, Chester Rebeiro, Bhaskar Ramamurthy, Kamakoti Veezhinathan. DOI: <a href="https://doi.org/10.1109/INFOCOM.2019.8737487" style="color: #8B5A4B; text-decoration: underline;" target="_blank">10.1109/INFOCOM.2019.8737487</a> [<b>Acceptance rate: 19.7%</b>] <a href="#" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a></p>
                  </div>
                  <div class="project-item">
                      <h3>ApproxBC: Blockchain Design Alternatives for Approximation-Tolerant Resource-Constrained Applications</h3>
@@ -542,7 +545,7 @@
         </section>
 
         <!-- Education Section -->
-        <section id="education">
+        <!-- <section id="education">
             <h2>Education</h2>
             <div class="experience-item">
                 <h3>Ph.D. in [Field]</h3>
@@ -554,7 +557,7 @@
                 <div class="date">[University], Year</div>
                 <p class="content-text">[Brief description of your studies.]</p>
             </div>
-        </section>
+        </section> -->
 
         <!-- Contact Section -->
         <section id="contact">
@@ -563,10 +566,9 @@
                 I'm actively seeking opportunities in cybersecurity research and innovation. Let's explore how we can collaborate.
             </p>
             <div class="contact-links">
-                <a href="mailto:your.email@example.com" class="contact-link">Email</a>
-                <a href="https://linkedin.com/in/yourprofile" class="contact-link">LinkedIn</a>
-                <a href="https://github.com/yourprofile" class="contact-link">GitHub</a>
-                <a href="https://scholar.google.com/citations" class="contact-link">Google Scholar</a>
+                <a href="mailto:gargimiitm@gmail.com" class="contact-link">Email</a>
+                <a href="https://www.linkedin.com/in/gargimitraiitm/" class="contact-link">LinkedIn</a>
+                <a href="https://scholar.google.com/citations?user=M216DzwAAAAJ&hl=en" class="contact-link">Google Scholar</a>
             </div>
         </section>
     </main>

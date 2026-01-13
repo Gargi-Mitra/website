@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research - Cybersecurity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Inter', sans-serif;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            color: #2a2a2a;
+            background: linear-gradient(-45deg, #DAA698 0%, #d5a48f 25%, #d0a287 50%, #cba080 75%, #c69e78 100%);
+            background-size: 400% 400%;
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        .bg-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(-45deg, #DAA698 0%, #d5a48f 25%, #d0a287 50%, #cba080 75%, #c69e78 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .grid-accent {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(0deg, transparent 24%, rgba(139, 90, 75, 0.02) 25%, rgba(139, 90, 75, 0.02) 26%, transparent 27%, transparent 74%, rgba(139, 90, 75, 0.02) 75%, rgba(139, 90, 75, 0.02) 76%, transparent 77%, transparent),
+                linear-gradient(90deg, transparent 24%, rgba(139, 90, 75, 0.02) 25%, rgba(139, 90, 75, 0.02) 26%, transparent 27%, transparent 74%, rgba(139, 90, 75, 0.02) 75%, rgba(139, 90, 75, 0.02) 76%, transparent 77%, transparent);
+            background-size: 80px 80px;
+            opacity: 0.3;
+        }
+
+        header {
+            position: relative;
+            padding: 40px 40px;
+            z-index: 10;
+        }
+
+        .header-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #8B5A4B;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 8px 16px;
+            background: rgba(139, 90, 75, 0.85);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: rgba(107, 68, 57, 0.9);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(107, 68, 57, 0.3);
+        }
+
+        main {
+            position: relative;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 40px;
+            z-index: 5;
+        }
+
+        section {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(139, 90, 75, 0.15);
+            border-radius: 16px;
+            padding: 50px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(139, 90, 75, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        section:hover {
+            box-shadow: 0 12px 48px rgba(139, 90, 75, 0.15);
+            transform: translateY(-2px);
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #8B5A4B;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        h2::before {
+            content: '';
+            width: 5px;
+            height: 30px;
+            background: linear-gradient(180deg, #A67E6F, #8B5A4B);
+            border-radius: 3px;
+        }
+
+        h3 {
+            color: #8B5A4B;
+            font-size: 1.3em;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .content-text {
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .image-placeholder {
+            background: linear-gradient(135deg, rgba(218, 166, 152, 0.1), rgba(218, 166, 152, 0.05));
+            border: 2px dashed rgba(139, 90, 75, 0.3);
+            border-radius: 12px;
+            padding: 40px;
+            margin: 30px 0;
+            text-align: center;
+            color: #8B5A4B;
+        }
+
+        .image-placeholder p:first-child {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .image-placeholder p:last-child {
+            font-size: 0.95em;
+            color: #999;
+        }
+
+        .subsection-panel {
+            background: rgba(218, 166, 152, 0.08);
+            border-left: 4px solid #8B5A4B;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+        }
+
+        .subsection-panel h2 {
+            color: #DAA698;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            background-color: #8B5A4B;
+            padding: 10px 15px;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        footer {
+            position: relative;
+            text-align: center;
+            padding: 40px;
+            color: #999;
+            font-size: 0.95em;
+            z-index: 5;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            section {
+                padding: 30px;
+            }
+
+            h2 {
+                font-size: 1.6em;
+            }
+
+            main {
+                padding: 0 20px;
+            }
+
+            header {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-container">
+        <div class="grid-accent"></div>
+    </div>
+
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="back-link">← Back to Profile</a>
+            <h1>Research</h1>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <div class="subsection-panel">
+                <h2>Research Overview</h2>
+                <p class="content-text">
+                    I investigate the security and privacy of modern networked systems, focusing on those that integrate their legacy system components with emerging technologies. Such integrations are increasingly common—embedding Machine Learning (ML)-based software into legacy medical devices, integrating cloud-based services with industrial automation systems and IoT applications, or incorporating predictive streaming techniques into services like Netflix. My research reveals that such integrations create new vulnerabilities that traditional security and privacy measures were not designed to address. These vulnerabilities arise from fundamental mismatches between the legacy design assumptions, and the security, privacy, performance, and interoperability requirements of modern technologies, and they often invalidate legacy threat models and trust boundaries.
+                </p>
+
+                <p class="content-text">
+                    Yet, these modern technologies are meant to benefit society in substantial ways. AI/ML-driven medical diagnosis and treatment enable quick, low-cost access to life-saving treatments, remote monitoring supports continuous patient care, automation reduces the physical burden on workers, and cloud-based analytics allow organizations to scale while lowering operational costs. My long-term vision is to ensure that this technological progress remains secure, safe, and trustworthy, enabling society to reap its benefits without any hidden risks. The overarching goal of my research, therefore, is to determine whether systems retain their security, safety, and privacy guarantees when modern technologies are integrated, and if not, to design practical, minimally disruptive strategies to restore them.
+                </p>
+            </div>
+
+            <div class="subsection-panel">
+                <h2>Doctoral Research: Encrypted Web Traffic Analysis</h2>
+
+                <p class="content-text">
+                    Driven by growing concerns about network surveillance, in my early research works, I examined encrypted traffic analysis (ETA)-based attacks, a class of attacks that infer a user's online activities only from their encrypted traffic metadata (packet size, direction, and inter-packet timings) without breaking encryption or compromising the communication endpoints. This enables long-term, stealthy surveillance by on-path adversaries positioned anywhere along the network path (e.g., a compromised ISP or backbone router) between a web server and its users.
+                </p>
+
+                <div class="image-placeholder">
+                    <p>Figure 1: Contributions of PhD Thesis</p>
+                    <p>[Image Placeholder - Contributions diagram]</p>
+                </div>
+
+                <p class="content-text">
+                    Early ETA techniques aimed at webpage-level inference over HTTPS were built on restrictive assumptions: small sites, no embedded cookies, fixed navigation paths, and homogeneous client environments. They relied on supervised ML models trained and evaluated on such controlled settings. These models fail to generalize in modern web ecosystems, with thousands of pages, cookies, heterogeneous browsers/OSes, and diverse caching states. To overcome these limitations, we developed Snoopy (IEEE TDSC'22), an ETA framework that uses statistical techniques to approximate how each webpage's encrypted-traffic fingerprint varies across cache and cookie settings, browser/OS combinations, and navigation paths. In Depending on HTTP/2 for Privacy? (DSN'20), we debunked the belief that HTTP/2's parallel request processing inherently protects encrypted traffic from ETA attacks. In White Mirror (ACM SIGCOMM'19 Posters and Demos), we showed that Netflix's predictive streaming for interactive videos leaks users' on-screen choices via encrypted traffic metadata.
+                </p>
+            </div>
+
+            <div class="subsection-panel">
+                <h2>Postdoctoral Research: Security of Safety-Critical Systems</h2>
+
+                <p class="content-text">
+                    During my postdoctoral research at UBC, I built on the insights gained during my PhD while broadening my research scope in two directions. First, I extended ETA techniques on domains beyond web applications, for example, in modern (cloud-integrated) industrial control systems (ICS). Second, I examined how the integration of modern technologies with legacy systems introduces new security and privacy risks beyond ETA, that require revisiting risk assessment techniques and designing new security measures. I focused on two representative domains undergoing rapid technological modernization: medical devices using machine learning (ML) for personalizing treatment or enhancing diagnosis accuracy, and data-intensive IoT applications.
+                </p>
+
+                <div class="image-placeholder">
+                    <p>Figure 2: Postdoctoral Research Contributions</p>
+                    <p>[Image Placeholder - Postdoctoral contributions diagram]</p>
+                </div>
+
+                <p class="content-text">
+                    In our recent work, we showed that cloud-connected ICS remain vulnerable to ETA-based attacks despite VPNs and standard defenses. We demonstrated a stealthy blackhole attack that analyzes VPN traffic metadata to selectively drop safety-critical packets, thereby disrupting operations. In ML-enabled medical devices, we identified high-impact attack vectors stemming from complex, multi-vendor ecosystems that supply data to ML pipelines. Our systematic assessment of commercial devices showed that vulnerabilities in peripheral components can enable stealthy inference-time false data injection attacks, potentially endangering patients. To reduce the high cost of expert-driven assessments, we developed MedAIScout and SAM, LLM-assisted tools that partially automate vulnerability discovery. We further showed that conventional anomaly detectors perform poorly against evasion attacks in medical ML due to large inter-patient variability. Finally, for IoT systems deployed in public and regulated environments, we developed Turnstile, a hybrid information flow control framework that combines static taint analysis with dynamic tracking to detect and constrain privacy-sensitive data flows.
+                </p>
+
+                <p class="content-text">
+                    A central insight emerging from this research is that existing security measures often do not cover the expanded attack surface when modern technologies are retrofitted into legacy systems. This underscores the need for security research that involves cross-layer, domain-aware understanding of modern safety-critical systems. Effective defense in these environments requires not just patching vulnerabilities or hardening networks, but a fundamental rethinking of threat models, validating system behavior, and designing domain-specific, safety-aligned security mechanisms.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Gargi Mitra. All rights reserved.</p>
+    </footer>
+</body>
+</html>

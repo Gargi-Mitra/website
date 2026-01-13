@@ -1,189 +1,578 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-133913226-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Profile - Cybersecurity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  gtag('config', 'UA-133913226-2');
-</script>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Inter', sans-serif;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            color: #2a2a2a;
+            background: linear-gradient(-45deg, #DAA698 0%, #d5a48f 25%, #d0a287 50%, #cba080 75%, #c69e78 100%);
+            background-size: 400% 400%;
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
 
-<!-- <head> -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gargi Mitra</title>
-  <meta name="description" content="Gargi Mitra" />
+        /* Animated background elements */
+        .bg-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(-45deg, #DAA698 0%, #d5a48f 25%, #d0a287 50%, #cba080 75%, #c69e78 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-  <style>
-    :root{
-      --bg: #FAFAFA;
-      --muted: #6B7280;
-      --radius: 14px;
-      --max-width: 980px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    /* body{
-      margin:0;
-      font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-      background: linear-gradient(120deg, #fdfcfb, #e2d1c3);
-      color:#111827;
-      line-height:1.5;
-      padding:20px;
-      display:flex;justify-content:center;flex-direction: column;align-items: center
-    } */
-    body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh; /* ensure at least full viewport height */
-  overflow-y: auto;  /* enable vertical scrolling */
-  padding: 20px;
-  background: linear-gradient(120deg, #fdfcfb, #fcd5ce);
-}
-    .wrap{width:100%;max-width:var(--max-width)}
+        .blob {
+            position: absolute;
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            filter: blur(40px);
+            animation: moveBlob 15s infinite ease-in-out;
+        }
 
-    header{display:flex;flex-direction:row;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center;margin-bottom:10px;padding:10px;background:rgba(255,255,255,0.85);border-radius:var(--radius);box-shadow:0 4px 14px rgba(0,0,0,0.05)}
-    /* .profile-photo-top{width:140px;height:140px;border-radius:50%;background-image:url('images/profile.jpg');background-size:cover;background-position:center;box-shadow:0 4px 14px rgba(0,0,0,0.08)} */
-    .profile-photo-top{width:160px;height:160px;border-radius:50%;background-image:url('images/profile.jpg');background-size:cover;background-position:center}
-    .name-title{display:flex;flex-direction:column;justify-content:center;gap:8px;text-align:left;max-width:400px}
-    .name-title h1{font-family:Merriweather, serif;font-weight:700;margin:0;font-size:24px}
-    .sub{color:var(--muted);font-size:14px}
+        .blob1 {
+            width: 400px;
+            height: 400px;
+            top: -100px;
+            left: -50px;
+            background: linear-gradient(135deg, rgba(139, 109, 75, 0.08) 0%, rgba(160, 120, 80, 0.08) 100%);
+            animation-delay: 0s;
+        }
 
-    nav{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:10px;background:#fcd5ce;padding:10px;border-radius:var(--radius);box-shadow:0 4px 14px rgba(0,0,0,0.05)}
-    nav a{color:#111827;text-decoration:none;font-weight:600}
+        .blob2 {
+            width: 350px;
+            height: 350px;
+            bottom: 100px;
+            right: -100px;
+            background: linear-gradient(135deg, rgba(120, 95, 65, 0.06) 0%, rgba(180, 140, 90, 0.06) 100%);
+            animation-delay: 5s;
+        }
 
-    main{margin-top:28px;display:grid;grid-template-columns:1fr 340px;gap:28px;flex: 1}
+        .blob3 {
+            width: 300px;
+            height: 300px;
+            bottom: 300px;
+            left: 10%;
+            background: linear-gradient(135deg, rgba(160, 120, 80, 0.05) 0%, rgba(139, 109, 75, 0.05) 100%);
+            animation-delay: 10s;
+        }
 
-    .section-card{padding:20px;border-radius:var(--radius);box-shadow:0 6px 20px #fcd5ce;background-size:cover;background-repeat:no-repeat;background-position:center;text-align:left;}
-    .hero{background-image:url('https://www.transparenttextures.com/patterns/paper-fibers.png'), linear-gradient(135deg, #e8f0f2, #fdfdfd);}
-    .card-contact{linear-gradient(135deg, #ffb5a7, #ffb5a7)}
-    .section-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-}
+        @keyframes moveBlob {
+            0%, 100% { transform: translate(0, 0); }
+            25% { transform: translate(30px, -50px); }
+            50% { transform: translate(-20px, 20px); }
+            75% { transform: translate(50px, 10px); }
+        }
 
-    .hero h2{font-family:Merriweather, serif;margin:0;font-size:26px;text-align: center}
-    .byline{margin-top:8px;color:var(--muted)}
+        /* Grid accent */
+        .grid-accent {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(0deg, transparent 24%, rgba(139, 109, 75, 0.02) 25%, rgba(139, 109, 75, 0.02) 26%, transparent 27%, transparent 74%, rgba(139, 109, 75, 0.02) 75%, rgba(139, 109, 75, 0.02) 76%, transparent 77%, transparent),
+                linear-gradient(90deg, transparent 24%, rgba(139, 109, 75, 0.02) 25%, rgba(139, 109, 75, 0.02) 26%, transparent 27%, transparent 74%, rgba(139, 109, 75, 0.02) 75%, rgba(139, 109, 75, 0.02) 76%, transparent 77%, transparent);
+            background-size: 80px 80px;
+            opacity: 0.3;
+        }
 
-    footer{margin-top:34px;padding:20px 8px;color:var(--muted);font-size:13px;text-align:center;background:#fcd5ce;border-radius:var(--radius);box-shadow:0 4px 14px rgba(0,0,0,0.05)}
+        header {
+            position: relative;
+            padding: 40px 40px;
+            z-index: 10;
+        }
 
-    @media (max-width:900px){
-      main{grid-template-columns:1fr;}
-      aside{order:2}
-      header{flex-direction:column;text-align:center}
-      .name-title{text-align:center;align-items:center}
-    }
-  </style>
+        .header-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .header-text {
+            flex: 1;
+        }
+
+        .photo-placeholder {
+            width: 200px;
+            height: 200px;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, rgba(139, 109, 75, 0.15), rgba(160, 120, 80, 0.15));
+            border: 2px solid rgba(139, 109, 75, 0.3);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8b6d4b;
+            font-weight: 500;
+            font-size: 0.95em;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #8B5A4B;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: #9B6B5C;
+            font-weight: 400;
+            margin-bottom: 8px;
+            letter-spacing: 0.2px;
+        }
+
+        .tagline {
+            font-size: 1.1em;
+            color: #FFFFFF;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        /* Navigation buttons */
+        .nav-buttons {
+            position: relative;
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+            z-index: 5;
+        }
+
+        .nav-btn {
+            padding: 10px 22px;
+            background: rgba(139, 90, 75, 0.85);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 0.95em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .nav-btn:hover {
+            background: rgba(107, 68, 57, 0.9);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(107, 68, 57, 0.3);
+        }
+
+        main {
+            position: relative;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 40px;
+            z-index: 5;
+        }
+
+        section {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(139, 109, 75, 0.15);
+            border-radius: 16px;
+            padding: 50px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(139, 109, 75, 0.1);
+            transition: all 0.3s ease;
+            scroll-margin-top: 100px;
+        }
+
+        section:hover {
+            box-shadow: 0 12px 48px rgba(139, 109, 75, 0.15);
+            transform: translateY(-2px);
+        }
+
+        section h2 {
+            font-size: 2em;
+            color: #8B5A4B;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        section h2::before {
+            content: '';
+            width: 5px;
+            height: 30px;
+            background: linear-gradient(180deg, #A67E6F, #8B5A4B);
+            border-radius: 3px;
+        }
+
+        .content-text {
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .experience-item, .project-item {
+            margin-bottom: 30px;
+            padding-bottom: 25px;
+            border-bottom: 2px solid rgba(139, 109, 75, 0.1);
+        }
+
+        .experience-item:last-child, .project-item:last-child {
+            border-bottom: none;
+        }
+
+        .experience-item h3, .project-item h3 {
+            color: #9B6B5C;
+            font-size: 1.3em;
+            margin-bottom: 5px;
+        }
+
+        .date {
+            color: #9B6B5C;
+            font-size: 0.95em;
+            font-weight: 400;
+            margin-bottom: 8px;
+            letter-spacing: 0.2px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, rgba(139, 109, 75, 0.12), rgba(160, 120, 80, 0.12));
+            border: 1px solid rgba(139, 109, 75, 0.3);
+            padding: 12px 18px;
+            border-radius: 8px;
+            color: #5c4033;
+            font-weight: 500;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: linear-gradient(135deg, rgba(139, 109, 75, 0.2), rgba(160, 120, 80, 0.2));
+            transform: scale(1.05);
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #8b6d4b, #5c4033);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(92, 64, 51, 0.3);
+        }
+
+        .subsection-panel {
+            background: rgba(218, 166, 152, 0.08);
+            border-left: 4px solid #8B5A4B;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+        }
+
+        .subsection-panel h2 {
+            color: #DAA698;
+            font-size: 1.1em;
+            /* margin-bottom: 20px; */
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            background-color: #8B5A4B;
+            padding: 10px 15px;
+            border-radius: 6px;
+            display: inline-block;
+
+        footer {
+            position: relative;
+            text-align: center;
+            padding: 40px;
+            color: #999;
+            font-size: 0.95em;
+            z-index: 5;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .header-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .photo-placeholder {
+                width: 150px;
+                height: 150px;
+            }
+
+            section {
+                padding: 30px;
+            }
+
+            section h2 {
+                font-size: 1.6em;
+            }
+
+            main {
+                padding: 0 20px;
+            }
+
+            header {
+                padding: 30px 20px;
+            }
+
+            .nav-buttons {
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="wrap">
+    <div class="bg-container">
+        <div class="grid-accent"></div>
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+    </div>
 
     <header>
-      <div class="name-title">
-        <h1>Gargi Mitra</h1>
-        <div class="sub"><b>Postdoctoral Fellow</b><br/> Department of ECE | UBC Vancouver</div>
-        <div class="sub">Excited by the challenges of securing next-gen technologies</div>
-      </div>
-      <div class="profile-photo-top"></div>
+        <div class="header-content">
+            <div class="header-text">
+                <h1>Gargi Mitra</h1>
+                <div class="subtitle"><b>Postdoctoral Research Fellow | Security and Privacy</b></div>
+                <!-- <div class="tagline">Security and Privacy Researcher</div> -->
+
+                <div class="nav-buttons">
+                    <button class="nav-btn" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">About</button>
+                    <button class="nav-btn" onclick="window.location.href='research.html'">Research</button>
+                    <button class="nav-btn" onclick="document.getElementById('publications').scrollIntoView({behavior: 'smooth'})">Publications</button>
+                    <button class="nav-btn" onclick="document.getElementById('education').scrollIntoView({behavior: 'smooth'})">Education</button>
+                    <button class="nav-btn" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Contact</button>
+                    <button class="nav-btn" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">CV</button>
+                </div>
+            </div>
+
+            <div class="photo-placeholder"><img src="images/profile.jpg" alt="Your Name" style="width: 100%; height: 110%; object-fit: cover; border-radius: 12px;"></div>
+        </div>
     </header>
 
-    <nav>
-      <a href="docs/Gargi_Research_Statement.pdf">Research</a>
-      <!-- <a href="#publications">Publications</a> -->
-      <a href="#awards">Awards & Recognitions</a>
-      <a href="#press">Press Coverage</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
     <main>
-      <div class="section-wrapper">
-        <article class="section-card hero">
-          <h3>Securing the next wave of safety‑critical systems</h3>
-          <div class="byline">
-            We are living in an era that is witnessing tremendously fast-paced technological advancements. And more than often, our lives depend on these technologies. For example, today’s medical devices use machine learning/AI to deliver highly precise diagnoses and personalized treatments. Industrial systems leverage cloud services and AI for remote monitoring and control, while IoT devices stream massive volumes of real-time, privacy-sensitive data to power safety-critical operations.</br></br>
+        <!-- About Section -->
+        <section id="about">
+            <!-- <h2>About</h2> -->
+            <p class="content-text">
+                I am a systems security and privacy researcher who investigates the risks that emerge when modern technologies are layered onto legacy infrastructure, and how to fix it before the consequences become irreversible. My work sits at the intersection of security, safety, and emerging technologies, with a particular focus on AI/ML-enabled medical devices, cloud-integrated industrial control systems, and large-scale networked applications.
 
-            While these innovations boost efficiency and convenience, security often takes a backseat. <i>Many industries still retrofit legacy security measures onto these modern systems, assuming security measures that protected legacy systems are sufficient to protect their modernised versions as well. In doing so, they overlook the new risks created when modern technologies intersect with legacy infrastructure, leaving a far larger attack surface exposed.</i> This oversight leaves critical systems vulnerable, offering adversaries new security gaps to exploit, and in the worst cases, can potentially endanger human lives.<br/></br>
+                Across industries, there is a recurring pattern: technologies introduced to improve efficiency, personalization, or scalability often invalidate long-standing threat models. During my PhD, I demonstrated how encrypted traffic—long assumed to be safe—can still reveal sensitive user behavior at scale, influencing both public discourse and real-world deployments. In my current postdoctoral work at the University of British Columbia, I extend this systems-oriented lens to safety-critical domains, where similar blind spots can disrupt physical processes or directly endanger human lives.
+            </p>
+        </section>
 
-            In my research, I investigate the security and privacy of <i>modern networked systems</i>, focusing on those that integrate their legacy system components with emerging technologies such as Artificial Intelligence or cloud-based services. My research reveals that such integrations create new vulnerabilities that traditional security and privacy measures were not designed to address. In safety-critical environments, such vulnerabilities can directly endanger human lives or disrupt essential services; in domains like IoT and web applications, they can lead to serious privacy breaches and regulatory violations. Yet, these modern technologies are meant to benefit society in substantial ways. <i>My long-term vision is to ensure that this technological progress remains secure, safe, and trustworthy, enabling the society to reap its benefits without any hidden risks.</i><br/></br>
-
-            In the aforementioned context, my research has uncovered emerging security and privacy risks in \textit{modern web applications, AI/ML-enabled medical devices, cloud-integrated industrial automation systems, and modern cloud-connected IoT applications}. My research has been published in reputed security and systems venues, including IEEE TDSC, DSN, CHASE, Springer Nature, EuroSys, IoTDI, and workshops co-located with CCS and NeurIPS, and has received media coverage <a href="https://www.wired.com/story/netflix-interactive-bandersnatch-hackers-choices/">(Wired)</a> and won awards. I am an active Program Committee member of top security conferences, and won the Distinguished Reviewer Award at ACM CCS 2024.
+        <!-- Research & Expertise Section -->
+        <!-- <section id="research">
+            <h2>Research & Expertise</h2>
+            <div class="experience-item">
+                <h3>Current Position: Postdoctoral Fellow</h3>
+                <div class="date">[Institution Name] • [Start Year] – Present</div>
+                <p class="content-text">[Describe your current research focus, major projects, and contributions.]</p>
             </div>
-        </article>
+            <div class="experience-item">
+                <h3>Key Research Areas</h3>
+                <div class="skills-grid">
+                    <div class="skill-tag">Cryptography</div>
+                    <div class="skill-tag">Network Security</div>
+                    <div class="skill-tag">Threat Analysis</div>
+                    <div class="skill-tag">Machine Learning Security</div>
+                    <div class="skill-tag">Privacy-Preserving Systems</div>
+                    <div class="skill-tag">[Your Specialty]</div>
+                </div>
+            </div>
+        </section> -->
 
-        <!-- <article class="section-card hero">
-          <h3>Securing the next wave of safety‑critical systems</h3>
+        <!-- Publications Section -->
+        <section id="publications">
+           <h2>Publications</h2>
+           <div class="subsection-panel">
+                 <h2>Security of Cloud-Connected ICS OT Networks</h2>
+                 <div class="project-item">
+                     <h3>ICS-Sniper: A Targeted Blackhole Attack on Encrypted ICS Traffic</h3>
+                     <div class="date">RICSS'24 workshop (co-located with ACM CCS'24)</div>
+                     <p class="content-text">Gargi Mitra, Pritam Dash, Yingao Elaine Yao, Aastha Mehta, Karthik Pattabiraman. <a href="https://arxiv.org/search/?query=ICS-Sniper" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a></p>
+                 </div>
+             </div>
 
-        </article> -->
-        <!-- <footer>
-          <div>Interested in collaboration or recruitment? <a href="#contact">Get in touch</a>.</div>
-        </footer> -->
-      </div>
+             <div class="subsection-panel">
+                 <h2>Security of AI/ML-Based Medical Devices</h2>
+                 <div class="project-item">
+                     <h3>Systems-Theoretic and Data-Driven Security Analysis in ML-enabled Medical Devices</h3>
+                     <div class="date">Springer Nature HealthSec 2024</div>
+                     <p class="content-text">Gargi Mitra, Mohammadreza Hallajiyan, Inji Kim, Athish Pranav Dharmalingam, Mohammed Elnawawy, Shahrear Iqbal, Karthik Pattabiraman, Homa Alemzadeh. (Invited) <a href="#" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a></p>
+                 </div>
+                 <div class="project-item">
+                     <h3>Learning from the Good Ones: Risk Profiling-Based Defenses Against Evasion Attacks on DNNs</h3>
+                     <div class="date">DSML'25 workshop (co-located with DSN'25)</div>
+                     <p class="content-text">Mohammed Elnawawy, Gargi Mitra, Shahrear Iqbal, Karthik Pattabiraman. <a href="https://arxiv.org/search/?query=Risk+Profiling+Evasion+Attacks" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a> [Acceptance rate: 64%]</p>
+                 </div>
+                 <div class="project-item">
+                     <h3>MedAIScout: Automated Retrieval of Known Machine Learning Vulnerabilities in Medical Applications</h3>
+                     <div class="date">Red Teaming GenAI workshop (co-located with NEURIPS'24)</div>
+                     <p class="content-text">Athish Pranav Dharmalingam, Gargi Mitra. <a href="#" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a></p>
+                 </div>
+                 <div class="project-item">
+                     <h3>SAM: Foreseeing Inference-Time False Data Injection Attacks on ML-enabled Medical Devices</h3>
+                     <div class="date">HealthSec'24 workshop (co-located with ACM CCS'24)</div>
+                     <p class="content-text">Mohammadreza Hallajiyan, Athish Pranav Dharmalingam, Gargi Mitra, Homa Alemzadeh, Shahrear Iqbal, Karthik Pattabiraman. <a href="#" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a> [Acceptance rate: 57%]</p>
+                 </div>
+                 <div class="project-item">
+                     <h3>Systematically Assessing the Security Risks of AI/ML-enabled Connected Healthcare Systems</h3>
+                     <div class="date">CHASE'24</div>
+                     <p class="content-text">Mohammad ElNawawy, Mohammadreza Hallajiyan, Gargi Mitra, Shahrear Iqbal, Karthik Pattabiraman. <a href="#" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a> [Acceptance rate: 28.4%]</p>
+                 </div>
+             </div>
 
+             <div class="subsection-panel">
+                 <h2>Security of IoT Applications</h2>
+                 <div class="project-item">
+                     <h3>Turnstile: Hybrid Information Flow Control Framework for Managing Privacy in Internet-of-Things Applications</h3>
+                     <div class="date">EuroSys'26</div>
+                     <p class="content-text">Kumseok Jung, Mohanna Shahrad, Gargi Mitra, Karthik Pattabiraman. <a href="#" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a> [Acceptance rate: 17%]</p>
+                 </div>
+                 <div class="project-item">
+                     <h3>ImmunoPlane: Middleware for Providing Adaptivity to Distributed Internet-of-Things Applications</h3>
+                     <div class="date">IoTDI'24</div>
+                     <p class="content-text">Kumseok Jung, Mohanna Shahrad, Gargi Mitra, Karthik Pattabiraman. <a href="#" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a> [Acceptance rate: 36.7%]</p>
+                 </div>
+             </div>
 
-      <aside>
-        <div class="section-card card-contact" id="contact">
-          <h3>Contact</h3>
-          <div>Interested in collaboration or recruitment? Get in touch!</div>
-          <p>Email: <a href="mailto:gargimiitm@gmail.com">gargimiitm@gmail.com</a></p>
-          <p>LinkedIn: <a href=https://www.linkedin.com/in/gargimitraiitm/ target="_blank">gargimiitm</a></p>
-          <p>Google Scholar: <a href="https://scholar.google.com/citations?user=M216DzwAAAAJ&hl=en" target="_blank">M216DzwAAAAJ</a></p>
-        </div>
-      </aside>
+             <div class="subsection-panel">
+                 <h2>Encrypted Traffic Analysis-Based Cyber Surveillance on Users of Web Applications</h2>
+                 <div class="project-item">
+                     <h3>Snoopy: A Webpage Fingerprinting Framework with Finite Query Model for Mass-Surveillance</h3>
+                     <div class="date">IEEE Transactions on Dependable and Secure Computing (TDSC), 2022</div>
+                     <p class="content-text">Gargi Mitra, Prasanna Karthik Vairam, Sandip Saha, Nitin Chandrachoodan, Kamakoti Veezhinathan. DOI: <a href="https://doi.org/10.1109/TDSC.2022.3222462" style="color: #8B5A4B; text-decoration: underline;" target="_blank">10.1109/TDSC.2022.3222462</a> [Acceptance rate: 10-12%, Impact factor: 7.5] <a href="#" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a></p>
+                 </div>
+                 <div class="project-item">
+                     <h3>Depending on HTTP/2 for Privacy? Good Luck!</h3>
+                     <div class="date">IEEE/IFIP Conference on Dependable Systems and Networks (DSN), 2020</div>
+                     <p class="content-text">Gargi Mitra, Prasanna Karthik Vairam, Patanjali SLPSK, Nitin Chandrachoodan, Kamakoti Veezhinathan. DOI: <a href="https://doi.org/10.1109/DSN48063.2020.00044" style="color: #8B5A4B; text-decoration: underline;" target="_blank">10.1109/DSN48063.2020.00044</a> [Acceptance rate: 16.5%] <a href="#" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a></p>
+                 </div>
+                 <div class="project-item">
+                     <h3>White Mirror: Leaking Sensitive Information from Interactive Netflix Movies using Encrypted Traffic Analysis</h3>
+                     <div class="date">ACM SIGCOMM 2019 (Poster Session)</div>
+                     <p class="content-text">Gargi Mitra, Prasanna Karthik Vairam, Patanjali SLPSK, Nitin Chandrachoodan, Kamakoti Veezhinathan. DOI: <a href="https://doi.org/10.1145/3342280.3342330" style="color: #8B5A4B; text-decoration: underline;" target="_blank">10.1145/3342280.3342330</a> [Acceptance rate: 55%] <a href="#" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a></p>
+                 </div>
+             </div>
+
+             <div class="subsection-panel">
+                 <h2>Other Collaborative Works</h2>
+                 <div class="project-item">
+                     <h3>Towards Measuring Quality of Service in Untrusted Multi-Vendor Service Function Chains: Balancing Security and Resource Consumption</h3>
+                     <div class="date">IEEE Conference on Computer Communications (INFOCOM), 2019</div>
+                     <p class="content-text">Prasanna Karthik Vairam, Gargi Mitra, Vignesh Manoharan, Chester Rebeiro, Bhaskar Ramamurthy, Kamakoti Veezhinathan. DOI: <a href="https://doi.org/10.1109/INFOCOM.2019.8737487" style="color: #8B5A4B; text-decoration: underline;" target="_blank">10.1109/INFOCOM.2019.8737487</a> [Acceptance rate: 19.7%] <a href="#" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a></p>
+                 </div>
+                 <div class="project-item">
+                     <h3>ApproxBC: Blockchain Design Alternatives for Approximation-Tolerant Resource-Constrained Applications</h3>
+                     <div class="date">IEEE Communications Standards Magazine, 2018</div>
+                     <p class="content-text">Prasanna Karthik Vairam, Gargi Mitra, Chester Rebeiro, Bhaskar Ramamurthy, Kamakoti Veezhinathan. DOI: <a href="https://doi.org/10.1109/MCOMSTD.2018.1800021" style="color: #8B5A4B; text-decoration: underline;" target="_blank">10.1109/MCOMSTD.2018.1800021</a> <a href="#" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a></p>
+                 </div>
+             </div>
+
+             <div class="subsection-panel">
+                 <h2>Papers Under Review</h2>
+                 <div class="project-item">
+                     <h3>ICS-Sniper: A Targeted Blackhole Attack on Encrypted ICS Traffic (Full version)</h3>
+                     <p class="content-text">Gargi Mitra, Chayuan Liu, Pritam Dash, Yingao Elaine Yao, Alain Zhiyanov, Aastha Mehta, Karthik Pattabiraman.</p>
+                 </div>
+                 <div class="project-item">
+                     <h3>SAMD: A Tool for Identifying False Data Injection Scenarios in AI/ML-enabled Medical Devices</h3>
+                     <p class="content-text">Mohammadreza Hallajiyan, Xueren Ge, Gargi Mitra, Shahrear Iqbal, Homa Alemzadeh, Karthik Pattabiraman.</p>
+                 </div>
+                 <div class="project-item">
+                     <h3>ROAST: Risk-aware Outlier-exposure for Adversarial Selective Training of Anomaly Detectors Against Evasion Attacks</h3>
+                     <p class="content-text">Mohammed Elnawawy, Gargi Mitra, Shahrear Iqbal, Karthik Pattabiraman.</p>
+                 </div>
+             </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <h2>Education</h2>
+            <div class="experience-item">
+                <h3>Ph.D. in [Field]</h3>
+                <div class="date">[University], Year</div>
+                <p class="content-text">[Dissertation topic and key contributions.]</p>
+            </div>
+            <div class="experience-item">
+                <h3>M.Sc./B.Sc. in [Field]</h3>
+                <div class="date">[University], Year</div>
+                <p class="content-text">[Brief description of your studies.]</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Connect</h2>
+            <p class="content-text">
+                I'm actively seeking opportunities in cybersecurity research and innovation. Let's explore how we can collaborate.
+            </p>
+            <div class="contact-links">
+                <a href="mailto:your.email@example.com" class="contact-link">Email</a>
+                <a href="https://linkedin.com/in/yourprofile" class="contact-link">LinkedIn</a>
+                <a href="https://github.com/yourprofile" class="contact-link">GitHub</a>
+                <a href="https://scholar.google.com/citations" class="contact-link">Google Scholar</a>
+            </div>
+        </section>
     </main>
 
-  </div>
-
-
-  <!-- <div>
-  <article class="section-card hero">
-    <!-- <h3>Securing the next wave of safety‑critical systems</h3>
-    <div class="byline">
-  <section id="awards" style="max-width: 900px; margin: 40px auto; background: rgba(255, 255, 255, 0.9); padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);"> -->
-  <!-- <h3 style="text-align: center; font-family: Merriweather, serif;">Awards & Recognitions</h3>
-  <ul style="list-style-type: none; padding: 0; font-family: Lato, sans-serif;">
-  <li><strong>2021</strong>
-    <ul>
-      <li>Mitacs Globalink Research Award – Sponsored by Mitacs and Shastri Indo-Canadian Institute, for collaborative research with Canada.</li>
-      <li>Star TA Award – Department of CSE, IIT Madras, for contributions as a Teaching Assistant.</li>
-    </ul>
-  </li>
-  <li><strong>2020</strong>
-    <ul>
-      <li>Applied Research Competition – First Prize, at Cyber Security Awareness Week (CSAW), organized by NYU and IIT Kanpur.</li>
-      <li>Maitreyee-2020 – Selected as one of the top 5 contestants in the blog writing competition at IBM Research-India’s annual women outreach event.</li>
-      <li>Star TA Award – Department of CSE, IIT Madras, for contributions as a Teaching Assistant.</li>
-    </ul>
-  </li>
-  <li><strong>2019</strong>
-    <ul>
-      <li>AWSAR Top 100 Award – Recognized among the top 100 contestants in a national scientific story-writing competition organized by the Department of Science & Technology, Govt. of India.</li>
-    </ul>
-  </li>
-  <li><strong>2018</strong>
-    <ul>
-      <li>Gandhi Hazare Award – First Prize, awarded by the Centre for Social Innovation and Entrepreneurship, IIT Madras, for proposing technical solutions to fight corruption in the public distribution system.</li>
-      <li>TCS Poster Competition – Second Prize, awarded by TCS Research India for presenting “Ankapala: The Account Book for Fighting Corruption in Public Distribution System.”</li>
-    </ul>
-  </li>
-  <li><strong>2017</strong>
-    <ul>
-      <li>Embedded Security Challenge Winner – First Prize at CSAW, organized by NYU and IIT Kanpur, for presenting “Eradicator: An Integrated Approach for Defense against Cyber Attacks in PLC-based Industrial Control Systems.”</li>
-      <li>Star TA Award – Department of CSE, IIT Madras, for contributions as a Teaching Assistant.</li>
-    </ul>
-  </li>
-  </ul>
-  </section> -->
-
-
-
+    <footer>
+        <p>&copy; 2026 Gargi Mitra. All rights reserved.</p>
+    </footer>
 </body>
 </html>

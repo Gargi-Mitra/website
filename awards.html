@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--
+  THE AWARDS AND TALKS PAGE. Editing notes for the whole site are at the top of index.html.
+  This page needs style.css and script.js in the same folder.
+-->
+
+<!-- EDIT: the browser tab title and the short description search engines show -->
+<title>Awards and Talks | Gargi Mitra</title>
+<meta name="description" content="Awards, talks and presentations by Gargi Mitra, systems and network security researcher.">
+<meta property="og:title" content="Awards and Talks | Gargi Mitra">
+<meta property="og:description" content="Awards, talks and presentations.">
+<meta property="og:type" content="website">
+
+<!-- Chooses light or dark before the page is drawn: the visitor's own choice
+     if they have used the switch before, otherwise their device setting. -->
+<script>
+(function () {
+  var saved = null;
+  try { saved = localStorage.getItem('theme'); } catch (e) {}
+  var dark = saved === 'dark' || (saved !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Newsreader:ital,opsz,wght@0,6..72,400..650;1,6..72,400..650&display=swap" rel="stylesheet">
+<!-- The font for your name -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- The look of the site. Colours and fonts are at the top of this file. -->
+<link rel="stylesheet" href="style.css">
+</head>
+
+<!-- class="larger-text" shows this page's text 15% larger. The amount is set near the top of style.css. -->
+<body class="larger-text">
+
+<!-- ============================ SIDE PANEL ============================
+     This block appears on every page. EDIT: one link per page or section.
+     If you add, rename or remove a link, make the same change on every page.
+     aria-current="page" marks the page you are on: keep it only on that page's own link. -->
+<aside class="sidebar">
+  <a class="site-name" href="index.html">Gargi Mitra</a>
+
+  <nav class="nav" aria-label="Site">
+    <a href="index.html#about">About</a>
+    <a href="papers.html">Publications</a>
+    <a href="experience.html">Work Experience</a>
+    <a href="education.html">Education</a>
+    <a href="skills.html">Skills</a>
+    <a href="awards.html" aria-current="page">Awards and Talks</a>
+  </nav>
+
+  <!-- The light / dark switch. Nothing to edit. -->
+  <button class="theme-switch" type="button" role="switch" aria-checked="false" hidden>
+    <span>Dark mode</span>
+    <span class="theme-switch-track" aria-hidden="true"><span class="theme-switch-knob"></span></span>
+  </button>
+</aside>
+
+<div class="page">
+
+  <!-- ============================== AWARDS ============================== -->
+  <section id="awards">
+    <h2>Awards</h2>
+    <ol class="timeline">
+
+      <!-- NEW AWARD: copy from this <li> down to its closing </li>, paste above, edit -->
+      <li class="entry">
+        <span class="when">2024</span>
+        <div class="what">
+          <h3>Distinguished Reviewer Award</h3>
+          <p class="where">ACM CCS 2024</p>
+          <p>Top 10% of 527 program committee members.</p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <span class="when">2024</span>
+        <div class="what">
+          <h3>Ideas with Impact Competition, second prize</h3>
+          <p class="where">ICICS, The University of British Columbia</p>
+          <p>For MedAIScout. Judged across all UBC departments for commercial potential.</p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <span class="when">2021</span>
+        <div class="what">
+          <h3>Mitacs Globalink Research Award</h3>
+          <p class="where">Mitacs</p>
+          <p>Open to all doctoral students in India.</p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <span class="when">2021</span>
+        <div class="what">
+          <h3>Star TA Award</h3>
+          <p class="where">Department of Computer Science and Engineering, IIT Madras</p>
+          <p>Also awarded in 2020 and 2017.</p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <span class="when">2020</span>
+        <div class="what">
+          <h3>Applied Research Competition, first prize</h3>
+          <p class="where">Cyber Security Awareness Week (NYU and IIT Kanpur)</p>
+          <p>Open to all PhD students across India working in cybersecurity.</p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <span class="when">2019</span>
+        <div class="what">
+          <h3>AWSAR Award</h3>
+          <p class="where">Department of Science &amp; Technology, Government of India</p>
+          <p>Top 100 of 4,993 entrants in a national scientific writing competition.</p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <span class="when">2018</span>
+        <div class="what">
+          <h3>Gandhi Hazare Award, first prize</h3>
+          <p class="where">Centre for Social Innovation and Entrepreneurship, IIT Madras</p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <span class="when">2017</span>
+        <div class="what">
+          <h3>Embedded Security Challenge, first prize</h3>
+          <p class="where">Cyber Security Awareness Week (NYU and IIT Kanpur)</p>
+          <p>For "Eradicator: An Integrated Approach for Defense against Cyber Attacks in PLC-based Industrial Control Systems". Open to students of all Indian universities.</p>
+        </div>
+      </li>
+
+    </ol>
+  </section>
+
+  <!-- ====================== TALKS AND PRESENTATIONS ====================== -->
+  <section id="talks">
+    <h2>Talks and Presentations</h2>
+    <ol class="timeline">
+
+      <!-- NEW TALK: copy from this <li> down to its closing </li>, paste above, edit -->
+      <li class="entry">
+        <span class="when">2024–2025</span>
+        <div class="what">
+          <h3>ICS-Sniper: Targeting the Blind Spot of Modern Industrial Control Systems</h3>
+          <p class="who"><b>Gargi Mitra</b>, Pritam Dash, Elaine Yingao Yao, Alain Zhiyanov, Aastha Mehta, Karthik Pattabiraman</p>
+          <p class="where">USENIX Security '25, NCC Conference '25, and an invited talk at Idaho National Laboratory ('24)</p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <span class="when">2023</span>
+        <div class="what">
+          <h3>AI/ML-enabled Connected Healthcare Systems: New Remedies or New Risks?</h3>
+          <p class="where">USENIX Security 2023 (session organizer)</p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <span class="when">2017</span>
+        <div class="what">
+          <h3>Hastakshara: A passive side-channel-based webpage fingerprinting attack for uncovering client intent</h3>
+          <p class="where">ACM IMC 2017</p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <span class="when">2017</span>
+        <div class="what">
+          <h3>Samata: A framework for identifying net-neutrality violations using evidence structures</h3>
+          <p class="where">ACM IMC 2017 (co-author)</p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <span class="when">2017</span>
+        <div class="what">
+          <h3>Blockchain as an infrastructure to build secure network services</h3>
+          <p class="where">PhD Conclave, ISEA Asia Security and Privacy Conference 2017</p>
+        </div>
+      </li>
+
+    </ol>
+  </section>
+
+  <!-- EDIT: change the date whenever you update the page -->
+  <p class="foot">Last updated October 2026</p>
+
+</div>
+
+<!-- The behaviour of the site: light / dark switch, paper filter, paper abstracts. -->
+<script src="script.js"></script>
+</body>
+</html>

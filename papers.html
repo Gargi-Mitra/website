@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--
+  THE PAPERS PAGE. Editing notes for the whole site are at the top of index.html.
+  This page needs style.css and script.js in the same folder.
+-->
+
+<!-- EDIT: the browser tab title and the short description search engines show -->
+<title>Publications | Gargi Mitra</title>
+<meta name="description" content="Peer-reviewed papers by Gargi Mitra, with abstracts, DOI links and PDFs.">
+<meta property="og:title" content="Publications | Gargi Mitra">
+<meta property="og:description" content="Peer-reviewed papers, with abstracts, DOI links and PDFs.">
+<meta property="og:type" content="website">
+
+<!-- Chooses light or dark before the page is drawn: the visitor's own choice
+     if they have used the switch before, otherwise their device setting. -->
+<script>
+(function () {
+  var saved = null;
+  try { saved = localStorage.getItem('theme'); } catch (e) {}
+  var dark = saved === 'dark' || (saved !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Newsreader:ital,opsz,wght@0,6..72,400..650;1,6..72,400..650&display=swap" rel="stylesheet">
+<!-- The font for your name -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- The look of the site. Colours and fonts are at the top of this file. -->
+<link rel="stylesheet" href="style.css">
+</head>
+
+<!-- class="larger-text" shows this page's text 15% larger. The amount is set near the top of style.css. -->
+<body class="larger-text">
+
+<!-- ============================ SIDE PANEL ============================
+     This block appears on every page. EDIT: one link per page or section.
+     If you add, rename or remove a link, make the same change on every page.
+     aria-current="page" marks the page you are on: keep it only on that page's own link. -->
+<aside class="sidebar">
+  <a class="site-name" href="index.html">Gargi Mitra</a>
+
+  <nav class="nav" aria-label="Site">
+    <a href="index.html#about">About</a>
+    <a href="papers.html" aria-current="page">Publications</a>
+    <a href="experience.html">Work Experience</a>
+    <a href="education.html">Education</a>
+    <a href="skills.html">Skills</a>
+    <a href="awards.html">Awards and Talks</a>
+  </nav>
+
+  <!-- The light / dark switch. Nothing to edit. -->
+  <button class="theme-switch" type="button" role="switch" aria-checked="false" hidden>
+    <span>Dark mode</span>
+    <span class="theme-switch-track" aria-hidden="true"><span class="theme-switch-knob"></span></span>
+  </button>
+</aside>
+
+<div class="page">
+
+  <!-- ============================== PAPERS ============================== -->
+  <section id="papers">
+    <h2>Publications</h2>
+    <!-- EDIT: the instruction shown above the paper list -->
+    <p class="hint" hidden>Click a paper's title to show or hide its abstract.</p>
+    <!-- The filter buttons appear here by themselves, one per tag used below. -->
+    <ol class="timeline">
+
+      <!-- NEW PAPER: copy from this <li class="entry"> down to its closing </li>, paste above, edit -->
+      <li class="entry" id="ics-sniper">
+        <span class="when">2027</span>
+        <div class="what">
+          <!-- EDIT: this is the DOI of the arXiv preprint. Swap both links for the NDSS 2027 DOI once the paper is published. -->
+          <h3><a href="https://doi.org/10.48550/arXiv.2312.06140">ICS-Sniper: A Targeted Blackhole Attack on Encrypted ICS Traffic</a></h3>
+          <p class="who"><b>Gargi Mitra</b>, Pritam Dash, Yingao Elaine Yao, Aastha Mehta, Karthik Pattabiraman</p>
+          <p class="where"><i>NDSS 2027</i> (accepted, to be presented in Seoul)</p>
+          <p>An earlier work-in-progress version appeared at the RICSS 2024 workshop, co-located with ACM CCS 2024. Also presented at USENIX Security '25 and Idaho National Laboratory.</p>
+          <ul class="tags">
+            <li>Network security</li>
+            <li>Encrypted traffic analysis</li>
+            <li>Industrial control systems</li>
+          </ul>
+          <p class="entry-links">
+            <a href="https://doi.org/10.48550/arXiv.2312.06140">DOI</a>
+            <a href="papers/ics-sniper.pdf">PDF</a>
+            <a href="https://github.com/orgs/ICS-Sniper/repositories">Code</a>
+            <a href="videos/ICS-Sniper.mp4">Teaser</a>
+          </p>
+          <!-- EDIT: the abstract a visitor sees after clicking the title. Paste the text between <p> and </p>. -->
+          <div class="abstract" hidden>
+            <p><b>Abstract.</b> Modern industrial control systems (ICS) increasingly host their Supervisory Control and Data Acquisition (SCADA) services in the cloud to reduce the costs of large-scale automation. To protect site-SCADA communications, ICS operators commonly use VPN tunneling and standard security practices. We show that, despite these security measures, an on-path Internet adversary can disrupt ICS operations without infiltrating the ICS perimeter, breaking encryption, or knowing the control logic. We present ICS-Sniper, a targeted blackhole attack that analyzes the VPN traffic metadata (sizes, direction, timing of packets) to identify narrow time windows, called critical superperiods, during which the site-SCADA traffic would likely contain highly critical commands or data. Post analysis, in a subsequent operational cycle, ICS-Sniper drops a small set of payload-carrying packets in the critical superperiods to disrupt the ICS’s operations. We demonstrate three attacks on two realistic modern Secure Water Treatment (SWaT) plant testbeds that can potentially violate the operational safety of the ICS while evading state-of-the-art ICS attack detectors.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="entry" id="turnstile">
+        <span class="when">2026</span>
+        <div class="what">
+          <h3><a href="https://doi.org/10.1145/3767295.3769352">Turnstile: Hybrid Information Flow Control Framework for Managing Privacy in Internet-of-Things Applications</a></h3>
+          <p class="who">Kumseok Jung, Mohanna Shahrad, <b>Gargi Mitra</b>, Karthik Pattabiraman</p>
+          <p class="where"><i>EuroSys 2026</i> [Acceptance rate: 17%]</p>
+          <!-- EDIT: one <li> per research area. Add or remove lines as needed. -->
+          <ul class="tags">
+            <li>IoT</li>
+            <li>Privacy</li>
+          </ul>
+          <p class="entry-links">
+            <a href="https://doi.org/10.1145/3767295.3769352">DOI</a>
+            <a href="papers/turnstile.pdf">PDF</a>
+          </p>
+          <div class="abstract" hidden>
+            <p><b>Abstract.</b> General awareness in privacy management has increased over the last decade, from consumers, companies, to governments. While cloud and mobile applications have taken steps forward in improving privacy management, the Internet-of-Things (IoT) domain has been behind in this aspect. Managing privacy in IoT applications is challenging, firstly because IoT applications handle data whose privacy implications change dynamically based on the information it contains. Second, the fragmented nature of the IoT ecosystem makes it difficult to apply a solution end-to-end. To provide a solution to privacy management in IoT, we design and implement Turnstile, a hybrid information flow control (IFC) framework. It identifies privacy-sensitive code paths through static taint analysis, and then integrates a dynamic information flow tracking (DIFT) mechanism into the application via selective code instrumentation. We evaluated Turnstile using 61 third-party IoT applications, and show that it can be an effective solution for managing the privacy of IoT applications.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="entry" id="good-ones">
+        <span class="when">2025</span>
+        <div class="what">
+          <h3><a href="https://doi.org/10.1109/DSN-W65791.2025.00073">Learning from the Good Ones: Risk Profiling-Based Defenses Against Evasion Attacks on DNNs</a></h3>
+          <p class="who">Mohammed Elnawawy, <b>Gargi Mitra</b>, Shahrear Iqbal, Karthik Pattabiraman</p>
+          <p class="where"><i>DSML 2025 workshop, co-located with DSN 2025</i> (oral presentation) [Acceptance rate: 64%]</p>
+          <ul class="tags">
+            <li>AI/ML security</li>
+          </ul>
+          <p class="entry-links">
+            <a href="https://doi.org/10.1109/DSN-W65791.2025.00073">DOI</a>
+            <a href="papers/riskProfiling.pdf">PDF</a>
+          </p>
+          <div class="abstract" hidden>
+            <p><b>Abstract.</b> Safety-critical applications such as healthcare and autonomous vehicles use deep neural networks (DNN) to make predictions and infer decisions. DNNs are susceptible to evasion attacks, where an adversary crafts a malicious data instance to trick the DNN into making wrong decisions at inference time. Existing defenses that protect DNNs against evasion attacks are either static or dynamic. Static defenses are computationally efficient but do not adapt to the evolving threat landscape, while dynamic defenses are adaptable but suffer from an increased computational overhead. To combine the best of both worlds, in this paper, we propose a novel risk profiling framework that uses a risk-aware strategy to selectively train static defenses using victim instances that exhibit the most resilient features and are hence more resilient against an evasion attack. We hypothesize that training existing defenses on instances that are less vulnerable to the attack enhances the adversarial detection rate by reducing false negatives. We evaluate the efficacy of our risk-aware selective training strategy on a blood glucose management system that demonstrates how training static anomaly detectors indiscriminately may result in an increased false negative rate, which could be life-threatening in safety-critical applications. Our experiments show that selective training on the less vulnerable patients achieves a recall increase of up to 27.5% with minimal impact on precision compared to indiscriminate training.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="entry" id="medaiscout">
+        <span class="when">2024</span>
+        <div class="what">
+          <!-- This workshop paper has no DOI, so both links go to its NeurIPS 2024 workshop page. -->
+          <h3><a href="https://neurips.cc/virtual/2024/106764">MedAIScout: Automated Retrieval of Known Machine Learning Vulnerabilities in Medical Applications</a></h3>
+          <p class="who">Athish Pranav Dharmalingam, <b>Gargi Mitra</b></p>
+          <p class="where"><i>Red Teaming GenAI workshop, co-located with NeurIPS 2024</i></p>
+          <ul class="tags">
+            <li>AI/ML security</li>
+            <li>Medical devices</li>
+            <li>LLM tools</li>
+          </ul>
+          <p class="entry-links">
+            <a href="https://neurips.cc/virtual/2024/106764">Paper</a>
+            <a href="papers/medaiscout.pdf">PDF</a>
+            <a href="papers/medaiscout_poster.pdf">Slides</a>
+          </p>
+          <div class="abstract" hidden>
+            <p><b>Abstract.</b> Machine learning (ML)-enabled medical devices are transforming the healthcare industry but are vulnerable to adversarial attacks that can compromise their safety. Current red teaming efforts often overlook these ML-specific threats, leaving devices exposed. To address this, we present MedAIScout, a semi-automated tool designed to retrieve information on known ML vulnerabilities relevant to ML-enabled medical devices. Through case studies on five FDA-approved ML-enabled devices, we demonstrate that MedAIScout effectively identifies relevant vulnerabilities in four of them, significantly aiding red teaming efforts.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="entry" id="systems-theoretic">
+        <span class="when">2024</span>
+        <div class="what">
+          <h3><a href="https://doi.org/10.1007/978-3-032-13800-2_11">Systems-Theoretic and Data-Driven Security Analysis in ML-enabled Medical Devices</a></h3>
+          <p class="who"><b>Gargi Mitra</b>, Mohammadreza Hallajiyan, Inji Kim, Athish Pranav Dharmalingam, Mohammed Elnawawy, Shahrear Iqbal, Karthik Pattabiraman, Homa Alemzadeh</p>
+          <p class="where"><i>Springer Nature Communications in Computer and Information Science (CCIS, volume 2716)</i> (invited)</p>
+          <ul class="tags">
+            <li>AI/ML security</li>
+            <li>Medical devices</li>
+          </ul>
+          <p class="entry-links">
+            <a href="https://doi.org/10.1007/978-3-032-13800-2_11">DOI</a>
+            <a href="papers/system-theoretic_springernature.pdf">PDF</a>
+          </p>
+          <div class="abstract" hidden>
+            <p><b>Abstract.</b> The integration of AI/ML into medical devices is rapidly transforming healthcare by enhancing diagnostic and treatment facilities. However, this advancement also introduces serious cybersecurity risks due to the use of complex and often opaque models, extensive interconnectivity, interoperability with third-party peripheral devices, Internet connectivity, and vulnerabilities in the underlying technologies. These factors contribute to a broad attack surface and make threat prevention, detection, and mitigation challenging. Given the highly safety-critical nature of these devices, a cyberattack on these devices can cause the ML models to mispredict, thereby posing significant safety risks to patients. Therefore, ensuring the security of these devices from the time of design is essential. This paper underscores the urgency of addressing the cybersecurity challenges in ML-enabled medical devices at the pre-market phase. We begin by analyzing publicly available data on device recalls and adverse events, and known vulnerabilities, to understand the threat landscape of AI/ML-enabled medical devices and their repercussions on patient safety. Building on this analysis, we introduce a suite of tools and techniques designed by us to assist security analysts in conducting comprehensive premarket risk assessments. Our work aims to empower manufacturers to embed cybersecurity as a core design principle in AI/ML-enabled medical devices, thereby making them safe for patients.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="entry" id="sam">
+        <span class="when">2024</span>
+        <div class="what">
+          <h3><a href="https://doi.org/10.1145/3689942.3694745">SAM: Foreseeing Inference-Time False Data Injection Attacks on ML-enabled Medical Devices</a></h3>
+          <p class="who">Mohammadreza Hallajiyan, Athish Pranav Dharmalingam, <b>Gargi Mitra</b>, Homa Alemzadeh, Shahrear Iqbal, Karthik Pattabiraman</p>
+          <p class="where"><i>HealthSec 2024 workshop, co-located with ACM CCS 2024, pp. 77–84</i> [Acceptance rate: 57%]</p>
+          <ul class="tags">
+            <li>AI/ML security</li>
+            <li>Medical devices</li>
+          </ul>
+          <p class="entry-links">
+            <a href="https://doi.org/10.1145/3689942.3694745">DOI</a>
+            <a href="papers/sam.pdf">PDF</a>
+          </p>
+          <div class="abstract" hidden>
+            <p><b>Abstract.</b> The increasing use of machine learning (ML) in medical systems necessitates robust security measures to mitigate potential threats. Current research often overlooks the risk of adversaries injecting false inputs through peripheral devices at inference time, leading to mispredictions in patients' conditions. These risks are hard to foresee and mitigate during the design phase since the system is assembled by end users at the time of use. To address this gap, we introduce SAM, a technique that enables security analysts to perform System Theoretic Process Analysis for Security (STPA-Sec) on ML-enabled medical devices during the design phase. SAM models the medical system as a control structure, with the ML engine as the controller and peripheral devices as potential points for false data injection. It interfaces with state-of-the-art vulnerability databases and Large Language Models (LLMs) to automate the discovery of vulnerabilities and generate a list of possible attack paths. We demonstrate the usefulness of SAM through case studies on two FDA-cleared medical devices: a blood glucose management system and a bone mineral density measurement software. SAM allows security analysts to expedite the security assessment of ML-enabled medical devices at the design phase. This proactive approach mitigates potential patient harm and reduces costs associated with post-deployment security measures.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="entry" id="chase">
+        <span class="when">2024</span>
+        <div class="what">
+          <h3><a href="https://doi.org/10.1109/CHASE60773.2024.00019">Systematically Assessing the Security Risks of AI/ML-enabled Connected Healthcare Systems</a></h3>
+          <p class="who">Mohammad ElNawawy, Mohammadreza Hallajiyan, <b>Gargi Mitra</b>, Shahrear Iqbal, Karthik Pattabiraman</p>
+          <p class="where"><i>IEEE/ACM CHASE 2024</i> [Acceptance rate: 28.4%]</p>
+          <ul class="tags">
+            <li>AI/ML security</li>
+            <li>Medical devices</li>
+          </ul>
+          <p class="entry-links">
+            <a href="https://doi.org/10.1109/CHASE60773.2024.00019">DOI</a>
+            <a href="papers/systematically_chase.pdf">PDF</a>
+          </p>
+          <div class="abstract" hidden>
+            <p><b>Abstract.</b> The adoption of machine-learning-enabled systems in the healthcare domain is on the rise. While the use of ML in healthcare has several benefits, it also expands the threat surface of medical systems. We show that the use of ML in medical systems, particularly connected systems that involve interfacing the ML engine with multiple peripheral devices, has security risks that might cause life-threatening damage to a patient's health in case of adversarial interventions. These new risks arise due to security vulnerabilities in the peripheral devices and communication channels. We present a case study where we demonstrate an attack on an ML-enabled blood glucose monitoring system by introducing adversarial data points during inference. We show that an adversary can achieve this by exploiting a known vulnerability in the Bluetooth communication channel connecting the glucose meter with the ML-enabled app. We further show that state-of-the-art risk assessment techniques are not adequate for identifying and assessing these new risks. Our study highlights the need for novel risk analysis methods for analyzing the security of AI-enabled connected health devices.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="entry" id="immunoplane">
+        <span class="when">2024</span>
+        <div class="what">
+          <h3><a href="https://doi.org/10.1109/IoTDI61053.2024.00006">ImmunoPlane: Middleware for Providing Adaptivity to Distributed Internet-of-Things Applications</a></h3>
+          <p class="who">Kumseok Jung, <b>Gargi Mitra</b>, Sathish Gopalakrishnan, Karthik Pattabiraman</p>
+          <p class="where"><i>IEEE/ACM IoTDI 2024</i> [Acceptance rate: 36.7%]</p>
+          <ul class="tags">
+            <li>IoT</li>
+          </ul>
+          <p class="entry-links">
+            <a href="https://doi.org/10.1109/IoTDI61053.2024.00006">DOI</a>
+            <a href="papers/immunoplane.pdf">PDF</a>
+          </p>
+          <div class="abstract" hidden>
+            <p><b>Abstract.</b> Distributed Internet-of-Things (IoT) applications operate in a dynamic environment, and therefore need to adapt in response to unexpected failures and changes in the operating conditions. Making IoT applications adaptive is challenging due to two reasons. First, an IoT application comprises multiple service components, each with a different performance and dependability requirement. Second, an application can be deployed in vastly different runtime infrastructures, each varying in the availability of resources, and sources of faults. Hence, an adaptivity solution must be both application-aware and infrastructure-agnostic. In this paper, we present a middleware system called ImmunoPlane that transparently provides adaptivity to IoT applications. ImmunoPlane provides a domain-specific language for users to declaratively state application-specific requirements, and it produces an adaptive deployment plan based on the given infrastructure and the user-provided application requirements. We show that ImmunoPlane can satisfy application requirements such as availability, throughput, and latency, under both failures and network congestion, in three different infrastructures.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="entry" id="snoopy">
+        <span class="when">2022</span>
+        <div class="what">
+          <h3><a href="https://doi.org/10.1109/TDSC.2022.3222462">Snoopy: A Webpage Fingerprinting Framework with Finite Query Model for Mass-Surveillance</a></h3>
+          <p class="who"><b>Gargi Mitra</b>, Prasanna Karthik Vairam, Sandip Saha, Nitin Chandrachoodan, Kamakoti Veezhinathan</p>
+          <p class="where"><i>IEEE Transactions on Dependable and Secure Computing, 2022</i> [Acceptance rate: 10–12%] [Impact factor: 7.5]</p>
+          <ul class="tags">
+            <li>Network security</li>
+            <li>Encrypted traffic analysis</li>
+            <li>Privacy</li>
+          </ul>
+          <p class="entry-links">
+            <a href="https://doi.org/10.1109/TDSC.2022.3222462">DOI</a>
+            <a href="papers/snoopy.pdf">PDF</a>
+            <a href="videos/Snoopy.mp4">Teaser</a>
+          </p>
+          <div class="abstract" hidden>
+            <p><b>Abstract.</b> Internet users are vulnerable to privacy attacks despite the use of encryption. Webpage fingerprinting, an attack that analyzes encrypted traffic, can identify the webpages visited by a user. The key challenges in performing mass-scale webpage fingerprinting arise from (i) the sheer number of combinations of user behavior and preferences to account for, and; (ii) the bound on the number of website queries imposed by the defense mechanisms (e.g., DDoS defense) deployed at the website. These constraints preclude the use of conventional data-intensive ML-based techniques. In this work, we propose Snoopy, a first-of-its-kind framework, that performs webpage fingerprinting for a large number of users visiting a website. Snoopy caters to the generalization requirements of mass-surveillance while complying with a bound on the number of website accesses (finite query model) for traffic sample collection. We show that Snoopy achieves ≈90% accuracy when evaluated on most websites, across various browsing contexts. A simple ensemble of Snoopy and an ML-based technique achieves ≈97% accuracy while adhering to the finite query model, in cases when Snoopy alone does not perform well.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="entry" id="http2">
+        <span class="when">2020</span>
+        <div class="what">
+          <h3><a href="https://doi.org/10.1109/DSN48063.2020.00044">Depending on HTTP/2 for Privacy? Good Luck!</a></h3>
+          <p class="who"><b>Gargi Mitra</b>, Prasanna Karthik Vairam, Patanjali SLPSK, Nitin Chandrachoodan, Kamakoti Veezhinathan</p>
+          <p class="where"><i>IEEE/IFIP DSN 2020</i> [Acceptance rate: 16.5%]</p>
+          <ul class="tags">
+            <li>Network security</li>
+            <li>Encrypted traffic analysis</li>
+            <li>Privacy</li>
+          </ul>
+          <p class="entry-links">
+            <a href="https://doi.org/10.1109/DSN48063.2020.00044">DOI</a>
+            <a href="papers/http2.pdf">PDF</a>
+          </p>
+          <div class="abstract" hidden>
+            <p><b>Abstract.</b> HTTP/2 introduced multi-threaded server operation for performance improvement over HTTP/1.1. Recent works have discovered that multi-threaded operation results in multiplexed object transmission, that can also have an unanticipated positive effect on TLS/SSL privacy. In fact, these works go on to design privacy schemes that rely heavily on multiplexing to obfuscate the sizes of the objects based on which the attackers inferred sensitive information. Orthogonal to these works, we examine if the privacy offered by such schemes work in practice. In this work, we show that it is possible for a network adversary with modest capabilities to completely break the privacy offered by the schemes that leverage HTTP/2 multiplexing. Our adversary works based on the following intuition: restricting only one HTTP/2 object to be in the server queue at any point of time will eliminate multiplexing of that object and any privacy benefit thereof. In our scheme, we begin by studying if (1) packet delays, (2) network jitter, (3) bandwidth limitation, and (4) targeted packet drops have an impact on the number of HTTP/2 objects processed by the server at an instant of time. Based on these insights, we design our adversary that forces the server to serialize object transmissions, thereby completing the attack. Our adversary was able to break the privacy of a real-world HTTP/2 website 90% of the time, the code for which will be released. To the best of our knowledge, this is the first privacy attack on HTTP/2.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="entry" id="white-mirror">
+        <span class="when">2019</span>
+        <div class="what">
+          <h3><a href="https://doi.org/10.1145/3342280.3342330">White Mirror: Leaking Sensitive Information from Interactive Netflix Movies using Encrypted Traffic Analysis</a></h3>
+          <p class="who"><b>Gargi Mitra</b>, Prasanna Karthik Vairam, Patanjali SLPSK, Nitin Chandrachoodan, Kamakoti Veezhinathan</p>
+          <p class="where"><i>ACM SIGCOMM 2019</i> (poster, extended abstract)</p>
+          <p>Covered by <a href="https://www.wired.com/story/netflix-interactive-bandersnatch-hackers-choices/">WIRED</a>, <a href="https://www.financialexpress.com/life/technology-netflix-bandersnatch-you-vs-wild-bear-grylss-hacking-iit-madras-1555841/">Financial Express</a> and <a href="https://www.gadgets360.com/entertainment/news/netflix-hackers-interactive-movies-choices-bandersnatch-iit-madras-research-2026878">Gadgets 360</a>.</p>
+          <ul class="tags">
+            <li>Network security</li>
+            <li>Encrypted traffic analysis</li>
+            <li>Privacy</li>
+          </ul>
+          <p class="entry-links">
+            <a href="https://doi.org/10.1145/3342280.3342330">DOI</a>
+            <a href="papers/white_mirror.pdf">PDF</a>
+          </p>
+          <div class="abstract" hidden>
+            <p><b>Abstract.</b> Privacy leaks from Netflix videos/movies are well researched. Current state-of-the-art works have been able to obtain coarse-grained information such as the genre and the title of videos by passive observation of encrypted traffic. However, leakage of fine-grained information from encrypted video traffic has not been studied so far. Such information can be used to build behavioral profiles of viewers.</p>
+            <p>Recently, Netflix released the first mainstream interactive movie called 'Black Mirror: Bandersnatch'. In this work, we use this movie as a case-study to develop techniques for revealing information from encrypted interactive video traffic. We show for the first time that information such as the choices made by viewers can be revealed based on the characteristics of encrypted control traffic exchanged with Netflix. To evaluate our proposed technique, we built the first interactive video traffic dataset of 100 viewers; which we will be releasing. Our technique was able to reveal the choices 96% of the time in the case of 'Black Mirror: Bandersnatch' and they were also equally or more successful for all other interactive movies released by Netflix so far.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="entry" id="infocom">
+        <span class="when">2019</span>
+        <div class="what">
+          <h3><a href="https://doi.org/10.1109/INFOCOM.2019.8737487">Towards Measuring Quality of Service in Untrusted Multi-Vendor Service Function Chains: Balancing Security and Resource Consumption</a></h3>
+          <p class="who">Prasanna Karthik Vairam, <b>Gargi Mitra</b>, Vignesh Manoharan, Chester Rebeiro, Bhaskar Ramamurthy, Kamakoti Veezhinathan</p>
+          <p class="where"><i>IEEE INFOCOM 2019</i> [Acceptance rate: 19.7%]</p>
+          <ul class="tags">
+            <li>Network security</li>
+          </ul>
+          <p class="entry-links">
+            <a href="https://doi.org/10.1109/INFOCOM.2019.8737487">DOI</a>
+            <a href="papers/eBF.pdf">PDF</a>
+          </p>
+          <div class="abstract" hidden>
+            <p><b>Abstract.</b> The IT infrastructure of large organizations consists of devices and software services purchased from multiple vendors. The problem of measuring the quality of service (QoS) of each of these vendor devices (and services) is challenging since the vendors may tamper with the measurements for monetary benefits or saving debugging efforts. Existing solutions for QoS measurement in trusted environments cannot be extended for this problem since the vendors can easily circumvent them. Solutions borrowed from other areas such as client-server QoS measurement do not help either since they incur unreasonable storage and network overheads, or require extensive modifications to the packet headers. In this paper, we propose the Measuring Tape scheme, comprised of (1) a novel data structure called evidence Bloom filter (e-BF) that can be deployed at the vendor devices (and services), and (2) unique querying techniques, which can be used by the administrator to query the e-BF to measure QoS. While e-BF uses storage and computational resources judiciously, the querying techniques ensure resilience to adversarial behavior. We evaluate our solution based on a few real-world and synthetic traces and with different adversaries. Our results highlight the trade-off between resources (i.e., storage and computation) and the accuracy of QoS predictions, as well as its implications on security. We also present an analytical model of e-BF that establishes the relationship between storage, prediction accuracy, and security. Further, we present security arguments to illustrate how our solution thwarts adversarial attempts to tamper QoS.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="entry" id="approxbc">
+        <span class="when">2018</span>
+        <div class="what">
+          <h3><a href="https://doi.org/10.1109/MCOMSTD.2018.1800021">ApproxBC: Blockchain Design Alternatives for Approximation-Tolerant Resource-Constrained Applications</a></h3>
+          <p class="who">Prasanna Karthik Vairam, <b>Gargi Mitra</b>, Chester Rebeiro, Bhaskar Ramamurthy, Kamakoti Veezhinathan</p>
+          <p class="where"><i>IEEE Communications Standards Magazine, 2018</i></p>
+          <ul class="tags">
+            <li>Blockchain</li>
+          </ul>
+          <p class="entry-links">
+            <a href="https://doi.org/10.1109/MCOMSTD.2018.1800021">DOI</a>
+            <a href="papers/approxbc.pdf">PDF</a>
+          </p>
+          <div class="abstract" hidden>
+            <p><b>Abstract.</b> Blockchains are known to provide verifiable tamper-resistant trails of accepted transactions. This guarantee comes at the considerable cost of storage and computational power, thereby restricting its application. Current research has focused on alternatives such as proof of reputation, proof of stake, and proof of elapsed-time to reduce the computational burden on the blockchain participants. Orthogonal to this effort, we focus on a specific set of applications that cannot commit much storage space and computational resources, but require only reasonable guarantees on the validity of transactions. To this end, we introduce blockchain design alternatives, collectively called ApproxBC, that can provide proof of transactions with provable confidence bounds. Consequently, ApproxBC can considerably reduce the computation and storage resources required, making them suitable for resource-constrained Internet of Things environments. We also showcase two approximation-tolerant applications that can leverage the quicker computation and smaller storage requirements.</p>
+          </div>
+        </div>
+      </li>
+
+    </ol>
+  </section>
+
+  <!-- EDIT: change the date whenever you update the page -->
+  <p class="foot">Last updated October 2026</p>
+
+</div>
+
+<!-- The behaviour of the site: light / dark switch, paper filter, paper abstracts. -->
+<script src="script.js"></script>
+</body>
+</html>

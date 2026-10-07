@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--
+  THE EDUCATION PAGE. Editing notes for the whole site are at the top of index.html.
+  This page needs style.css and script.js in the same folder.
+-->
+
+<!-- EDIT: the browser tab title and the short description search engines show -->
+<title>Education | Gargi Mitra</title>
+<meta name="description" content="Education of Gargi Mitra, systems and network security researcher.">
+<meta property="og:title" content="Education | Gargi Mitra">
+<meta property="og:description" content="Degrees and research training.">
+<meta property="og:type" content="website">
+
+<!-- Chooses light or dark before the page is drawn: the visitor's own choice
+     if they have used the switch before, otherwise their device setting. -->
+<script>
+(function () {
+  var saved = null;
+  try { saved = localStorage.getItem('theme'); } catch (e) {}
+  var dark = saved === 'dark' || (saved !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Newsreader:ital,opsz,wght@0,6..72,400..650;1,6..72,400..650&display=swap" rel="stylesheet">
+<!-- The font for your name -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- The look of the site. Colours and fonts are at the top of this file. -->
+<link rel="stylesheet" href="style.css">
+</head>
+
+<!-- class="larger-text" shows this page's text 15% larger. The amount is set near the top of style.css. -->
+<body class="larger-text">
+
+<!-- ============================ SIDE PANEL ============================
+     This block appears on every page. EDIT: one link per page or section.
+     If you add, rename or remove a link, make the same change on every page.
+     aria-current="page" marks the page you are on: keep it only on that page's own link. -->
+<aside class="sidebar">
+  <a class="site-name" href="index.html">Gargi Mitra</a>
+
+  <nav class="nav" aria-label="Site">
+    <a href="index.html#about">About</a>
+    <a href="papers.html">Publications</a>
+    <a href="experience.html">Work Experience</a>
+    <a href="education.html" aria-current="page">Education</a>
+    <a href="skills.html">Skills</a>
+    <a href="awards.html">Awards and Talks</a>
+  </nav>
+
+  <!-- The light / dark switch. Nothing to edit. -->
+  <button class="theme-switch" type="button" role="switch" aria-checked="false" hidden>
+    <span>Dark mode</span>
+    <span class="theme-switch-track" aria-hidden="true"><span class="theme-switch-knob"></span></span>
+  </button>
+</aside>
+
+<div class="page">
+
+  <!-- ============================ EDUCATION ============================ -->
+  <section id="education">
+    <h2>Education</h2>
+    <ol class="timeline">
+
+      <!-- NEW DEGREE OR QUALIFICATION: copy from this <li> down to its closing </li>, paste above, edit -->
+      <li class="entry">
+        <span class="when">2015–2022</span>
+        <div class="what">
+          <h3>PhD and MS (dual degree), Computer Science and Engineering</h3>
+          <p class="where">Indian Institute of Technology Madras, Chennai, India</p>
+          <p>Dissertation: <a href="papers/PhD_Thesis.pdf">Encrypted Traffic Analysis-Based Cyber Surveillance and Possible Mitigation Techniques</a>.</p>
+          <p>Advisors: Dr. Kamakoti Veezhinathan and Dr. Nitin Chandrachoodan.</p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <span class="when">2021</span>
+        <div class="what">
+          <h3>Mitacs-SICI Indo-Canadian Research Internship</h3>
+          <p class="where">The University of British Columbia and IIT Madras</p>
+          <p>Encrypted traffic analysis-based attacks on Internet-connected industrial control systems.</p>
+          <p>Host advisor: Dr. Karthik Pattabiraman.</p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <span class="when">2009–2013</span>
+        <div class="what">
+          <h3>B.Tech, Computer Science and Engineering</h3>
+          <p class="where">St. Thomas' College of Engineering &amp; Technology, Kolkata</p>
+          <p>Research internship: space-efficient synthesis of reversible logic circuits.</p>
+          <p>Advisor: Dr. Dipak Kumar Kole.</p>
+        </div>
+      </li>
+
+    </ol>
+  </section>
+
+  <!-- EDIT: change the date whenever you update the page -->
+  <p class="foot">Last updated October 2026</p>
+
+</div>
+
+<!-- The behaviour of the site: light / dark switch, paper filter, paper abstracts. -->
+<script src="script.js"></script>
+</body>
+</html>

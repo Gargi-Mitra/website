@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--
+  THE WORK EXPERIENCE PAGE. Editing notes for the whole site are at the top of index.html.
+  This page needs style.css and script.js in the same folder.
+-->
+
+<!-- EDIT: the browser tab title and the short description search engines show -->
+<title>Work Experience | Gargi Mitra</title>
+<meta name="description" content="Work experience of Gargi Mitra, systems and network security researcher.">
+<meta property="og:title" content="Work Experience | Gargi Mitra">
+<meta property="og:description" content="Research and industry roles, with project details.">
+<meta property="og:type" content="website">
+
+<!-- Chooses light or dark before the page is drawn: the visitor's own choice
+     if they have used the switch before, otherwise their device setting. -->
+<script>
+(function () {
+  var saved = null;
+  try { saved = localStorage.getItem('theme'); } catch (e) {}
+  var dark = saved === 'dark' || (saved !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Newsreader:ital,opsz,wght@0,6..72,400..650;1,6..72,400..650&display=swap" rel="stylesheet">
+<!-- The font for your name -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- The look of the site. Colours and fonts are at the top of this file. -->
+<link rel="stylesheet" href="style.css">
+</head>
+
+<!-- class="larger-text" shows this page's text 15% larger. The amount is set near the top of style.css. -->
+<body class="larger-text">
+
+<!-- ============================ SIDE PANEL ============================
+     This block appears on every page. EDIT: one link per page or section.
+     If you add, rename or remove a link, make the same change on every page.
+     aria-current="page" marks the page you are on: keep it only on that page's own link. -->
+<aside class="sidebar">
+  <a class="site-name" href="index.html">Gargi Mitra</a>
+
+  <nav class="nav" aria-label="Site">
+    <a href="index.html#about">About</a>
+    <a href="papers.html">Publications</a>
+    <a href="experience.html" aria-current="page">Work Experience</a>
+    <a href="education.html">Education</a>
+    <a href="skills.html">Skills</a>
+    <a href="awards.html">Awards and Talks</a>
+  </nav>
+
+  <!-- The light / dark switch. Nothing to edit. -->
+  <button class="theme-switch" type="button" role="switch" aria-checked="false" hidden>
+    <span>Dark mode</span>
+    <span class="theme-switch-track" aria-hidden="true"><span class="theme-switch-knob"></span></span>
+  </button>
+</aside>
+
+<div class="page">
+
+  <!-- ========================= WORK EXPERIENCE ========================= -->
+  <section id="experience">
+    <h2>Work Experience</h2>
+    <ol class="timeline">
+
+      <!-- NEW ROLE: copy from this <li> down to its closing </li>, paste above, edit -->
+      <li class="entry">
+        <span class="when">2023–2026</span>
+        <div class="what">
+          <h3>Postdoctoral Research Fellow</h3>
+          <p class="where">The University of British Columbia, Vancouver, Canada</p>
+          <p>Advisors: Dr. Karthik Pattabiraman (ECE) and Dr. Aastha Mehta (CS).</p>
+          <!-- EDIT: one <details class="project"> block per project. The <summary> line is the
+               project name; the bullet points stay hidden until a visitor clicks the + beside it. -->
+          <details class="project">
+            <summary><b>ICS-Sniper</b> (lead researcher and mentor)</summary>
+            <ul>
+              <li>Designed and implemented the first targeted blackhole attack that exploits the metadata of encrypted ICS/OT network traffic.</li>
+              <li>Developed the full analysis chain: feature extraction from TLS- and VPN-encapsulated SCADA traffic, recovery of control-loop periodicity, clustering to identify target flows, and selective packet dropping in live traffic.</li>
+              <li>Built hardware and software testbeds (S-SWaT, H-SWaT) with Allen-Bradley PLCs, and evaluated network-layer mitigations such as traffic shaping.</li>
+              <li>Led a five-member, multi-year project and co-authored a grant proposal awarded CAD 500K by the National Cybersecurity Consortium of Canada (2024).</li>
+              <li>Delivered talks at Idaho National Laboratory and ETS Montreal, and reported progress to the consortium every quarter.</li>
+            </ul>
+          </details>
+          <details class="project">
+            <summary><b>Security of AI/ML-enabled medical devices</b> (researcher and mentor)</summary>
+            <ul>
+              <li>Systematized the identification of inference-time security risks that emerge when AI/ML is integrated with legacy medical infrastructure.</li>
+              <li>Defined threat models and built LLM- and RAG-based tools that identify these risks from a system's design, informed by MITRE ATT&amp;CK and ATLAS.</li>
+              <li>Extended the work to detector robustness: evasion attacks on DNN-based anomaly detectors, and risk-profiling defenses against them.</li>
+              <li>Mentored PhD, MASc, undergraduate and capstone students, with collaborators at UBC, the University of Virginia and IIT Madras.</li>
+              <li>Presented the work to industry executives at Medtronic, GE and Medcrypt, and to the FDA.</li>
+            </ul>
+          </details>
+          <details class="project">
+            <summary><b>IoT privacy and information flow control</b> (collaborating researcher)</summary>
+            <ul>
+              <li>Contributed privacy research ideas to the group's IoT work.</li>
+              <li>Co-authored Turnstile, a hybrid information flow control framework for GDPR-compliant IoT applications (EuroSys 2026).</li>
+              <li>Co-authored ImmunoPlane, a middleware that brings adaptivity to distributed IoT applications (IoTDI 2024).</li>
+            </ul>
+          </details>
+        </div>
+      </li>
+
+      <li class="entry">
+        <span class="when">2013–2015</span>
+        <div class="what">
+          <h3>Programmer Analyst</h3>
+          <p class="where">Cognizant Technology Solutions India Pvt. Ltd.</p>
+          <p>Data warehousing for enterprise data systems, within production software development workflows.</p>
+        </div>
+      </li>
+
+    </ol>
+  </section>
+
+  <!-- EDIT: change the date whenever you update the page -->
+  <p class="foot">Last updated October 2026</p>
+
+</div>
+
+<!-- The behaviour of the site: light / dark switch, paper filter, paper abstracts. -->
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--
+  THE SKILLS PAGE. Editing notes for the whole site are at the top of index.html.
+  This page needs style.css and script.js in the same folder.
+-->
+
+<!-- EDIT: the browser tab title and the short description search engines show -->
+<title>Skills | Gargi Mitra</title>
+<meta name="description" content="Skills of Gargi Mitra, systems and network security researcher, with the work that demonstrates each one.">
+<meta property="og:title" content="Skills | Gargi Mitra">
+<meta property="og:description" content="Skills, with the published work and projects that demonstrate each one.">
+<meta property="og:type" content="website">
+
+<!-- Chooses light or dark before the page is drawn: the visitor's own choice
+     if they have used the switch before, otherwise their device setting. -->
+<script>
+(function () {
+  var saved = null;
+  try { saved = localStorage.getItem('theme'); } catch (e) {}
+  var dark = saved === 'dark' || (saved !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Newsreader:ital,opsz,wght@0,6..72,400..650;1,6..72,400..650&display=swap" rel="stylesheet">
+<!-- The font for your name -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- The look of the site. Colours and fonts are at the top of this file. -->
+<link rel="stylesheet" href="style.css">
+</head>
+
+<!-- class="larger-text" shows this page's text 15% larger. The amount is set near the top of style.css. -->
+<body class="larger-text">
+
+<!-- ============================ SIDE PANEL ============================
+     This block appears on every page. EDIT: one link per page or section.
+     If you add, rename or remove a link, make the same change on every page.
+     aria-current="page" marks the page you are on: keep it only on that page's own link. -->
+<aside class="sidebar">
+  <a class="site-name" href="index.html">Gargi Mitra</a>
+
+  <nav class="nav" aria-label="Site">
+    <a href="index.html#about">About</a>
+    <a href="papers.html">Publications</a>
+    <a href="experience.html">Work Experience</a>
+    <a href="education.html">Education</a>
+    <a href="skills.html" aria-current="page">Skills</a>
+    <a href="awards.html">Awards and Talks</a>
+  </nav>
+
+  <!-- The light / dark switch. Nothing to edit. -->
+  <button class="theme-switch" type="button" role="switch" aria-checked="false" hidden>
+    <span>Dark mode</span>
+    <span class="theme-switch-track" aria-hidden="true"><span class="theme-switch-knob"></span></span>
+  </button>
+</aside>
+
+<div class="page">
+
+  <!-- ============================== SKILLS ============================== -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <!-- EDIT: the instruction shown above the skills list -->
+    <p class="hint">Each area lists specific skills. Click a + to see the work where I used them.</p>
+    <ul class="timeline">
+
+      <!-- NEW SKILL AREA: copy from this <li class="entry"> down to its closing </li>, paste it where you want it, edit.
+           <h3> is the area name. The <p> under it is one sentence on what you can do.
+           Each <li> in <ul class="tags"> is one skill.
+           Each <li> inside <details> is one piece of work that shows the skill; link it to the page that describes the work. -->
+      <li class="entry">
+        <span class="when" aria-hidden="true"></span>
+        <div class="what">
+          <h3>Network protocols and encrypted traffic analysis</h3>
+          <p>I read protocol behavior and application-layer patterns directly off the wire, encrypted or not, and work out what a network sensor can and cannot recover.</p>
+          <ul class="tags">
+            <li>TCP/IP stack</li>
+            <li>HTTP/1.1 and HTTP/2</li>
+            <li>HTTPS and TLS 1.3</li>
+            <li>DNS</li>
+            <li>WireGuard and OpenVPN</li>
+            <li>Modbus/TCP and CIP</li>
+            <li>Encrypted traffic analysis</li>
+            <li>Webpage and application fingerprinting</li>
+            <li>Side-channel feature engineering</li>
+            <li>Phase folding</li>
+            <li>Superperiod detection</li>
+            <li>Hierarchical clustering</li>
+            <li>Wireshark, tshark, pyshark, Scapy</li>
+            <li>HAR and pcap correlation</li>
+            <li>Traffic dataset collection</li>
+          </ul>
+          <details class="project">
+            <summary><b>Where I used it</b></summary>
+            <ul>
+              <li><a href="papers.html#ics-sniper">ICS-Sniper</a> (NDSS 2027). Profiled an industrial process from its encrypted traffic alone: extracted features from TLS- and VPN-encapsulated SCADA traffic, recovered control-loop periodicity with phase folding and superperiod detection, and clustered flows to find the packets that matter.</li>
+              <li><a href="papers.html#snoopy">Snoopy</a> (IEEE TDSC 2022). Fingerprinted webpages from the sequence of encrypted resource sizes, for every user of a website at once, with about 90% accuracy across browsing contexts.</li>
+              <li><a href="papers.html#http2">Depending on HTTP/2 for Privacy? Good Luck!</a> (DSN 2020). The first traffic-analysis attack to defeat HTTP/2 multiplexing.</li>
+              <li><a href="papers.html#white-mirror">White Mirror</a> (SIGCOMM 2019). Recovered the choices viewers make in interactive Netflix titles from encrypted traffic, 96% of the time in the worst case, and built the first interactive-video traffic dataset, from 100 viewers.</li>
+              <li>AI-service fingerprinting (independent project, in progress). Classifying encrypted flows to AI services by provider, model and client surface, using paired HAR and pcap capture and a labelling set that covers more than 15 AI providers.</li>
+            </ul>
+          </details>
+        </div>
+      </li>
+
+      <li class="entry">
+        <span class="when" aria-hidden="true"></span>
+        <div class="what">
+          <h3>Attack research and proof-of-concept development</h3>
+          <p>I take a weakness from root cause to working proof of concept, then measure its real impact and propose a countermeasure.</p>
+          <ul class="tags">
+            <li>Root-cause and exploitability analysis</li>
+            <li>Protocol- and design-level weaknesses</li>
+            <li>Proof-of-concept development</li>
+            <li>Impact measurement</li>
+            <li>On-path (MITM) interception</li>
+            <li>In-path traffic manipulation</li>
+            <li>Targeted denial of service</li>
+            <li>Selective blackholing</li>
+            <li>Side-channel information leakage</li>
+            <li>False data injection</li>
+            <li>Adversarial evasion</li>
+          </ul>
+          <details class="project">
+            <summary><b>Where I used it</b></summary>
+            <ul>
+              <li><a href="papers.html#ics-sniper">ICS-Sniper</a> (NDSS 2027). The first targeted blackhole attack on encrypted ICS traffic. From outside the plant perimeter, and without breaking encryption, it drops only the packets a process depends on, using NetfilterQueue on live traffic.</li>
+              <li><a href="papers.html#http2">Depending on HTTP/2 for Privacy? Good Luck!</a> (DSN 2020). Built an active on-path adversary that adds jitter, throttles bandwidth and drops packets to force a server to send objects one at a time, which exposes their sizes.</li>
+              <li><a href="papers.html#chase">Security risks of AI/ML-enabled connected healthcare systems</a> (CHASE 2024). Showed that adversarial glucose readings injected over a compromised Bluetooth link make a blood glucose management system's ML model mispredict. Success ranged from 44% to 100% depending on the patient.</li>
+              <li><a href="papers.html#snoopy">Snoopy</a> and <a href="papers.html#white-mirror">White Mirror</a>. Side-channel attacks that leak user behavior from encrypted traffic without touching either endpoint.</li>
+            </ul>
+          </details>
+        </div>
+      </li>
+
+      <li class="entry">
+        <span class="when" aria-hidden="true"></span>
+        <div class="what">
+          <h3>Detection engineering and threat prevention</h3>
+          <p>I turn an understanding of attacks into detection logic, and weigh the coverage and false-positive trade-offs that decide whether a detection ships.</p>
+          <ul class="tags">
+            <li>IDS/IPS evasion analysis</li>
+            <li>Anomaly detection</li>
+            <li>kNN, One-Class SVM, MAD-GAN</li>
+            <li>Detector robustness under evasion</li>
+            <li>Risk profiling</li>
+            <li>Outlier exposure</li>
+            <li>Zeek scripting and packages</li>
+            <li>Live capture pipelines</li>
+            <li>Near-real-time flow processing</li>
+            <li>MITRE ATT&amp;CK mapping</li>
+            <li>Countermeasure evaluation</li>
+            <li>Traffic shaping</li>
+            <li>Testbed validation</li>
+          </ul>
+          <details class="project">
+            <summary><b>Where I used it</b></summary>
+            <ul>
+              <li><a href="papers.html#good-ones">Learning from the Good Ones</a> (DSML 2025). A risk-profiling defense that trains anomaly detectors on the data most resilient to attack. Against evasion attacks it raised recall by 27.5% for kNN and 16.8% for One-Class SVM.</li>
+              <li><a href="papers.html#ics-sniper">ICS-Sniper</a> (NDSS 2027). Tested the attack against existing anomaly detectors, and evaluated network-layer mitigations such as traffic shaping for their coverage and overhead.</li>
+              <li>Zeek and Kitsune network IDS with agentic triage (independent project, in progress). A live pipeline with Zeek for capture and features, Kitsune's autoencoder ensemble as the detector, and an LLM agent that turns per-packet anomalies into candidate Suricata rules and validates them.</li>
+              <li>Detection characteristics framework (independent project, in progress). Specifies what each network detection observes, its evidence quality and its evasion surface, mapped to MITRE ATT&amp;CK and ATLAS. Includes zeek-shadow-ai, a Zeek package for hunting unsanctioned AI traffic.</li>
+            </ul>
+          </details>
+        </div>
+      </li>
+
+      <li class="entry">
+        <span class="when" aria-hidden="true"></span>
+        <div class="what">
+          <h3>Security of AI and ML systems</h3>
+          <p>I analyze how ML models fail under attack once they are wired into real devices and networks, and how to harden them.</p>
+          <ul class="tags">
+            <li>Adversarial machine learning</li>
+            <li>Evasion attacks</li>
+            <li>Adversarial input generation (URET)</li>
+            <li>Inference-time false data injection</li>
+            <li>Robust training of detectors</li>
+            <li>MITRE ATLAS</li>
+            <li>Safety-critical ML</li>
+            <li>ML-enabled medical devices</li>
+            <li>AI-service traffic identification</li>
+            <li>PyTorch and scikit-learn</li>
+          </ul>
+          <details class="project">
+            <summary><b>Where I used it</b></summary>
+            <ul>
+              <li><a href="papers.html#chase">Security risks of AI/ML-enabled connected healthcare systems</a> (CHASE 2024). Analyzed 20 FDA-approved ML-enabled medical devices, mapped known ML attacks to vulnerabilities in the peripherals they connect to, and demonstrated an end-to-end attack on a blood glucose management system.</li>
+              <li><a href="papers.html#sam">SAM</a> (HealthSec 2024). A design-time method that anticipates false data injection attacks on ML-enabled medical devices, applied to two FDA-cleared devices.</li>
+              <li><a href="papers.html#systems-theoretic">Systems-Theoretic and Data-Driven Security Analysis</a> (Springer, invited). Extended that analysis with data from FDA and vulnerability databases; 11 of the 15 devices studied were susceptible to false data injection.</li>
+              <li><a href="papers.html#good-ones">Learning from the Good Ones</a> (DSML 2025). Hardened DNN-based anomaly detectors against evasion attacks.</li>
+            </ul>
+          </details>
+        </div>
+      </li>
+
+      <li class="entry">
+        <span class="when" aria-hidden="true"></span>
+        <div class="what">
+          <h3>AI for security: LLM and agentic tooling</h3>
+          <p>I build AI-assisted tools that take the manual effort out of security analysis, from vulnerability retrieval to alert triage.</p>
+          <ul class="tags">
+            <li>LLM pipelines with retrieval (RAG)</li>
+            <li>Prompt engineering</li>
+            <li>LLM output evaluation</li>
+            <li>Vulnerability retrieval (CVE, NVD)</li>
+            <li>Attack-path generation</li>
+            <li>Alert triage and rule generation</li>
+          </ul>
+          <details class="project">
+            <summary><b>Where I used it</b></summary>
+            <ul>
+              <li><a href="papers.html#medaiscout">MedAIScout</a> (Red Teaming GenAI workshop, NeurIPS 2024). A semi-automated pipeline, built on DistilBERT question answering and a locally hosted Llama 3, that reads a medical device's public documentation and retrieves the ML attack literature that applies to it. It found relevant vulnerabilities for four of five devices, in 10 to 20 minutes each.</li>
+              <li><a href="papers.html#sam">SAM</a> (HealthSec 2024). Used GPT-4, GPT-4o and Llama 3 to generate attack steps from a system's design and its known vulnerabilities; between 84% and 96% of the generated steps were correct.</li>
+              <li>Agentic alert triage (independent project, in progress). An LLM agent with a ReAct-style action space that works over anomaly-detector output, then writes and validates Suricata rules.</li>
+              <li>Current work. Agentic, self-improving tools that identify vulnerabilities and attacks in networked multi-vendor systems.</li>
+            </ul>
+          </details>
+        </div>
+      </li>
+
+      <li class="entry">
+        <span class="when" aria-hidden="true"></span>
+        <div class="what">
+          <h3>Industrial control systems and OT security</h3>
+          <p>I study how connecting industrial plants to the cloud changes their threat model, and test attacks and defenses on real controllers.</p>
+          <ul class="tags">
+            <li>Cloud-connected ICS and SCADA</li>
+            <li>Modbus/TCP</li>
+            <li>CIP and EtherNet/IP</li>
+            <li>Allen-Bradley Micro800 PLCs</li>
+            <li>Hardware testbed (H-SWaT)</li>
+            <li>Software testbed (S-SWaT)</li>
+            <li>MiniCPS and Mininet emulation</li>
+            <li>Industrial network monitoring</li>
+            <li>NIST SP 800-82 and IEC 62443</li>
+          </ul>
+          <details class="project">
+            <summary><b>Where I used it</b></summary>
+            <ul>
+              <li><a href="papers.html#ics-sniper">ICS-Sniper</a> (NDSS 2027). Led the five-member, multi-year project. Built hardware and software water-treatment testbeds with Allen-Bradley PLCs, and presented the work at USENIX Security '25 and, by invitation, at Idaho National Laboratory.</li>
+              <li><a href="education.html">Mitacs-SICI research internship</a> (2021). Encrypted traffic analysis attacks on Internet-connected industrial control systems.</li>
+              <li><a href="awards.html">Eradicator</a> (2017). An integrated defense against cyber attacks on PLC-based industrial control systems. First prize at the Embedded Security Challenge, Cyber Security Awareness Week.</li>
+            </ul>
+          </details>
+        </div>
+      </li>
+
+      <li class="entry">
+        <span class="when" aria-hidden="true"></span>
+        <div class="what">
+          <h3>Threat modeling and risk assessment</h3>
+          <p>I model threats for systems assembled from many vendors' parts, where the dangerous paths cross component boundaries.</p>
+          <ul class="tags">
+            <li>Structured threat modeling</li>
+            <li>STPA-Sec (systems-theoretic analysis)</li>
+            <li>Attack-path enumeration</li>
+            <li>MITRE ATT&amp;CK and ATLAS</li>
+            <li>STRIDE, DREAD, CVSS, FMEA</li>
+            <li>Risk profiling</li>
+            <li>CVE and NVD analysis</li>
+            <li>FDA medical device cybersecurity</li>
+            <li>GDPR</li>
+          </ul>
+          <details class="project">
+            <summary><b>Where I used it</b></summary>
+            <ul>
+              <li><a href="papers.html#chase">Security risks of AI/ML-enabled connected healthcare systems</a> (CHASE 2024). Evaluated DREAD, STRIDE, FMEA and CVSS on ML-enabled connected medical systems, and showed that they miss risks that appear only when devices from several vendors are combined.</li>
+              <li><a href="papers.html#sam">SAM</a> (HealthSec 2024). Brought STPA-Sec, a systems-theoretic security analysis, to ML-enabled medical devices at design time, and automated its most laborious steps.</li>
+              <li><a href="papers.html#systems-theoretic">Systems-Theoretic and Data-Driven Security Analysis</a> (Springer, invited). Combined that analysis with FDA device databases and CVE records to support security risk assessment before a device reaches the market.</li>
+              <li><a href="experience.html">Postdoctoral work at UBC</a>. Presented the findings to the FDA and to industry executives at Medtronic, GE and Medcrypt.</li>
+            </ul>
+          </details>
+        </div>
+      </li>
+
+      <li class="entry">
+        <span class="when" aria-hidden="true"></span>
+        <div class="what">
+          <h3>Privacy, IoT and cloud systems</h3>
+          <p>I work on how personal data leaks, and how to keep it under control, in web, IoT and cloud applications.</p>
+          <ul class="tags">
+            <li>Privacy leakage analysis</li>
+            <li>Information flow control</li>
+            <li>GDPR-oriented privacy policies</li>
+            <li>IoT middleware</li>
+            <li>Multi-vendor service function chains</li>
+            <li>Tamper-resistant measurement</li>
+            <li>Evidence Bloom filters, HMAC</li>
+            <li>Blockchain for constrained devices</li>
+          </ul>
+          <details class="project">
+            <summary><b>Where I used it</b></summary>
+            <ul>
+              <li><a href="papers.html#turnstile">Turnstile</a> (EuroSys 2026). Contributed the privacy research ideas for a hybrid information flow control framework for IoT applications. It found 190 privacy-sensitive data flows in 61 Node-RED applications, against 52 for CodeQL.</li>
+              <li><a href="papers.html#immunoplane">ImmunoPlane</a> (IoTDI 2024). Co-authored a middleware that keeps distributed IoT applications running through device failures, recovering within 2 seconds.</li>
+              <li><a href="papers.html#infocom">Measuring quality of service in untrusted service chains</a> (INFOCOM 2019). A scheme for verifying quality of service across service chains run by untrusted vendors, built on tamper-resistant evidence Bloom filters. It reached 97% prediction accuracy with about 7 times less storage than hash tables.</li>
+              <li><a href="papers.html#approxbc">ApproxBC</a> (IEEE Communications Standards Magazine, 2018). Blockchain designs for devices with very little memory, using 8 times less storage than Merkle trees.</li>
+              <li><a href="papers.html#snoopy">Snoopy</a> and <a href="papers.html#white-mirror">White Mirror</a>. Measured how much private behavior leaks from encrypted web and streaming traffic.</li>
+            </ul>
+          </details>
+        </div>
+      </li>
+
+      <li class="entry">
+        <span class="when" aria-hidden="true"></span>
+        <div class="what">
+          <h3>Programming and research engineering</h3>
+          <p>I automate recurring analysis instead of repeating it by hand, and package research so that others can reproduce it.</p>
+          <ul class="tags">
+            <li>Python (primary)</li>
+            <li>C</li>
+            <li>Bash</li>
+            <li>PyTorch</li>
+            <li>scikit-learn</li>
+            <li>Zeek</li>
+            <li>Wireshark and tshark</li>
+            <li>Scapy and pyshark</li>
+            <li>NetfilterQueue</li>
+            <li>Docker</li>
+            <li>Git</li>
+            <li>Linux</li>
+            <li>Kernel networking (SCION)</li>
+            <li>Reproducible research artifacts</li>
+          </ul>
+          <details class="project">
+            <summary><b>Where I used it</b></summary>
+            <ul>
+              <li><a href="papers.html#ics-sniper">ICS-Sniper</a> (NDSS 2027). Packet-capture pipelines in pyshark, tshark and Scapy, in-path live flow processing with NetfilterQueue, and an artifact package that covers testbed reproduction, network traces and the analysis algorithms.</li>
+              <li><a href="papers.html#sam">SAM</a> and <a href="papers.html#medaiscout">MedAIScout</a>. Python tooling around hosted and locally run LLMs.</li>
+              <li>AI-service fingerprinting (independent project, in progress). A capture harness built with httpx and Playwright that generates and labels real traffic.</li>
+              <li>Zeek and Kitsune integration (independent project, in progress). A Python and Zeek integration layer for live interface capture, with Zeek cluster configuration on Ubuntu.</li>
+              <li>SCION. Kernel implementation of a secure Internet communication protocol, a collaboration during my PhD.</li>
+              <li>DSN 2024. Served on the artifact evaluation committee.</li>
+            </ul>
+          </details>
+        </div>
+      </li>
+
+      <li class="entry">
+        <span class="when" aria-hidden="true"></span>
+        <div class="what">
+          <h3>Research leadership, mentoring and communication</h3>
+          <p>I take technical work from an open problem to a delivered result, and explain it to specialists, executives and regulators.</p>
+          <ul class="tags">
+            <li>Research team leadership</li>
+            <li>Project scoping and roadmaps</li>
+            <li>Grant writing</li>
+            <li>Mentoring</li>
+            <li>Teaching</li>
+            <li>Peer review</li>
+            <li>Technical writing</li>
+            <li>Public speaking</li>
+            <li>Industry and regulator engagement</li>
+            <li>Science communication</li>
+          </ul>
+          <details class="project">
+            <summary><b>Where I used it</b></summary>
+            <ul>
+              <li><a href="experience.html">Team leadership</a>. Led a five-member research team for more than two years, owning scoping, the research roadmap, equipment procurement, testbed setup, experiment planning and publication.</li>
+              <li><a href="experience.html">Funding</a>. Co-authored a grant awarded CAD 500K by the National Cybersecurity Consortium of Canada, with quarterly reporting to the funder.</li>
+              <li><a href="awards.html">Mentoring and teaching</a>. Mentored 4 graduate students and 12 undergraduates and interns, and received three Star TA awards at IIT Madras.</li>
+              <li><a href="awards.html">Peer review</a>. Program committee member for ACM CCS 2024 to 2026 and ASIACCS 2026. ACM CCS 2024 Distinguished Reviewer, in the top 10% of 527 members.</li>
+              <li><a href="experience.html">Industry and regulators</a>. Worked directly with security practitioners at Medcrypt, Medtronic and GE, and with the FDA. Organized Birds-of-a-Feather sessions at USENIX Security 2023 and 2025.</li>
+              <li><a href="awards.html">Speaking and writing</a>. Invited talks at Idaho National Laboratory and ETS Montreal, a national science-writing award (AWSAR, top 100 of 4,993 entrants), and research covered by WIRED.</li>
+            </ul>
+          </details>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- EDIT: change the date whenever you update the page -->
+  <p class="foot">Last updated October 2026</p>
+
+</div>
+
+<!-- The behaviour of the site: light / dark switch, paper filter, paper abstracts. -->
+<script src="script.js"></script>
+</body>
+</html>

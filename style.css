@@ -1,0 +1,667 @@
+/*
+  The look of every page on the site (every page loads this file).
+  Colours and fonts are in the first block; change a value there and every page follows.
+*/
+
+  /* ---------- Colours and fonts: change these to restyle the page ---------- */
+  :root {
+    --paper: #E4E9EF;      /* page background, light blue-gray */
+    --bright: #34506E;     /* your name, button, timeline dots, link underlines: steel blue-gray */
+    --ink: #1F2B3A;        /* headings and body text, deep slate */
+    --muted: #4F5D6E;      /* dates, venues, secondary text */
+    --rule: #C1CBD6;       /* the thin vertical line beside dated entries */
+    --marker: #FFE066;     /* highlighter yellow */
+    --on-marker: #1F2B3A;  /* text colour on top of the highlighter */
+    --panel: #34506E;      /* side panel background */
+    --on-panel: #EDF1F5;   /* text on the side panel */
+    color-scheme: light;
+
+    --display: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --text: "Newsreader", Georgia, "Times New Roman", serif;
+
+    --gutter: 9rem;        /* width of the left column that holds the years */
+    --spine-gap: 1.5rem;   /* space between the vertical line and the text */
+    --sidebar: 14.5rem;    /* width of the side panel */
+    --text-scale: 1;       /* text size multiplier: 1 = normal */
+  }
+
+  /* Dark mode colours. A visitor gets these when their device is set to dark
+     mode, or when they turn on the "Dark mode" switch at the top of the page.
+     Anything not listed here (the highlighter, the fonts) stays the same. */
+  :root[data-theme="dark"] {
+    --paper: #2B3848;      /* deep blue-gray */
+    --bright: #EDF1F5;
+    --ink: #EDF1F5;
+    --muted: #AAB6C3;
+    --rule: #455466;
+    --panel: #1F2B3A;      /* side panel: a deeper slate than the page */
+    color-scheme: dark;
+  }
+
+  /* Pages whose <body> has class="larger-text" (Publications, Work Experience) show their text 15% larger.
+     Change 1.15 to make it more or less; the side panel is not affected. */
+  .larger-text { --text-scale: 1.15; }
+
+  /* ---------- Base ---------- */
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--text);
+    font-size: calc(1.125rem * var(--text-scale));
+    line-height: 1.6;
+    font-optical-sizing: auto;
+  }
+  ::selection { background: var(--marker); color: var(--on-marker); }
+
+  .page {
+    max-width: 62rem;
+    margin-inline: auto;
+    padding: 0 clamp(1.25rem, 5vw, 3.5rem) 4rem;
+  }
+  /* Home page (<body class="home">): the text area reaches 20% further to the right.
+     The left edge stays exactly where it is on the other pages. */
+  .home .page {
+    max-width: 65.8rem;
+    margin-left: max(0px, calc((100% - 62rem) / 2));
+    margin-right: auto;
+  }
+
+  p { margin-top: 0;
+  margin-bottom: 1rem;
+  text-align: justify;
+  /* -webkit-hyphens: auto; */
+  /* hyphens: auto;  */
+}
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    text-decoration-color: var(--bright);
+    border-radius: 2px;
+  }
+  a:hover {
+    background: var(--marker);
+    box-shadow: 0 0 0 0.15em var(--marker);
+    color: var(--on-marker);
+    text-decoration-color: transparent;
+  }
+  a:focus-visible { outline: 2px solid var(--bright); outline-offset: 3px; }
+
+  /* ---------- Side panel: your name, the page links and the light / dark switch ---------- */
+  body { padding-left: var(--sidebar); }
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: var(--sidebar);
+    display: flex;
+    flex-direction: column;
+    padding: 2.25rem 1.5rem 1.75rem;
+    overflow-y: auto;
+    background: var(--panel);
+    color: var(--on-panel);
+    font-family: var(--display);
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  .sidebar a { color: inherit; text-decoration: none; }
+  .sidebar a:hover { color: var(--on-marker); }
+  .sidebar a:focus-visible,
+  .theme-switch:focus-visible { outline: 2px solid var(--marker); outline-offset: 3px; }
+  .site-name {
+    align-self: flex-start;
+    margin-bottom: 2rem;
+    font-family: "Outfit", var(--display);
+    font-size: 1.7rem;
+    line-height: 1.1;
+  }
+  .nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    margin-bottom: 2rem;
+  }
+  .nav a {
+    margin: 0 -0.75rem;
+    padding: 0.45rem 0.75rem;
+    border-radius: 4px;
+  }
+  .nav a:hover { box-shadow: none; }
+  /* The link for the page you are on stays highlighted */
+  .nav a[aria-current="page"] { background: var(--marker); color: var(--on-marker); }
+
+  /* ---------- Latest news, in the side panel of the home page ---------- */
+  .news {
+    --news-soft: color-mix(in srgb, var(--on-panel) 75%, transparent);   /* the heading and the dates */
+    --news-line: color-mix(in srgb, var(--on-panel) 26%, transparent);   /* the thin lines */
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;          /* fills the space between the page links and the Dark mode switch */
+    min-height: 8.5rem;      /* never shorter than the heading and one item */
+    margin-bottom: 0.75rem;
+    padding-top: 1.125rem;
+    border-top: 1px solid var(--news-line);
+  }
+  .news-title {
+    margin: 0 0 0.45rem;
+    font-size: 0.74rem;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--news-soft);
+  }
+  .news-list {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;        /* a long list scrolls here, so the page links and the switch stay in place */
+    margin: 0;
+    padding: 0.5rem 0.4rem 1rem 4px;
+    list-style: none;
+    scrollbar-width: thin;
+    scrollbar-color: var(--news-line) transparent;
+    /* the list fades out at its top and bottom edges, which shows there is more to scroll to */
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 0.5rem, #000 calc(100% - 1rem), transparent);
+    mask-image: linear-gradient(to bottom, transparent, #000 0.5rem, #000 calc(100% - 1rem), transparent);
+  }
+  .news-list li {
+    position: relative;
+    padding: 0 0 1.05rem 0.95rem;
+    border-left: 1px solid var(--news-line);
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.45;
+    overflow-wrap: break-word;
+  }
+  .news-list li:last-child { padding-bottom: 0; }
+  .news-list li::before {
+    content: "";
+    position: absolute;
+    left: -4px;
+    top: 0.3rem;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--on-panel);
+  }
+  .news-list li:first-child::before { background: var(--marker); }   /* the newest item gets the yellow dot */
+  .news-date {
+    display: block;
+    margin-bottom: 0.1rem;
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    font-variant-numeric: tabular-nums;
+    color: var(--news-soft);
+  }
+  .news a { text-decoration: underline; text-decoration-thickness: 1px; text-decoration-color: var(--news-soft); }
+  .news a:hover { text-decoration-color: transparent; }
+
+  /* ---------- Light / dark switch, at the bottom of the side panel ---------- */
+  .theme-switch {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    gap: 0.55rem;
+    margin-top: auto;
+    padding: 0.2rem 0;
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: 0;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .theme-switch[hidden] { display: none; }
+  .theme-switch-track {
+    position: relative;
+    width: 2.4rem;
+    height: 1.35rem;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+  }
+  .theme-switch-knob {
+    position: absolute;
+    top: 50%;
+    left: 0.2rem;
+    width: 0.85rem;
+    height: 0.85rem;
+    margin-top: -0.425rem;
+    border-radius: 50%;
+    background: currentColor;
+    transition: transform 0.15s ease;
+  }
+  .theme-switch[aria-checked="true"] .theme-switch-track {
+    background: var(--marker);
+    border-color: var(--marker);
+  }
+  .theme-switch[aria-checked="true"] .theme-switch-knob {
+    background: var(--on-marker);
+    transform: translateX(1.05rem);
+  }
+
+  /* ---------- Name and introduction ---------- */
+  .hero h1 {
+    font-family: "Outfit", var(--display);
+    font-size: clamp(2.6rem, calc((100vw - var(--sidebar)) * 0.092), 6.2rem);   /* scales with the space beside the side panel */
+    font-weight: 500;
+    /* font-stretch: 85%; */
+    line-height: 0.92;
+    /* letter-spacing: 0.03em; */
+    margin: 0;
+    color: var(--bright);
+    flex: 1 1 min-content;   /* a long name wraps beside the photo before it drops below it */
+    text-wrap: balance;
+  }
+
+  /* Photo and name side by side */
+  .name-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem var(--spine-gap);
+    margin: clamp(3rem, 9vw, 6rem) 0 clamp(1.75rem, 4vw, 2.75rem);
+  }
+  .intro-text { margin-left: 0; max-width: calc(var(--gutter) + 36rem); }   /* starts at the photo's left edge */
+
+  /* The photo sits in the left column, where the years sit further down */
+  .photo {
+    position: relative;
+    flex: none;
+    width: calc(var(--gutter) - var(--spine-gap));
+    aspect-ratio: 4 / 5;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .photo-empty {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 0.5rem;
+    border: 1px dashed var(--muted);
+    border-radius: 4px;
+    font-family: var(--display);
+    font-size: 0.82rem;
+    font-weight: 500;
+    line-height: 1.25;
+    text-align: center;
+    color: var(--muted);
+  }
+  .photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .lede {
+    font-size: clamp(1.3rem, 2.4vw, 1.6rem);
+    line-height: 1.35;
+    margin-bottom: 1.25rem;
+  }
+  /* The background line under your role: smaller and grey, so it supports the role line without competing with it */
+  .background {
+    margin-top: -0.7rem;
+    margin-bottom: 1.25rem;
+    font-family: var(--display);
+    font-size: 0.95rem;
+    color: var(--muted);
+    text-align: left;
+  }
+  .status {
+    display: flex;           /* the yellow box and the email sit side by side, and stack on narrow screens */
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1.25rem;
+    font-family: var(--display);
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0;
+  }
+  .email-text { white-space: nowrap; }   /* the email beside the yellow box stays on one line */
+  .marker {
+    background: linear-gradient(var(--marker), var(--marker)) no-repeat left center / 100% 100%;
+    color: var(--on-marker);
+    padding: 0.15em 0.45em;   /* the yellow box starts flush with the photo's left edge */
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    animation: swipe 0.7s 0.35s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  @keyframes swipe {
+    from { background-size: 0% 100%; color: var(--ink); }
+  }
+
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem 1.5rem;
+    margin-top: 2rem;
+    font-family: var(--display);
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  a.button {
+    display: inline-block;
+    padding: 0.6rem 1.1rem;
+    background: var(--bright);
+    color: var(--paper);
+    text-decoration: none;
+    border-radius: 4px;
+  }
+  a.button:hover { background: var(--marker); color: var(--on-marker); box-shadow: none; }
+
+  /* ---------- Sections ---------- */
+  section { margin-top: clamp(4rem, 9vw, 6.5rem); scroll-margin-top: 2rem; }
+  /* Less space above "About" than above the other sections. Raise or lower these numbers to adjust it. */
+  #about { margin-top: clamp(2rem, 4.5vw, 3rem); }
+  /* "About" starts at the photo's left edge and keeps the same right edge as the other sections; its text is 10% larger */
+  #about > * { margin-left: 0; max-width: calc((var(--gutter) + 40rem) * 1.2); }   /* 1.2 = 20% wider than the other sections */
+  #about p { font-size: 1.2375rem; }
+  section > :not(.timeline) { margin-left: var(--gutter); max-width: 40rem; }
+
+  h2 {
+    font-family: var(--display);
+    font-size: calc(1.65rem * var(--text-scale));
+    font-weight: 650;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    margin-top: 0;
+    margin-bottom: 1.75rem;
+  }
+
+  /* ---------- Dated entries: papers, experience, education, awards ---------- */
+  .timeline { list-style: none; margin: 0; padding: 0; }
+  .entry {
+    display: grid;
+    grid-template-columns: calc(var(--gutter) - var(--spine-gap)) minmax(0, 1fr);
+    align-items: baseline;
+  }
+  .when {
+    font-family: var(--display);
+    font-size: calc(0.92rem * var(--text-scale));
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    padding-right: 1rem;
+  }
+  .what {
+    position: relative;
+    border-left: 1px solid var(--rule);
+    padding: 0 0 2.25rem var(--spine-gap);
+    max-width: calc(40rem + var(--spine-gap));
+  }
+  .what::before {
+    content: "";
+    position: absolute;
+    left: -4px;
+    top: 0.6em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--bright);
+  }
+  .entry:last-child .what { padding-bottom: 0.25rem; }
+
+  .what h3 {
+    font-family: var(--text);
+    font-size: calc(1.22rem * var(--text-scale));
+    font-weight: 560;
+    line-height: 1.3;
+    margin: 0 0 0.3rem;
+    text-wrap: pretty;
+  }
+  .what p { font-size: calc(1rem * var(--text-scale)); line-height: 1.5; margin-bottom: 0.3rem; }
+  .who b { font-weight: 650; }
+  .where { color: var(--muted); }
+  .entry-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.1rem;
+    margin-top: 0.5rem;
+    font-family: var(--display);
+    font-size: calc(0.9rem * var(--text-scale));
+    font-weight: 500;
+  }
+
+  /* ---------- Paper tags and the filter above the paper list ---------- */
+  .entry[hidden] { display: none; }
+
+  .tags {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0.6rem 0 0;
+    padding: 0;
+  }
+  .tag,
+  .tags:not(.is-live) li {
+    font-family: var(--display);
+    font-size: calc(0.82rem * var(--text-scale));
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--muted);
+    background: none;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    padding: 0.2em 0.75em;
+  }
+  .tags.is-live li { display: flex; }
+  .tag { cursor: pointer; }
+  .tag:hover { color: var(--bright); border-color: var(--bright); }
+  .tag:focus-visible { outline: 2px solid var(--bright); outline-offset: 2px; }
+  .filter {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: -0.5rem;
+    margin-bottom: 2rem;
+  }
+  .filter .tag { font-size: calc(0.92rem * var(--text-scale)); padding: 0.4em 0.95em; color: var(--ink); }
+
+  /* The chosen tag gets the highlighter, in the filter row and on each paper */
+  .tag[aria-pressed="true"],
+  .filter .tag[aria-pressed="true"] {
+    background: var(--marker);
+    border-color: var(--marker);
+    color: var(--on-marker);
+  }
+  .filter-status {
+    margin: 0 0 0 0.4rem;
+    font-family: var(--display);
+    font-size: calc(0.88rem * var(--text-scale));
+    color: var(--muted);
+  }
+
+  /* ---------- Paper abstracts: shown when a paper's title is clicked ---------- */
+  .abstract {
+    margin-top: 0.75rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--rule);
+  }
+  /* The yellow + / − circle that opens a hidden panel: paper abstracts and project details */
+  #papers h3 a[aria-expanded]::after,
+  .project summary::after {
+    content: "+";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.35em;
+    height: 1.35em;
+    margin-left: 0.45em;
+    border-radius: 50%;
+    background: var(--marker);
+    color: var(--on-marker);
+    font-family: var(--display);
+    font-size: calc(1rem * var(--text-scale));
+    font-weight: 600;
+    line-height: 1;
+    vertical-align: 0.08em;
+  }
+  #papers h3 a[aria-expanded="true"]::after,
+  .project[open] summary::after { content: "\2212"; }
+  /* Hovering a paper title turns the title yellow, so its circle swaps colours to stay visible */
+  #papers h3 a[aria-expanded]:hover::after { background: var(--on-marker); color: var(--marker); }
+
+  /* Skills page: space between the skill chips and the "Where I used it" panel */
+  .tags + .project { margin-top: 0.9rem; }
+  /* A paper opened from a link on another page (for example from Skills) is scrolled into view with its title highlighted */
+  .entry { scroll-margin-top: 1.5rem; }
+  .entry:target h3 a { background: var(--marker); color: var(--on-marker); box-shadow: 0 0 0 0.15em var(--marker); text-decoration-color: transparent; }
+  #papers .entry:target h3 a[aria-expanded]::after { background: var(--on-marker); color: var(--marker); }
+
+  /* Projects inside an experience entry: the bullet points show when the + is clicked */
+  .project { margin-bottom: 0.45rem; font-size: calc(1rem * var(--text-scale)); line-height: 1.5; }
+  .project summary { list-style: none; cursor: pointer; }
+  .project summary::-webkit-details-marker { display: none; }
+  .project summary:focus-visible { outline: 2px solid var(--bright); outline-offset: 3px; border-radius: 2px; }
+  .project ul {
+    margin: 0.6rem 0 1rem;
+    padding-left: 1.8rem;
+    list-style: disc;
+    border-left: 2px solid var(--rule);
+  }
+  .project li { margin-bottom: 0.3rem; }
+  /* The one-line instruction above the paper list */
+  .hint {
+    margin-top: -0.75rem;
+    margin-bottom: 1.75rem;
+    font-family: var(--display);
+    font-size: calc(0.95rem * var(--text-scale));
+    color: var(--muted);
+    text-align: left;
+  }
+
+  /* ---------- Skills ---------- */
+  .skills {
+    display: grid;
+    grid-template-columns: 9rem minmax(0, 1fr);
+    gap: 0.6rem 1.5rem;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .skills dt { font-family: var(--display); font-size: 0.95rem; font-weight: 600; line-height: 1.9; }
+  .skills dd { margin: 0; }
+
+  /* ---------- Contact and footer ---------- */
+  .email {
+    color: var(--bright);
+    font-family: var(--display);
+    font-size: clamp(1.4rem, 4vw, 2.2rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+  .foot {
+    margin-top: 5rem;
+    margin-left: var(--gutter);
+    font-family: var(--display);
+    font-size: calc(0.88rem * var(--text-scale));
+    color: var(--muted);
+  }
+  .home .foot { margin-left: 0; }   /* on the home page, "Last updated" lines up with the left edge of About */
+
+  /* ---------- Narrower screens: the side panel becomes a bar across the top ---------- */
+  @media (max-width: 60rem) {
+    :root { --sidebar: 0rem; }
+    body { padding-left: 0; }
+    .sidebar {
+      position: static;
+      width: auto;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem 1.25rem;
+      padding: 0.9rem clamp(1.25rem, 5vw, 3.5rem);
+      overflow: visible;
+    }
+    .site-name { order: 1; align-self: center; margin-bottom: 0; font-size: 1.35rem; }
+    .theme-switch { order: 2; align-self: center; margin: 0 0 0 auto; }
+    .nav {
+      order: 3;
+      flex: 1 1 100%;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0.15rem 0.3rem;
+      margin: 0 0 0 -0.6rem;
+    }
+    .nav a { margin: 0; padding: 0.3rem 0.6rem; }
+    /* Latest news in the top bar: only the newest item, on one compact line */
+    .news {
+      order: 4;
+      flex: 1 1 100%;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.2rem 0.9rem;
+      min-height: 0;
+      margin: 0.2rem 0 0;
+      padding-top: 0.7rem;
+    }
+    .news-title { margin: 0; }
+    .news-list { flex: 1 1 14rem; overflow: visible; padding: 0; -webkit-mask-image: none; mask-image: none; }
+    .news-list li { padding: 0; border-left: 0; }
+    .news-list li::before { display: none; }
+    .news-list li + li { display: none; }
+    .news-date { display: inline; margin: 0 0.4rem 0 0; }
+  }
+
+  /* ---------- Phones ---------- */
+  @media (max-width: 44rem) {
+    :root { --gutter: 0rem; }
+    .name-row { column-gap: 1rem; }
+    .photo { width: 5.5rem; }
+    .entry {
+      display: block;
+      position: relative;
+      border-left: 1px solid var(--rule);
+      padding: 0 0 2rem 1.1rem;
+    }
+    .entry:last-child { padding-bottom: 0.25rem; }
+    .entry::before {
+      content: "";
+      position: absolute;
+      left: -4px;
+      top: 0.4rem;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--bright);
+    }
+    #skills .entry::before { top: 0.75rem; }   /* skill areas have no year line, so the dot sits beside the area name */
+    .when { display: block; margin-bottom: 0.2rem; padding-right: 0; }
+    .what { border-left: 0; padding: 0; max-width: none; }
+    .what::before { display: none; }
+    .entry:last-child .what { padding-bottom: 0; }
+    .skills { grid-template-columns: 1fr; gap: 0; }
+    .skills dd { margin-bottom: 0.9rem; }
+  }
+
+  /* ---------- Motion and print ---------- */
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marker { animation: none; }
+    .theme-switch-knob { transition: none; }
+  }
+  @media print {
+    :root, :root[data-theme="dark"] { --paper: #fff; --bright: #000; --ink: #000; --muted: #444; --rule: #999; --marker: #fff; --on-marker: #000; }
+    body { font-size: 11pt; padding-left: 0; }
+    .sidebar, a.button, .filter { display: none; }
+    .marker { animation: none; padding: 0; margin: 0; }
+    .entry { break-inside: avoid; }
+    section { margin-top: 2.5rem; }
+  }

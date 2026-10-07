@@ -1,608 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JV43T0ZSGK"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-gtag('config', 'G-JV43T0ZSGK');
+<!--
+  HOW TO EDIT THIS SITE
+
+  The site is eight files that must stay in the same folder:
+    index.html       the home page (introduction, about and latest news)
+    papers.html      the publications page
+    experience.html  the work experience page
+    education.html   the education page
+    skills.html      the skills page
+    awards.html      the awards and talks page
+    style.css        the look of every page
+    script.js        the behaviour of every page (nothing to edit)
+
+  1. Open a page in any text editor. Search for "EDIT" to jump from one
+     spot to the next. Everything you change is plain text between tags.
+
+  2. To add a paper (in papers.html), a job (in experience.html), a degree
+     (in education.html), or an award or talk (in awards.html): copy one whole
+     <li class="entry"> ... </li> block, paste it at the top of its list
+     (newest first), and change the text inside.
+
+  3. To tag a paper (in papers.html): each paper has a <ul class="tags"> list.
+     Every <li> in it is one research area. Add, remove or rename them freely;
+     a paper can have as many as you like. The filter buttons above the
+     paper list are built automatically from the tags you use, so there is
+     no separate list to keep up to date. Spell a tag the same way every
+     time ("Area one" on two papers becomes one button).
+
+  4. To remove a section you do not need: delete everything from its
+     <section ...> line down to its </section> line, then delete its link
+     in the side panel on every page.
+
+  5. Colours and fonts live in the ":root" block at the top of style.css.
+     Change a value there and every page follows. The dark mode
+     colours are in the short block right after it.
+
+  6. Save your CV as CV.pdf in the "files" folder, and your photo as photo.jpg
+     in the same folder as this file. The photo is cropped to a 4:5 portrait automatically;
+     until photo.jpg exists, a dashed "Your photo" box holds its place.
+
+  7. To add a news item (in index.html): find LATEST NEWS in the side panel,
+     copy one <li> ... </li> block, paste it at the top of that list, and
+     change the date and the sentence. To remove the news list altogether,
+     delete everything from <div class="news"> down to its closing </div>.
+-->
+
+<!-- EDIT: the browser tab title and the short description search engines show -->
+<title>Gargi Mitra | Systems and Network Security Researcher</title>
+<meta name="description" content="Your Name works on [your field]. Papers, experience and contact details.">
+<meta property="og:title" content="Your Name | Your field">
+<meta property="og:description" content="Papers, experience and contact details.">
+<meta property="og:type" content="website">
+
+<!-- Chooses light or dark before the page is drawn: the visitor's own choice
+     if they have used the switch before, otherwise their device setting. -->
+<script>
+(function () {
+  var saved = null;
+  try { saved = localStorage.getItem('theme'); } catch (e) {}
+  var dark = saved === 'dark' || (saved !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+})();
 </script>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academic Profile - Cybersecurity</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Newsreader:ital,opsz,wght@0,6..72,400..650;1,6..72,400..650&display=swap" rel="stylesheet">
+<!-- The font for your name -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Inter', sans-serif;
-            font-weight: 400;
-            letter-spacing: 0.3px;
-            color: #2a2a2a;
-            background: linear-gradient(-45deg, #DAA698 0%, #d5a48f 25%, #d0a287 50%, #cba080 75%, #c69e78 100%);
-            background-size: 400% 400%;
-            background-attachment: fixed;
-            overflow-x: hidden;
-        }
-
-        /* Animated background elements */
-        .bg-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: linear-gradient(-45deg, #DAA698 0%, #d5a48f 25%, #d0a287 50%, #cba080 75%, #c69e78 100%);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
-        }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .blob {
-            position: absolute;
-            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-            filter: blur(40px);
-            animation: moveBlob 15s infinite ease-in-out;
-        }
-
-        .blob1 {
-            width: 400px;
-            height: 400px;
-            top: -100px;
-            left: -50px;
-            background: linear-gradient(135deg, rgba(139, 109, 75, 0.08) 0%, rgba(160, 120, 80, 0.08) 100%);
-            animation-delay: 0s;
-        }
-
-        .blob2 {
-            width: 350px;
-            height: 350px;
-            bottom: 100px;
-            right: -100px;
-            background: linear-gradient(135deg, rgba(120, 95, 65, 0.06) 0%, rgba(180, 140, 90, 0.06) 100%);
-            animation-delay: 5s;
-        }
-
-        .blob3 {
-            width: 300px;
-            height: 300px;
-            bottom: 300px;
-            left: 10%;
-            background: linear-gradient(135deg, rgba(160, 120, 80, 0.05) 0%, rgba(139, 109, 75, 0.05) 100%);
-            animation-delay: 10s;
-        }
-
-        @keyframes moveBlob {
-            0%, 100% { transform: translate(0, 0); }
-            25% { transform: translate(30px, -50px); }
-            50% { transform: translate(-20px, 20px); }
-            75% { transform: translate(50px, 10px); }
-        }
-
-        /* Grid accent */
-        .grid-accent {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-image:
-                linear-gradient(0deg, transparent 24%, rgba(139, 109, 75, 0.02) 25%, rgba(139, 109, 75, 0.02) 26%, transparent 27%, transparent 74%, rgba(139, 109, 75, 0.02) 75%, rgba(139, 109, 75, 0.02) 76%, transparent 77%, transparent),
-                linear-gradient(90deg, transparent 24%, rgba(139, 109, 75, 0.02) 25%, rgba(139, 109, 75, 0.02) 26%, transparent 27%, transparent 74%, rgba(139, 109, 75, 0.02) 75%, rgba(139, 109, 75, 0.02) 76%, transparent 77%, transparent);
-            background-size: 80px 80px;
-            opacity: 0.3;
-        }
-
-        header {
-            position: relative;
-            padding: 40px 40px;
-            z-index: 10;
-        }
-
-        .header-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: flex;
-            gap: 40px;
-            align-items: flex-start;
-        }
-
-        .header-text {
-            flex: 1;
-        }
-
-        .photo-placeholder {
-            width: 200px;
-            height: 200px;
-            flex-shrink: 0;
-            background: linear-gradient(135deg, rgba(139, 109, 75, 0.15), rgba(160, 120, 80, 0.15));
-            border: 2px solid rgba(139, 109, 75, 0.3);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #8b6d4b;
-            font-weight: 500;
-            font-size: 0.95em;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 3.5em;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: #8B5A4B;
-            letter-spacing: -0.5px;
-            line-height: 1.1;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .subtitle {
-            font-size: 1.3em;
-            color: #9B6B5C;
-            font-weight: 400;
-            margin-bottom: 8px;
-            letter-spacing: 0.2px;
-        }
-
-        .tagline {
-            font-size: 1.1em;
-            color: #FFFFFF;
-            font-style: italic;
-            font-weight: 300;
-        }
-
-        /* Navigation buttons */
-        .nav-buttons {
-            position: relative;
-            display: flex;
-            gap: 12px;
-            margin-top: 25px;
-            flex-wrap: wrap;
-            z-index: 5;
-        }
-
-        .nav-btn {
-            padding: 10px 22px;
-            background: rgba(139, 90, 75, 0.85);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: 500;
-            font-size: 0.95em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .nav-btn:hover {
-            background: rgba(107, 68, 57, 0.9);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(107, 68, 57, 0.3);
-        }
-
-        .job-seeking-banner {
-            margin-top: 20px;
-            padding: 15px 20px;
-            background: linear-gradient(135deg, rgba(139, 90, 75, 0.15), rgba(160, 120, 80, 0.1));
-            border: 1px solid rgba(139, 90, 75, 0.3);
-            border-radius: 8px;
-            color: #834333;
-            font-weight: 500;
-            font-size: 1.05em;
-            text-align: center;
-            letter-spacing: 0.2px;
-        }
-
-
-        main {
-            position: relative;
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 40px;
-            z-index: 5;
-        }
-
-        section {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(139, 109, 75, 0.15);
-            border-radius: 16px;
-            padding: 50px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 32px rgba(139, 109, 75, 0.1);
-            transition: all 0.3s ease;
-            scroll-margin-top: 100px;
-        }
-
-        section:hover {
-            box-shadow: 0 12px 48px rgba(139, 109, 75, 0.15);
-            transform: translateY(-2px);
-        }
-
-        section h2 {
-            font-size: 2em;
-            color: #8B5A4B;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 600;
-            letter-spacing: -0.3px;
-        }
-
-        section h2::before {
-            content: '';
-            width: 5px;
-            height: 30px;
-            background: linear-gradient(180deg, #A67E6F, #8B5A4B);
-            border-radius: 3px;
-        }
-
-        .content-text {
-            font-size: 1.05em;
-            line-height: 1.8;
-            color: #333;
-            margin-bottom: 10px;
-            text-align: justify;
-        }
-
-        .experience-item, .project-item {
-            margin-bottom: 10px;
-            padding-bottom: 5px;
-            border-bottom: 3px solid rgba(139, 109, 75, 0.1);
-        }
-
-        .experience-item:last-child, .project-item:last-child {
-            border-bottom: none;
-        }
-
-        .experience-item h3, .project-item h3 {
-            color: #9B6B5C;
-            font-size: 1.3em;
-            margin-bottom: 5px;
-        }
-
-        .date {
-            color: #9B6B5C;
-            font-size: 1em;
-            font-weight: 400;
-            margin-bottom: 8px;
-            letter-spacing: 0.2px;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .skill-tag {
-            background: linear-gradient(135deg, rgba(139, 109, 75, 0.12), rgba(160, 120, 80, 0.12));
-            border: 1px solid rgba(139, 109, 75, 0.3);
-            padding: 12px 18px;
-            border-radius: 8px;
-            color: #5c4033;
-            font-weight: 500;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .skill-tag:hover {
-            background: linear-gradient(135deg, rgba(139, 109, 75, 0.2), rgba(160, 120, 80, 0.2));
-            transform: scale(1.05);
-        }
-
-        .contact-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-
-        .contact-link {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(135deg, #8b6d4b, #5c4033);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .contact-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(92, 64, 51, 0.3);
-        }
-
-        .subsection-panel {
-            background: rgba(218, 166, 152, 0.08);
-            border-left: 4px solid #8B5A4B;
-            padding: 25px;
-            margin-bottom: 25px;
-            border-radius: 8px;
-        }
-
-        .subsection-panel h2 {
-            color: #DAA698;
-            font-size: 1.1em;
-            /* margin-bottom: 20px; */
-            font-weight: 700;
-            letter-spacing: 0.3px;
-            background-color: #8B5A4B;
-            padding: 10px 15px;
-            border-radius: 6px;
-            display: inline-block;
-
-        footer {
-            position: relative;
-            text-align: center;
-            padding: 40px;
-            color: #999;
-            font-size: 0.95em;
-            z-index: 5;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5em;
-            }
-
-            .header-content {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
-            .photo-placeholder {
-                width: 150px;
-                height: 150px;
-            }
-
-            section {
-                padding: 30px;
-            }
-
-            section h2 {
-                font-size: 1.6em;
-            }
-
-            main {
-                padding: 0 20px;
-            }
-
-            header {
-                padding: 30px 20px;
-            }
-
-            .nav-buttons {
-                justify-content: center;
-            }
-        }
-    </style>
+<!-- The look of the site. Colours and fonts are at the top of this file. -->
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="bg-container">
-        <div class="grid-accent"></div>
-        <div class="blob blob1"></div>
-        <div class="blob blob2"></div>
-        <div class="blob blob3"></div>
+
+<!-- class="home" lets the text on this page reach further to the right. The amount is set in style.css. -->
+<body class="home">
+
+<!-- ============================ SIDE PANEL ============================
+     This block appears on every page. EDIT: one link per page or section.
+     If you add, rename or remove a link, make the same change on every page.
+     aria-current="page" marks the page you are on: keep it only on that page's own link. -->
+<aside class="sidebar">
+  <a class="site-name" href="index.html">Gargi Mitra</a>
+
+  <nav class="nav" aria-label="Site">
+    <a href="#about">About</a>
+    <a href="papers.html">Publications</a>
+    <a href="experience.html">Work Experience</a>
+    <a href="education.html">Education</a>
+    <a href="skills.html">Skills</a>
+    <a href="awards.html">Awards and Talks</a>
+  </nav>
+
+  <!-- ============================ LATEST NEWS ============================
+       Shown only on the home page. EDIT: one <li> per news item, newest first.
+       The date is free text ("2026" or "Oct 2026"). The top item gets the yellow dot by itself.
+       To link to a paper, use its id from papers.html, for example href="papers.html#ics-sniper". -->
+  <div class="news">
+    <h2 class="news-title">Latest news</h2>
+    <ul class="news-list">
+
+      <!-- NEW ITEM: copy from this <li> down to its closing </li>, paste above, edit -->
+      <li>
+        <span class="news-date">2026</span>
+        <a href="papers.html#ics-sniper">ICS-Sniper</a> accepted at NDSS 2027, to be presented in Seoul.
+      </li>
+
+    </ul>
+  </div>
+
+  <!-- The light / dark switch. Nothing to edit. -->
+  <button class="theme-switch" type="button" role="switch" aria-checked="false" hidden>
+    <span>Dark mode</span>
+    <span class="theme-switch-track" aria-hidden="true"><span class="theme-switch-knob"></span></span>
+  </button>
+</aside>
+
+<div class="page">
+
+  <!-- ====================== NAME AND INTRODUCTION ====================== -->
+  <header class="hero">
+    <div class="name-row">
+
+      <!-- EDIT: your photo. Save it as photo.jpg next to this file (or change
+           the file name below) and put your name in the alt text. Until the
+           file exists, the dashed "Your photo" box shows instead. -->
+      <div class="photo">
+        <span class="photo-empty" aria-hidden="true">Your photo</span>
+        <img src="images/gargi.png" alt="Gargi Mitra" onerror="this.remove()">
+      </div>
+
+      <!-- EDIT: your name -->
+      <h1>Gargi Mitra</h1>
+
     </div>
 
-    <header>
-        <div class="header-content">
-            <div class="header-text">
-                <h1>Gargi Mitra</h1>
-                <div class="subtitle"><b>Postdoctoral Research Fellow | Security and Privacy</b></div>
-                <!-- <div class="tagline">Security and Privacy Researcher</div> -->
+    <div class="intro-text">
+      <!-- EDIT: one sentence. Who you are, where, and what you work on. -->
+      <p class="lede">Systems and Network Security Researcher </p>
+      <!-- <p class="lede">Solving emerging problems through interdisciplinary research</p> -->
 
-                <div class="nav-buttons">
-                    <button class="nav-btn" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">About</button>
-                    <button class="nav-btn" onclick="window.location.href='research.html'">Research</button>
-                    <button class="nav-btn" onclick="document.getElementById('publications').scrollIntoView({behavior: 'smooth'})">Publications</button>
-                    <!-- <button class="nav-btn" onclick="document.getElementById('education').scrollIntoView({behavior: 'smooth'})">Education</button> -->
-                    <button class="nav-btn" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Contact</button>
-                    <button class="nav-btn" onclick="window.location.href='cv.html'">CV</button>
-                </div>
-                <div class="job-seeking-banner">
-                    <span>🔍 Actively seeking cybersecurity research positions in both academia and industry</span>
-                </div>
-            </div>
+      <!-- EDIT: your background in one quiet line. Delete this whole <p> to remove it. -->
+      <p class="background">Previously Postdoctoral Research Fellow, <a href="experience.html">UBC</a> (2023–2026). PhD, <a href="education.html">IIT Madras</a> (2015–2022).</p>
 
-            <div class="photo-placeholder"><img src="images/profile.jpg" alt="Your Name" style="width: 100%; height: 110%; object-fit: cover; border-radius: 12px;"></div>
+      <!-- EDIT: what you are looking for, then your email.
+           When you are not job hunting, delete only the <span class="marker">...</span> part.
+           The email is written with [at] and [dot] so that address-collecting programs cannot read it.
+           It is plain text, not a link. -->
+      <p class="status"><span class="marker">Open to work (Available immediately)</span> <span>E-mail: <span class="email-text">gargimiitm [at] gmail [dot] com</span></span></p>
 
-        </div>
-    </header>
+      <!-- EDIT: your links. Delete any you do not use. -->
+      <p class="contact-links">
+        <a class="button" href="files/CV.pdf">Download CV (PDF)</a>
+        <a href="https://scholar.google.com/citations?user=M216DzwAAAAJ&amp;hl=en">Google Scholar</a>
+        <a href="https://github.com/ICS-Sniper">GitHub</a>
+        <a href="https://ca.linkedin.com/in/gargimitraiitm">LinkedIn</a>
+      </p>
+    </div>
+  </header>
 
-    <main>
-        <!-- About Section -->
-        <section id="about">
-            <!-- <h2>About</h2> -->
-            <p class="content-text">
-                I am a systems security and privacy researcher who investigates the risks that emerge when modern technologies are layered onto legacy infrastructure, and how to fix it before the consequences become irreversible. My work sits at the intersection of security, safety, and emerging technologies, with a focus on safety-critical networked applications.</p>
-            <p class="content-text">
-                Across industries, there is a recurring pattern: technologies introduced to improve efficiency, personalization, or scalability often invalidate long-standing threat models. During my PhD, I demonstrated how encrypted traffic, which was assumed to be safe, can still reveal sensitive user behavior at scale, influencing both public discourse and real-world deployments. In my current postdoctoral work at the University of British Columbia, I extend this systems-oriented approach to safety-critical domains, where similar blind spots can disrupt physical processes or directly endanger human lives.
-            </p>
-            <p class="content-text">
-                I am motivated by a simple question: <i><b>Can we make technological progress without systematically accumulating new security and privacy risks?</b></i> My research combines rigorous threat modeling, empirical attack design, and practical mitigation strategies that satisfy real-world constraints such as latency, regulatory compliance, and deployment cost. I draw my motivation from engagement with industry practitioners, regulators, and interdisciplinary collaborators to ensure that security mechanisms are not only theoretically sound, but deployable and usable. This has led to tools and frameworks that help organizations reason about security risk from the early design stages, and with clearer cost–benefit trade-offs.
-            </p>
-        </section>
+  <!-- ============================== ABOUT ============================== -->
+  <section id="about">
+    <h2>About</h2>
+    <!-- EDIT: your pitch. Each <p> ... </p> is one paragraph. -->
+    <p>New technologies rarely replace legacy infrastructure. Instead, they are layered on top, invalidating the security and privacy assumptions of the original threat model. I take an interdisciplinary systems approach to identify the assumptions that no longer hold during such integrations, demonstrate them with proof-of-concept attacks, and recommend effective mitigations accordingly.</p>
 
-        <!-- Research & Expertise Section -->
-        <!-- <section id="research">
-            <h2>Research & Expertise</h2>
-            <div class="experience-item">
-                <h3>Current Position: Postdoctoral Fellow</h3>
-                <div class="date">[Institution Name] • [Start Year] – Present</div>
-                <p class="content-text">[Describe your current research focus, major projects, and contributions.]</p>
-            </div>
-            <div class="experience-item">
-                <h3>Key Research Areas</h3>
-                <div class="skills-grid">
-                    <div class="skill-tag">Cryptography</div>
-                    <div class="skill-tag">Network Security</div>
-                    <div class="skill-tag">Threat Analysis</div>
-                    <div class="skill-tag">Machine Learning Security</div>
-                    <div class="skill-tag">Privacy-Preserving Systems</div>
-                    <div class="skill-tag">[Your Specialty]</div>
-                </div>
-            </div>
-        </section> -->
+    <p>I first demonstrated this in encrypted web traffic. HTTP/2 multiplexing was believed to hinder traffic analysis; I designed the first attack that defeats it to reveal website users' browsing activities (<a href="https://ieeexplore.ieee.org/abstract/document/9153390">DSN 2020</a>). When Netflix layered interactive movies onto its encrypted streaming service, I inferred viewers' choices from the encrypted traffic. For its most popular title, "Black Mirror: Bandersnatch", the worst-case accuracy was 96% (covered by <a href="https://www.wired.com/story/netflix-interactive-bandersnatch-hackers-choices/">WIRED</a>).</p>
 
-        <!-- Publications Section -->
-        <section id="publications">
-           <h2>Publications</h2>
-           <div class="subsection-panel">
-                 <h2>Security of Cloud-Connected ICS OT Networks</h2>
-                 <div class="project-item">
-                     <h3>ICS-Sniper: A Targeted Blackhole Attack on Encrypted ICS Traffic</h3>
-                     <div class="date"> Workshop on Re-design Industrial Control Systems with Security (RICSS), 2024 (co-located with ACM CCS'24)</div>
-                     <p class="content-text">Gargi Mitra, Pritam Dash, Yingao Elaine Yao, Aastha Mehta, Karthik Pattabiraman. <a href="https://arxiv.org/pdf/2312.06140" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a></p>
-                 </div>
-             </div>
+    <p>I then extended encrypted traffic analysis to cloud-connected industrial control systems, a recent shift in ICS network architecture. I conceived ICS-Sniper (<a href="https://arxiv.org/pdf/2312.06140">NDSS 2027</a>) and led a five-member team that developed it. In this attack, an on-path adversary outside the plant disrupts the physical process by selectively dropping the encrypted packets that carry critical control data, as demonstrated on a popular water-treatment testbed.</p>
 
-             <div class="subsection-panel">
-                 <h2>Security of AI/ML-Based Medical Devices</h2>
-                 <div class="project-item">
-                     <h3>Systems-Theoretic and Data-Driven Security Analysis in ML-enabled Medical Devices</h3>
-                     <div class="date">Springer Nature HealthSec, 2024</div>
-                     <p class="content-text">Gargi Mitra, Mohammadreza Hallajiyan, Inji Kim, Athish Pranav Dharmalingam, Mohammed Elnawawy, Shahrear Iqbal, Karthik Pattabiraman, Homa Alemzadeh. (Invited) <a href="papers/system-theoretic_springernature.pdf" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a></p>
-                 </div>
-                 <div class="project-item">
-                     <h3>Learning from the Good Ones: Risk Profiling-Based Defenses Against Evasion Attacks on DNNs</h3>
-                     <div class="date">Workshop on Dependable and Secure Machine Learning (DSML), 2025 (co-located with DSN'25)</div>
-                     <p class="content-text">Mohammed Elnawawy, Gargi Mitra, Shahrear Iqbal, Karthik Pattabiraman. <a href="https://arxiv.org/pdf/2505.06477" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a> <b>[Acceptance rate: 64%]</b></p>
-                 </div>
-                 <div class="project-item">
-                     <h3>MedAIScout: Automated Retrieval of Known Machine Learning Vulnerabilities in Medical Applications</h3>
-                     <div class="date">Red Teaming GenAI Workshop, 2024 (co-located with NEURIPS'24)</div>
-                     <p class="content-text">Athish Pranav Dharmalingam, Gargi Mitra. <a href="papers/medaiscout.pdf" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a></p>
-                 </div>
-                 <div class="project-item">
-                     <h3>SAM: Foreseeing Inference-Time False Data Injection Attacks on ML-enabled Medical Devices</h3>
-                     <div class="date"> Workshop on Cybersecurity in Healthcare (HealthSec), 2024 (co-located with ACM CCS'24)</div>
-                     <p class="content-text">Mohammadreza Hallajiyan, Athish Pranav Dharmalingam, Gargi Mitra, Homa Alemzadeh, Shahrear Iqbal, Karthik Pattabiraman. <a href="papers/sam.pdf" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a> [<b>Acceptance rate: 57%</b>]</p>
-                 </div>
-                 <div class="project-item">
-                     <h3>Systematically Assessing the Security Risks of AI/ML-enabled Connected Healthcare Systems</h3>
-                     <div class="date">IEEE/ACM Conference on Connected Health: Applications, Systems and Engineering Technologies (CHASE), 2024</div>
-                     <p class="content-text">Mohammad ElNawawy, Mohammadreza Hallajiyan, Gargi Mitra, Shahrear Iqbal, Karthik Pattabiraman. <a href="papers/systematically_chase.pdf" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a> [<b>Acceptance rate: 28.4%</b>]</p>
-                 </div>
-             </div>
+    <p>AI is the most recent layer. Safety-critical systems such as medical devices now embed AI/ML models that implicitly trust inputs from legacy sensors and wireless links. With students I mentored, I developed <a href="https://link.springer.com/chapter/10.1007/978-3-032-13800-2_11">LLM-based tools</a> that identify the resulting attack paths at design time, and presented them to the FDA, Medtronic, and GE. I am currently developing agentic AI tools that detect vulnerabilities and attacks in multi-vendor networks and improve their own detection rules over time.</p>
 
-             <div class="subsection-panel">
-                 <h2>Security of IoT Applications</h2>
-                 <div class="project-item">
-                     <h3>Turnstile: Hybrid Information Flow Control Framework for Managing Privacy in Internet-of-Things Applications</h3>
-                     <div class="date">European Conference on Computer Systems (EuroSys), 2026</div>
-                     <p class="content-text">Kumseok Jung, Mohanna Shahrad, Gargi Mitra, Karthik Pattabiraman. <a href="papers/turnstile.pdf" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a> [<b>Acceptance rate: 17%</b>]</p>
-                 </div>
-                 <div class="project-item">
-                     <h3>ImmunoPlane: Middleware for Providing Adaptivity to Distributed Internet-of-Things Applications</h3>
-                     <div class="date">ACM/IEEE International Conference on Internet of Things Design and Implementation (IoTDI), 2024</div>
-                     <p class="content-text">Kumseok Jung, Gargi Mitra, Sathish Gopalakrishnan, Karthik Pattabiraman. <a href="papers/immunoplane.pdf" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a> [<b>Acceptance rate: 36.7%</b>]</p>
-                 </div>
-             </div>
+    <p>I am looking for roles in security research, threat detection, and AI security.</p>
+  </section>
 
-             <div class="subsection-panel">
-                 <h2>Encrypted Traffic Analysis-Based Cyber Surveillance on Users of Web Applications</h2>
-                 <div class="project-item">
-                     <h3>Snoopy: A Webpage Fingerprinting Framework with Finite Query Model for Mass-Surveillance</h3>
-                     <div class="date">IEEE Transactions on Dependable and Secure Computing (TDSC), 2022</div>
-                     <p class="content-text">Gargi Mitra, Prasanna Karthik Vairam, Sandip Saha, Nitin Chandrachoodan, Kamakoti Veezhinathan. DOI: <a href="https://doi.org/10.1109/TDSC.2022.3222462" style="color: #8B5A4B; text-decoration: underline;" target="_blank">10.1109/TDSC.2022.3222462</a> [<b>Acceptance rate: 10-12%, Impact factor: 7.5</b>] <a href="papers/snoopy.pdf" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a></p>
-                 </div>
-                 <div class="project-item">
-                     <h3>Depending on HTTP/2 for Privacy? Good Luck!</h3>
-                     <div class="date">IEEE/IFIP Conference on Dependable Systems and Networks (DSN), 2020</div>
-                     <p class="content-text">Gargi Mitra, Prasanna Karthik Vairam, Patanjali SLPSK, Nitin Chandrachoodan, Kamakoti Veezhinathan. DOI: <a href="https://doi.org/10.1109/DSN48063.2020.00044" style="color: #8B5A4B; text-decoration: underline;" target="_blank">10.1109/DSN48063.2020.00044</a> [<b>Acceptance rate: 16.5%</b>] <a href="papers/http2.pdf" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a></p>
-                 </div>
-                 <div class="project-item">
-                     <h3>White Mirror: Leaking Sensitive Information from Interactive Netflix Movies using Encrypted Traffic Analysis</h3>
-                     <div class="date">ACM Special Interest Group on Data Communication (SIGCOMM), 2019 (Poster Session)</div>
-                     <p class="content-text">Gargi Mitra, Prasanna Karthik Vairam, Patanjali SLPSK, Nitin Chandrachoodan, Kamakoti Veezhinathan. DOI: <a href="https://doi.org/10.1145/3342280.3342330" style="color: #8B5A4B; text-decoration: underline;" target="_blank">10.1145/3342280.3342330</a> [<b>Acceptance rate: 55%</b>] <a href="papers/white_mirror.pdf" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a></p>
-                 </div>
-             </div>
+  <!-- EDIT: change the date whenever you update the page -->
+  <p class="foot">Last updated October 2026</p>
 
-             <div class="subsection-panel">
-                 <h2>Other Collaborative Works</h2>
-                 <div class="project-item">
-                     <h3>Towards Measuring Quality of Service in Untrusted Multi-Vendor Service Function Chains: Balancing Security and Resource Consumption</h3>
-                     <div class="date">IEEE Conference on Computer Communications (INFOCOM), 2019</div>
-                     <p class="content-text">Prasanna Karthik Vairam, Gargi Mitra, Vignesh Manoharan, Chester Rebeiro, Bhaskar Ramamurthy, Kamakoti Veezhinathan. DOI: <a href="https://doi.org/10.1109/INFOCOM.2019.8737487" style="color: #8B5A4B; text-decoration: underline;" target="_blank">10.1109/INFOCOM.2019.8737487</a> [<b>Acceptance rate: 19.7%</b>] <a href="papers/eBF.pdf" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a></p>
-                 </div>
-                 <div class="project-item">
-                     <h3>ApproxBC: Blockchain Design Alternatives for Approximation-Tolerant Resource-Constrained Applications</h3>
-                     <div class="date">IEEE Communications Standards Magazine, 2018</div>
-                     <p class="content-text">Prasanna Karthik Vairam, Gargi Mitra, Chester Rebeiro, Bhaskar Ramamurthy, Kamakoti Veezhinathan. DOI: <a href="https://doi.org/10.1109/MCOMSTD.2018.1800021" style="color: #8B5A4B; text-decoration: underline;" target="_blank">10.1109/MCOMSTD.2018.1800021</a> <a href="papers/approxbc.pdf" style="color: #8B5A4B; text-decoration: underline;" target="_blank">Link to paper</a></p>
-                 </div>
-             </div>
+</div>
 
-             <div class="subsection-panel">
-                 <h2>Papers Under Review</h2>
-                 <div class="project-item">
-                     <h3>ICS-Sniper: A Targeted Blackhole Attack on Encrypted ICS Traffic (Full version)</h3>
-                     <p class="content-text">Gargi Mitra, Chayuan Liu, Pritam Dash, Yingao Elaine Yao, Alain Zhiyanov, Aastha Mehta, Karthik Pattabiraman.</p>
-                 </div>
-                 <div class="project-item">
-                     <h3>SAMD: A Tool for Identifying False Data Injection Scenarios in AI/ML-enabled Medical Devices</h3>
-                     <p class="content-text">Mohammadreza Hallajiyan, Xueren Ge, Gargi Mitra, Shahrear Iqbal, Homa Alemzadeh, Karthik Pattabiraman.</p>
-                 </div>
-                 <div class="project-item">
-                     <h3>ROAST: Risk-aware Outlier-exposure for Adversarial Selective Training of Anomaly Detectors Against Evasion Attacks</h3>
-                     <p class="content-text">Mohammed Elnawawy, Gargi Mitra, Shahrear Iqbal, Karthik Pattabiraman.</p>
-                 </div>
-             </div>
-        </section>
-
-        <!-- Education Section -->
-        <!-- <section id="education">
-            <h2>Education</h2>
-            <div class="experience-item">
-                <h3>Ph.D. in [Field]</h3>
-                <div class="date">[University], Year</div>
-                <p class="content-text">[Dissertation topic and key contributions.]</p>
-            </div>
-            <div class="experience-item">
-                <h3>M.Sc./B.Sc. in [Field]</h3>
-                <div class="date">[University], Year</div>
-                <p class="content-text">[Brief description of your studies.]</p>
-            </div>
-        </section> -->
-
-        <!-- Contact Section -->
-        <section id="contact">
-            <h2>Connect</h2>
-            <p class="content-text">
-                I'm actively seeking opportunities in cybersecurity research and innovation. Let's explore how we can collaborate.
-            </p>
-            <div class="contact-links">
-                <a href="mailto:gargimiitm@gmail.com" class="contact-link">Email</a>
-                <a href="https://www.linkedin.com/in/gargimitraiitm/" class="contact-link">LinkedIn</a>
-                <a href="https://scholar.google.com/citations?user=M216DzwAAAAJ&hl=en" class="contact-link">Google Scholar</a>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Gargi Mitra. All rights reserved.</p>
-    </footer>
+<!-- The behaviour of the site: light / dark switch, paper filter, paper abstracts. -->
+<script src="script.js"></script>
 </body>
 </html>

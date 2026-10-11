@@ -105,7 +105,6 @@
               <li><a href="papers.html#snoopy">Snoopy</a> (IEEE TDSC 2022). Fingerprinted webpages from the sequence of encrypted resource sizes, for every user of a website at once, with about 90% accuracy across browsing contexts.</li>
               <li><a href="papers.html#http2">Depending on HTTP/2 for Privacy? Good Luck!</a> (DSN 2020). The first traffic-analysis attack to defeat HTTP/2 multiplexing.</li>
               <li><a href="papers.html#white-mirror">White Mirror</a> (SIGCOMM 2019). Recovered the choices viewers make in interactive Netflix titles from encrypted traffic, 96% of the time in the worst case, and built the first interactive-video traffic dataset, from 100 viewers.</li>
-              <li>AI-service fingerprinting (independent project, in progress). Classifying encrypted flows to AI services by provider, model and client surface, using paired HAR and pcap capture and a labelling set that covers more than 15 AI providers.</li>
             </ul>
           </details>
         </div>
@@ -145,7 +144,7 @@
         <span class="when" aria-hidden="true"></span>
         <div class="what">
           <h3>Detection engineering and threat prevention</h3>
-          <p>I turn an understanding of attacks into detection logic, and weigh the coverage and false-positive trade-offs that decide whether a detection ships.</p>
+          <p>I turn an understanding of attacks into detection logic, and weigh their efficiency and overhead trade-offs that decide whether a detection is practical. I also measure the coverage and false-positive trade-offs of existing defenses to decide whether they are efficient against new attack techniques.</p>
           <ul class="tags">
             <li>IDS/IPS evasion analysis</li>
             <li>Anomaly detection</li>
@@ -166,8 +165,8 @@
             <ul>
               <li><a href="papers.html#good-ones">Learning from the Good Ones</a> (DSML 2025). A risk-profiling defense that trains anomaly detectors on the data most resilient to attack. Against evasion attacks it raised recall by 27.5% for kNN and 16.8% for One-Class SVM.</li>
               <li><a href="papers.html#ics-sniper">ICS-Sniper</a> (NDSS 2027). Tested the attack against existing anomaly detectors, and evaluated network-layer mitigations such as traffic shaping for their coverage and overhead.</li>
-              <li>Zeek and Kitsune network IDS with agentic triage (independent project, in progress). A live pipeline with Zeek for capture and features, Kitsune's autoencoder ensemble as the detector, and an LLM agent that turns per-packet anomalies into candidate Suricata rules and validates them.</li>
-              <li>Detection characteristics framework (independent project, in progress). Specifies what each network detection observes, its evidence quality and its evasion surface, mapped to MITRE ATT&amp;CK and ATLAS. Includes zeek-shadow-ai, a Zeek package for hunting unsanctioned AI traffic.</li>
+              <li>Zeek and Kitsune network IDS (independent project, in progress). A live pipeline with Zeek for capture and features and Kitsune’s autoencoder ensemble as the detector.</li>
+              <li>Detection characteristics framework (independent project, in progress). Uses AI to translate attack tactics and techniques from MITRE ATT&amp;CK and ATLAS into queryable network characteristics, specifying what each detection observes.</li>
             </ul>
           </details>
         </div>
@@ -220,7 +219,7 @@
             <ul>
               <li><a href="papers.html#medaiscout">MedAIScout</a> (Red Teaming GenAI workshop, NeurIPS 2024). A semi-automated pipeline, built on DistilBERT question answering and a locally hosted Llama 3, that reads a medical device's public documentation and retrieves the ML attack literature that applies to it. It found relevant vulnerabilities for four of five devices, in 10 to 20 minutes each.</li>
               <li><a href="papers.html#sam">SAM</a> (HealthSec 2024). Used GPT-4, GPT-4o and Llama 3 to generate attack steps from a system's design and its known vulnerabilities; between 84% and 96% of the generated steps were correct.</li>
-              <li>Agentic alert triage (independent project, in progress). An LLM agent with a ReAct-style action space that works over anomaly-detector output, then writes and validates Suricata rules.</li>
+              <li>Detection characteristics framework (independent project, in progress). Uses AI to translate attack tactics and techniques from MITRE ATT&amp;CK and ATLAS into queryable network characteristics, specifying what each detection observes.</li>
               <li>Current work. Agentic, self-improving tools that identify vulnerabilities and attacks in networked multi-vendor systems.</li>
             </ul>
           </details>
@@ -336,7 +335,6 @@
             <ul>
               <li><a href="papers.html#ics-sniper">ICS-Sniper</a> (NDSS 2027). Packet-capture pipelines in pyshark, tshark and Scapy, in-path live flow processing with NetfilterQueue, and an artifact package that covers testbed reproduction, network traces and the analysis algorithms.</li>
               <li><a href="papers.html#sam">SAM</a> and <a href="papers.html#medaiscout">MedAIScout</a>. Python tooling around hosted and locally run LLMs.</li>
-              <li>AI-service fingerprinting (independent project, in progress). A capture harness built with httpx and Playwright that generates and labels real traffic.</li>
               <li>Zeek and Kitsune integration (independent project, in progress). A Python and Zeek integration layer for live interface capture, with Zeek cluster configuration on Ubuntu.</li>
               <li>SCION. Kernel implementation of a secure Internet communication protocol, a collaboration during my PhD.</li>
               <li>DSN 2024. Served on the artifact evaluation committee.</li>
@@ -367,9 +365,9 @@
             <ul>
               <li><a href="experience.html">Team leadership</a>. Led a five-member research team for more than two years, owning scoping, the research roadmap, equipment procurement, testbed setup, experiment planning and publication.</li>
               <li><a href="experience.html">Funding</a>. Co-authored a grant awarded CAD 500K by the National Cybersecurity Consortium of Canada, with quarterly reporting to the funder.</li>
-              <li><a href="awards.html">Mentoring and teaching</a>. Mentored 4 graduate students and 12 undergraduates and interns, and received three Star TA awards at IIT Madras.</li>
+              <li><a href="awards.html">Mentoring and teaching</a>. Mentored 3 graduate students and 12 undergraduates and interns, and received three Star TA awards at IIT Madras.</li>
               <li><a href="awards.html">Peer review</a>. Program committee member for ACM CCS 2024 to 2026 and ASIACCS 2026. ACM CCS 2024 Distinguished Reviewer, in the top 10% of 527 members.</li>
-              <li><a href="experience.html">Industry and regulators</a>. Worked directly with security practitioners at Medcrypt, Medtronic and GE, and with the FDA. Organized Birds-of-a-Feather sessions at USENIX Security 2023 and 2025.</li>
+              <li><a href="experience.html">Industry and regulators</a>. Research finding dissemination to security practitioners at Medcrypt, Medtronic and GE, and with the FDA. Organized Birds-of-a-Feather sessions at USENIX Security 2023 and 2025.</li>
               <li><a href="awards.html">Speaking and writing</a>. Invited talks at Idaho National Laboratory and ETS Montreal, a national science-writing award (AWSAR, top 100 of 4,993 entrants), and research covered by WIRED.</li>
             </ul>
           </details>

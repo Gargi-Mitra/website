@@ -358,6 +358,10 @@
     border-radius: 4px;
   }
   a.button:hover { background: var(--marker); color: var(--on-marker); box-shadow: none; }
+  /* The two CV buttons sit together; the second is an outlined version of the first */
+  .cv-buttons { display: inline-flex; flex-wrap: wrap; gap: 0.6rem; }
+  a.button.button-outline { background: transparent; color: var(--bright); box-shadow: inset 0 0 0 1.5px var(--bright); }
+  a.button.button-outline:hover { background: var(--marker); color: var(--on-marker); box-shadow: none; }
 
   /* ---------- Sections ---------- */
   section { margin-top: clamp(4rem, 9vw, 6.5rem); scroll-margin-top: 2rem; }

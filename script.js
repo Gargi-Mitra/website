@@ -165,3 +165,31 @@
     status.textContent = keys.length ? shown + ' of ' + papers.length + ' papers' : '';
   }
 })();
+
+/*
+  ICS-Sniper in the media (home page). Nothing to edit here: it adds a second,
+  hidden copy of the article list so the upward scrolling loops without a gap,
+  and sets the speed from the length of the list. Visitors whose device asks for
+  less motion keep a still list that they can scroll themselves.
+*/
+(function () {
+  var box = document.querySelector('.media-box');
+  var track = box && box.querySelector('.media-track');
+  var list = track && track.querySelector('.media-list');
+  if (!list) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var copy = list.cloneNode(true);
+  copy.setAttribute('aria-hidden', 'true');          // screen readers read the list once
+  copy.querySelectorAll('a').forEach(function (a) { a.tabIndex = -1; });   // and the Tab key visits each article once
+  track.appendChild(copy);
+  box.classList.add('is-moving');
+
+  var pixelsPerSecond = 18;                          // scrolling speed
+  function setSpeed() {
+    box.style.setProperty('--media-time', Math.max(list.offsetHeight / pixelsPerSecond, 8) + 's');
+  }
+  setSpeed();
+  window.addEventListener('resize', setSpeed);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(setSpeed);
+})();

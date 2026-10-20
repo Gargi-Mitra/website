@@ -116,11 +116,8 @@
 
   <!-- ====================== ICS-SNIPER IN THE MEDIA ======================
        Shown only on the home page, below Latest news. EDIT: one <li> per article.
-       Each article has a small preview picture, the outlet's name and the headline.
-       The preview: put the picture's address (or a file of yours, for example
-       images/media/techxplore.jpg) in the <img src="...">. With no picture, or if it
-       fails to load, the outlet's initials (data-initials) show in its place.
-       The list scrolls upward by itself and stops while the mouse is over it.
+       Each article is a card with the outlet's name and the headline.
+       The cards scroll upward by themselves and stop while the mouse is over the box.
        Write each article once: script.js repeats the list so the scrolling loops without a gap.
        Visitors whose device asks for less motion get a still list they can scroll themselves. -->
   <div class="media">
@@ -129,52 +126,45 @@
       <div class="media-track">
         <ul class="media-list">
 
-          <!-- NEW ARTICLE: copy from this <li> down to its closing </li>, paste it, and change the link, initials, picture, outlet and headline -->
+          <!-- NEW ARTICLE: copy from this <li> down to its closing </li>, paste it, and change the link, outlet and headline -->
           <li>
             <a href="https://www.eurekalert.org/news-releases/1147784">
-              <span class="media-thumb" data-initials="EA"><img src="https://www.eurekalert.org/images/EurekAlert-bluebg_Twitter_601X601.png" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"></span>
               <span class="media-outlet">EurekAlert</span>
               <span class="media-headline">UBC researchers uncover new cyber threat to water and energy networks</span>
             </a>
           </li>
           <li>
             <a href="https://techxplore.com/news/2026-10-cyber-threat-exposes-limits-encryption.html">
-              <span class="media-thumb" data-initials="TX"></span>
               <span class="media-outlet">TechXplore</span>
               <span class="media-headline">New cyber threat to water systems exposes limits of encryption</span>
             </a>
           </li>
           <li>
             <a href="https://bioengineer.org/encrypted-but-exposed-traffic-analysis-lets-hackers-disrupt-water-and-power-systems/">
-              <span class="media-thumb" data-initials="BE"><img src="https://bioengineer.org/wp-content/uploads/2026/10/stackrss-featured-6203.png" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"></span>
               <span class="media-outlet">BioEngineer</span>
               <span class="media-headline">Encrypted but Exposed: Traffic Analysis Lets Hackers Disrupt Water and Power Systems</span>
             </a>
           </li>
           <li>
             <a href="https://www.miragenews.com/ubc-researchers-uncover-cyber-threat-to-water-1760420/">
-              <span class="media-thumb" data-initials="MN"><img src="https://images.unsplash.com/photo-1526470608268-f674ce90ebd4?auto=format&amp;fit=crop&amp;w=160&amp;q=70" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"></span>
               <span class="media-outlet">MirageNews</span>
               <span class="media-headline">UBC Researchers Uncover Cyber Threat to Water, Energy Networks</span>
             </a>
           </li>
           <li>
             <a href="https://www.securityweek.com/in-other-news-ics-sniper-attack-hacking-xworm-malware-operators-250k-chrome-exploit/">
-              <span class="media-thumb" data-initials="SW"><img src="https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"></span>
               <span class="media-outlet">SecurityWeek</span>
               <span class="media-headline">In Other News: ICS-Sniper Attack, Hacking XWorm Malware Operators, $250k Chrome Exploit</span>
             </a>
           </li>
           <li> <!-- CHECK: headline read from the link, not from the article -->
             <a href="https://www.homelandsecuritynewswire.com/dr20261016-researchers-uncover-new-cyber-threat-to-water-and-energy-networks">
-              <span class="media-thumb" data-initials="HS"></span>
               <span class="media-outlet">Homeland Security News Wire</span>
               <span class="media-headline">Researchers Uncover New Cyber Threat to Water and Energy Networks</span>
             </a>
           </li>
           <li> <!-- CHECK: headline read from the link, not from the article -->
             <a href="https://techgig.com/news/cybersecurity/ics-sniper-xworm-rat-chrome-exploit-highlight-cyber-threats/135006624?next=1">
-              <span class="media-thumb" data-initials="TG"></span>
               <span class="media-outlet">TechGig</span>
               <span class="media-headline">ICS-Sniper, XWorm RAT and Chrome exploit highlight cyber threats</span>
             </a>

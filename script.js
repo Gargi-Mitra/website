@@ -168,7 +168,7 @@
 
 /*
   ICS-Sniper in the media (home page). Nothing to edit here: it adds a second,
-  hidden copy of the article list so the upward scrolling loops without a gap,
+  hidden copy of the article cards so the upward scrolling loops without a gap,
   and sets the speed from the length of the list. Visitors whose device asks for
   less motion keep a still list that they can scroll themselves.
 */
